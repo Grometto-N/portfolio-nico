@@ -1,0 +1,13 @@
+.container {
+    color: white;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width : 100vw;
+}
+
+.explications {
+    color: white;
+    background-color: green;
+}

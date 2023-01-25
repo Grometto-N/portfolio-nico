@@ -1,0 +1,21 @@
+.container {
+    background-color:white;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+.field {
+    color: white;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vh;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
