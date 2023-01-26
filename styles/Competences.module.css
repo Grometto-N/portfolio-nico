@@ -19,3 +19,16 @@
     margin-left: 2vw;
     margin-right: 2vw;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content :flex-start;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.textImage {
+  margin-left: 10px;
+}

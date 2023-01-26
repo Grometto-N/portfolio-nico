@@ -8,3 +8,17 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.anim-appear {
+
+  opacity: 0.05;
+
+}
+
+.anim-appear.anim-appear-active{
+
+  opacity: 20;
+
+  transition: opacity 2s ease-in;
+
+}

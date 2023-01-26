@@ -1,0 +1,60 @@
+.container{
+    height: 100vh;
+    width : 100vw;
+    background-color: aquamarine;
+    position: relative;
+}
+
+.image{
+    z-index: 1;
+    position: absolute;
+}
+
+.text{
+    top: 20px;
+    z-index: 2;
+    color : green;
+    position: absolute;
+}
+  
+.tagContainer {
+    flex-wrap: wrap;
+}
+
+.trait{
+    padding:1em 0;
+  text-align:center;
+  overflow:hidden;
+  padding-left: 10px;
+}
+.trait:before {
+    content:'';
+    width:3em;
+    border-bottom:red solid;
+    display:inline-block;
+    vertical-align:middle;
+    
+}
+
+.trait:after {
+    content:'';
+    width:10px;
+    border-bottom:red solid;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+/* h1:before, h1:after {
+    content:'';
+    width:3em;
+    border-bottom:rgba(255,255,255,0.3) solid;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:-100%;
+  margin-right:3em
+  }
+  h1:before {
+    }
+  h1:after {
+    margin-right:-100%;
+  margin-left:3em;} */

@@ -1,5 +1,5 @@
 import styles from '../styles/Projets.module.css';
-
+import Projet from './Projet';
 
 function Projets(props) { 
 
@@ -13,6 +13,7 @@ return (
             </p>
         </div>
         {/* Contenu */}
+        <Projet />
     </div>
 );
 }
