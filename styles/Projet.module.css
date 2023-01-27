@@ -1,8 +1,11 @@
 .container{
     height: 100vh;
-    width : 100vw;
+    width : 40vw;
     background-color: aquamarine;
     position: relative;
+    border-radius: 5px;
+    margin-left: 50px;
+    padding: 1%;
 }
 
 .image{
@@ -11,10 +14,14 @@
 }
 
 .text{
-    top: 20px;
+    top: 1%;
+    left : 1%;
     z-index: 2;
-    color : green;
+    color : white;
+    background-color: aqua;
     position: absolute;
+    opacity: 0.8;
+    height: 98%;
 }
   
 .tagContainer {
@@ -22,10 +29,9 @@
 }
 
 .trait{
-    padding:1em 0;
-  text-align:center;
-  overflow:hidden;
-  padding-left: 10px;
+    /* padding:1em 0; */
+    text-align:center;
+    /* overflow:hidden; */
 }
 .trait:before {
     content:'';
@@ -33,28 +39,22 @@
     border-bottom:red solid;
     display:inline-block;
     vertical-align:middle;
-    
+    margin-right: 20px;
 }
 
 .trait:after {
     content:'';
-    width:10px;
+    width:100px;
     border-bottom:red solid;
     display:inline-block;
     vertical-align:middle;
+    margin-left: 20px;
 }
 
-/* h1:before, h1:after {
-    content:'';
-    width:3em;
-    border-bottom:rgba(255,255,255,0.3) solid;
-    display:inline-block;
-    vertical-align:middle;
-    margin-left:-100%;
-  margin-right:3em
-  }
-  h1:before {
-    }
-  h1:after {
-    margin-right:-100%;
-  margin-left:3em;} */
+.btn {
+    background-color: #2F6DE5;
+    color : white;
+    border-radius: 5px;
+    border-color:#2F6DE5;
+}
+

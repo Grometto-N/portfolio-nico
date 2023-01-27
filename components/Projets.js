@@ -13,7 +13,7 @@ return (
             </p>
         </div>
         {/* Contenu */}
-        <Projet />
+        <Projet datasProject={{title : "essai", message:"blabla", skills :["HTML", "CSS"]}}/>
     </div>
 );
 }
