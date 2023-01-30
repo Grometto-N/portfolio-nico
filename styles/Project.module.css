@@ -1,0 +1,17 @@
+.container{
+    height: 400px;
+    width : 40vw;
+    background-color: aquamarine;
+    position: relative;
+    border-radius: 5px;
+    margin-left: 50px;
+    padding: 1%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+   
+}
+
+.image{
+    z-index: 1;
+    position: absolute;
+}

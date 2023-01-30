@@ -3,11 +3,16 @@
     background-color: red;
     display: flex;
     flex-direction: column;
-    height: 500px;
     width : 100vw;
 }
 
 .explications {
     color: white;
     background-color: green;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

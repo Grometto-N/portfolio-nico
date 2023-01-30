@@ -4,7 +4,7 @@ import Box from './Box';
 function Home() {
    const plan = [
     {name : "presentation", title : "A propos"}, 
-    {name : "competences", title : "Competences"}, 
+    {name : "skills", title : "Competences"}, 
     {name : "projetsCapsule", title : "Projets de formation"},
     {name : "projetsPerso", title : "Projets autodidacte"},
   ]

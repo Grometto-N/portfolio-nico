@@ -1,4 +1,4 @@
-import styles from '../styles/Competences.module.css';
+import styles from '../styles/Skills.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHtml5 , faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 
@@ -9,7 +9,7 @@ import { SiTypescript, SiMongodb} from "react-icons/si";
 // import {SiTypescript} 
 // SiMongodb
 
-function Competences() {
+function Skills() {
     const langages =[
         {name : "HTML5" , src : require("../public/HTML5.svg") },
         {name : "CSS" , src : require("../public/CSS3.svg") },
@@ -86,4 +86,4 @@ return (
 );
 }
 
-export default Competences;
+export default Skills;
