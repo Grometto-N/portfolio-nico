@@ -38,6 +38,13 @@
     margin-left: 20px;
 }
 
+.link {
+    background-color: #2F6DE5;
+    color : white;
+    border-radius: 5px;
+    border-color:#2F6DE5;
+}
+
 .btn {
     background-color: #2F6DE5;
     color : white;

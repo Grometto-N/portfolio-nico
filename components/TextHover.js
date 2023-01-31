@@ -37,7 +37,15 @@ return (
         {/* Liens */}
         <h4 className={styles.trait}>Liens</h4>
         {/* <div><button>Site</button> <Link href={`/hashtags/${elt.title.substring(1)}`} ></Link></div>  */}
-        <div ><button className={styles.btn} onClick={handleRedirection()}>Vers le site</button></div>
+        {/* <div ><button className={styles.btn} onClick={handleRedirection()}>Vers le site</button></div> */}
+        <div>
+        <button className={styles.btn}>
+            <a target="_blank" href="https://ticket-hack-perso-frontend.vercel.app/" rel="noopener noreferrer">
+                {/* <div className={styles.link}>Vers le site</div> */}
+                Vers le site
+            </a>
+            </button>
+        </div>
 </div>
 );
 }
