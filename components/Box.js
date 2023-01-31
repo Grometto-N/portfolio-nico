@@ -2,6 +2,12 @@ import styles from '../styles/Box.module.css';
 import Skills from './Skills';
 import Projects from './Projects';
 
+// import { animated, useSpring } from "react-spring";
+
+import { useState } from 'react';
+
+import {animated, useScroll, useSpring} from '@react-spring/web'
+
 function Box(props) {
   // const plan = [{name : "presentation", title : "A propos"}, {name : "competences", title : "Competences"}, {name : "projetsCapsule", title : "Projets de formation"} ]
     let display = (<div>{props.name}</div>);
@@ -32,12 +38,28 @@ function Box(props) {
     }
 
 
+
+
+  const scrolling = useSpring({
+    from: { transform: "translate(100%,0)" },
+    to: { transform: "translate(0,0)" },
+    config: { duration: 5000 },
+    reset: false,
+    //reverse: key % 2 == 0,
+    onRest: () => {
+       setKey(key + 1);
+    }
+  });
+
+ 
+
+
 return (
-    <div  className={styles.container}>
+    <div  className={styles.container} id={props.name}>
         {/* Titre */}
-        <div className={styles.title}>
+        <animated.div className={styles.title}  style={scrolling} >
             <h2 className={styles.titleText} style={{transform: `translate(100px, 0px)` }}>{props.title}</h2>
-        </div>
+        </animated.div>
         {/* Contenu */}
         { display}
     </div>

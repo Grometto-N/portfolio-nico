@@ -1,5 +1,9 @@
 import styles from '../styles/Home.module.css';
 import Box from './Box';
+import Header from './Header';
+import Head from 'next/head'
+
+// import useSticky from "../Hooks/useSticky";
 
 function Home() {
    const plan = [
@@ -11,20 +15,24 @@ function Home() {
 
   // affichage
   const display = plan.map(elt =>{
-    return <Box title ={elt.title} name={elt.name}/>
+    return <Box title ={elt.title} name={elt.name} />
   })
+
+  // const { isSticky, element } = useSticky()
   return (
+    
+
     <div className={styles.main}>
-      {/* HEADER FIXE */}
-      <div className={styles.headerFixe}>
-        <p>Nicolas Grometto</p>
-      </div>
-      {/* Header photo */}
-      <div className={styles.header}>
-        <p>Header</p>
-      </div>
-      {/* Contenu */}
-      {display}
+        {/* HEADER FIXE */}
+        < Header dataHeader={plan}/>
+        <div className={styles.container}>
+          {/* Photo */}
+          <div className={styles.header}>
+              <p>vdfbdfbdgbgbgfbdgx</p>
+          </div>
+          {/* Contenu */}
+          {display}
+        </div>
     </div>
   );
 }
