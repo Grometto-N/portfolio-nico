@@ -3,6 +3,8 @@ import Box from './Box';
 import Header from './Header';
 import Head from 'next/head'
 
+import { useRef, useEffect, useState } from 'react';
+
 // import useSticky from "../Hooks/useSticky";
 
 function Home() {
@@ -13,21 +15,59 @@ function Home() {
     {name : "projetsPerso", title : "Projets autodidacte"},
   ]
 
+  const [yScroll, setYScroll] = useState(0);
+  const [startTextTranslation, setStartTextTranslation] = useState({presentation : true,
+                                                                    skills : false,
+                                                                    projetsCapsule : false,
+                                                                    projetsPerso : false,
+                                                                  })
+
   // affichage
   const display = plan.map(elt =>{
-    return <Box title ={elt.title} name={elt.name} />
+    return <Box title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
   })
+
+ 
+ 
+
+  useEffect(() => {
+    const handleScroll = event => {
+      setYScroll(window.scrollY);
+      if(window.scrollY > 150){
+        setStartTextTranslation({
+              presentation : false,
+              skills : true,
+              projetsCapsule : false,
+              projetsPerso : false,
+        })
+      }
+
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+
+
+
+
+  
 
   // const { isSticky, element } = useSticky()
   return (
     
 
-    <div className={styles.main}>
+    <div className={styles.main} >
         {/* HEADER FIXE */}
         < Header dataHeader={plan}/>
-        <div className={styles.container}>
+        <div className={styles.container} >
           {/* Photo */}
-          <div className={styles.header}>
+          <div className={styles.headerImage}>
               <p>vdfbdfbdgbgbgfbdgx</p>
           </div>
           {/* Contenu */}

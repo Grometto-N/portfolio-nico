@@ -7,9 +7,10 @@ import { useEffect } from 'react';
 function Header(props) {
 
    const menuItems = props.dataHeader.map(elt=>{
-    return (<a className={styles.item} href={`#${elt.name}`} >
+    return (<div className={styles.items}><a className={styles.item} href={`#${elt.name}`} >
         {elt.title}
-      </a>)
+      </a></div>
+      )
    })
   return (
     // <nav className={styles.container}>
@@ -17,7 +18,10 @@ function Header(props) {
     // </nav>
     <Nav className={styles.container}>
     <h3 >Nicolas Grometto</h3>
-    <div >{menuItems}</div>
+    <div className={styles.menu}>
+        {menuItems}
+        <div>efb</div>
+    </div>
   </Nav>
 /* <nav className={sticky ? "navbar navbar-sticky" : "navbar"}>
 <div className="navbar--logo-holder">

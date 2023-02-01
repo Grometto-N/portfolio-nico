@@ -5,6 +5,7 @@ import Projects from './Projects';
 // import { animated, useSpring } from "react-spring";
 
 import { useState } from 'react';
+import { useRef } from 'react';
 
 import {animated, useScroll, useSpring} from '@react-spring/web'
 
@@ -14,6 +15,7 @@ function Box(props) {
 
     if(props.name === "skills"){
         display = <Skills />
+        
     }
 
     if(props.name === "projetsCapsule"){
@@ -37,28 +39,29 @@ function Box(props) {
         </div>)
     }
 
+let scrolling;
+if(props.startAnimate){
+    scrolling = useSpring({
+        from: { transform: "translate(100%,0)" },
+        to: { transform: "translate(0,0)" },
+        config: { duration: 5000 },
+        reset: false,
+        //reverse: key % 2 == 0,
+        onRest: () => {
+        //    setKey(key + 1);
+        }
+    });
+}
 
 
 
-  const scrolling = useSpring({
-    from: { transform: "translate(100%,0)" },
-    to: { transform: "translate(0,0)" },
-    config: { duration: 5000 },
-    reset: false,
-    //reverse: key % 2 == 0,
-    onRest: () => {
-       setKey(key + 1);
-    }
-  });
-
- 
 
 
 return (
     <div  className={styles.container} id={props.name}>
         {/* Titre */}
-        <animated.div className={styles.title}  style={scrolling} >
-            <h2 className={styles.titleText} style={{transform: `translate(100px, 0px)` }}>{props.title}</h2>
+        <animated.div  className={styles.title}  style={scrolling} >
+            <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div>
         {/* Contenu */}
         { display}

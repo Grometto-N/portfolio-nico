@@ -27,11 +27,20 @@
     z-index: 100;
     width : 100vw;
   }
-
+  
+  .items {
+    display: flex;
+    flex-direction: row;
+  }
   .item {
     color : white;
     margin-left: 1vw;
     margin-right: 1vw;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
   }
 
   
