@@ -6,10 +6,22 @@ import Projects from './Projects';
 
 import { useState } from 'react';
 import { useRef } from 'react';
+import { useEffect } from 'react';
+import { useMemo } from 'react';
 
 import {animated, useScroll, useSpring} from '@react-spring/web'
 
+// import {AnimatedOnScroll} from "react-animated-css-onscroll"
+
+
 function Box(props) {
+    
+    useEffect(() => {
+        props.getHeight(ref.current.scrollHeight, props.name);
+    }, [])
+
+
+
   // const plan = [{name : "presentation", title : "A propos"}, {name : "competences", title : "Competences"}, {name : "projetsCapsule", title : "Projets de formation"} ]
     let display = (<div>{props.name}</div>);
 
@@ -39,30 +51,32 @@ function Box(props) {
         </div>)
     }
 
-let scrolling;
-if(props.startAnimate){
-    scrolling = useSpring({
-        from: { transform: "translate(100%,0)" },
-        to: { transform: "translate(0,0)" },
-        config: { duration: 5000 },
-        reset: false,
-        //reverse: key % 2 == 0,
-        onRest: () => {
-        //    setKey(key + 1);
-        }
+const start = props.startAnimate ? "100%" : "0%";
+const startAnimate= useSpring({
+        from: { transform: `translate(${start},0%)` },
+        to: { transform: "translate(0%,0%)" },
+        config: { duration: 4000 },
+        reset: props.startAnimate,
+        loop : false,
     });
-}
 
+const ref = useRef();
 
-
-
+// let startAnimate;
+// if(props.startAnimate){
+//     startAnimate = scrolling;
+// }
 
 return (
-    <div  className={styles.container} id={props.name}>
+    <div ref={ref} className={styles.container} id={props.name}>
         {/* Titre */}
-        <animated.div  className={styles.title}  style={scrolling} >
-            <h2 className={styles.titleText} >{props.title}</h2>
-        </animated.div>
+         <animated.div  className={styles.title}  style={startAnimate} >
+          <h2 className={styles.titleText} >{props.title}</h2>
+        </animated.div> 
+        {/* <AnimatedOnScroll animationIn="bounceInRight" 
+        style={{marginTop:"80px",color:"green"}}>
+             <h2>Welcome to Geeksforgeeks</h2>
+          </AnimatedOnScroll> */}
         {/* Contenu */}
         { display}
     </div>

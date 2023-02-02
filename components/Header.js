@@ -7,6 +7,8 @@ import { useRef } from 'react';
 
 function Header(props) {
 
+  const ref = useRef();
+
    const menuItems = props.dataHeader.map(elt=>{
     return (<a className={styles.item} href={`#${elt.name}`} >
         {elt.title}
@@ -14,14 +16,11 @@ function Header(props) {
       )
    })
 
-   useEffect(() => { console.log("refHeader", ref.current.scrollHeight)
-   props.height(ref.current.scrollHeight);
-  
-  }
-    
-   )
+   useEffect(() => {
+   props.getHeight(ref.current.scrollHeight, "Header");
+  }, [])
 
-  const ref = useRef();
+  
   
   return (
     // <nav className={styles.container}>
