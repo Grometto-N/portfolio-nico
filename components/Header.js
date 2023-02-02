@@ -3,25 +3,33 @@ import { Nav } from "react-bootstrap";
 
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useRef } from 'react';
 
 function Header(props) {
 
    const menuItems = props.dataHeader.map(elt=>{
-    return (<div className={styles.items}><a className={styles.item} href={`#${elt.name}`} >
+    return (<a className={styles.item} href={`#${elt.name}`} >
         {elt.title}
-      </a></div>
+      </a>
       )
    })
+
+   useEffect(() => { console.log("refHeader", ref.current.scrollHeight)
+   props.height(ref.current.scrollHeight);
+  
+  }
+    
+   )
+
+  const ref = useRef();
+  
   return (
     // <nav className={styles.container}>
     //     <p>Nicolas Grometto</p> <a  href="#projetsCapsule"> Nico</a>
     // </nav>
-    <Nav className={styles.container}>
+    <Nav ref={ref} className={styles.container}>
     <h3 >Nicolas Grometto</h3>
-    <div className={styles.menu}>
-        {menuItems}
-        <div>efb</div>
-    </div>
+        <div className={styles.menu} ><div className={styles.items}>{menuItems}</div><div className={styles.bar} style={{width: props.bar}}></div></div>
   </Nav>
 /* <nav className={sticky ? "navbar navbar-sticky" : "navbar"}>
 <div className="navbar--logo-holder">

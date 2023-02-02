@@ -8,14 +8,22 @@ import { useRef, useEffect, useState } from 'react';
 // import useSticky from "../Hooks/useSticky";
 
 function Home() {
+  const refA = useRef();
+  const refB = useRef();
+  const refC = useRef();
+  const refD = useRef();
+
    const plan = [
-    {name : "presentation", title : "A propos"}, 
-    {name : "skills", title : "Competences"}, 
-    {name : "projetsCapsule", title : "Projets de formation"},
-    {name : "projetsPerso", title : "Projets autodidacte"},
+    {name : "presentation", title : "A propos", ref : refA}, 
+    {name : "skills", title : "Competences", ref : refB}, 
+    {name : "projetsCapsule", title : "Projets de formation", ref : refC},
+    {name : "projetsPerso", title : "Projets autodidacte", ref : refD},
   ]
 
+  
+
   const [yScroll, setYScroll] = useState(0);
+  const [nico, setNico] = useState(0);
   const [startTextTranslation, setStartTextTranslation] = useState({presentation : true,
                                                                     skills : false,
                                                                     projetsCapsule : false,
@@ -24,13 +32,14 @@ function Home() {
 
   // affichage
   const display = plan.map(elt =>{
-    return <Box title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
+    return <Box ref={elt.ref} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
   })
-
- 
  
 
   useEffect(() => {
+
+
+   
     const handleScroll = event => {
       setYScroll(window.scrollY);
       if(window.scrollY > 150){
@@ -52,11 +61,15 @@ function Home() {
   }, []);
 
 
+  const ref = useRef();
 
 
+// console.log("scroll", yScroll)
+const getHeight =(h) =>{
+      setNico(h)
+}
 
-
-  
+console.log("Nico", nico)
 
   // const { isSticky, element } = useSticky()
   return (
@@ -64,10 +77,10 @@ function Home() {
 
     <div className={styles.main} >
         {/* HEADER FIXE */}
-        < Header dataHeader={plan}/>
+        < Header height={getHeight} dataHeader={plan} bar={"20%"}/>
         <div className={styles.container} >
           {/* Photo */}
-          <div className={styles.headerImage}>
+          <div  className={styles.headerImage}>
               <p>vdfbdfbdgbgbgfbdgx</p>
           </div>
           {/* Contenu */}

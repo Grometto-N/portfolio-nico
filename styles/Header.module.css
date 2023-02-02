@@ -28,10 +28,6 @@
     width : 100vw;
   }
   
-  .items {
-    display: flex;
-    flex-direction: row;
-  }
   .item {
     color : white;
     margin-left: 1vw;
@@ -41,6 +37,22 @@
   .menu {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    background-color: blue;
+    border-radius : 10px;
   }
+
+  .items{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .bar {
+    background-color: aqua;
+    height: 10px;
+  }
+
+
 
   
