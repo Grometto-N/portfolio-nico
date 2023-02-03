@@ -16,8 +16,6 @@
   display: flex;
   flex-direction: column;
   background-color:white;
-  /* overflow-y: scroll; */
-  padding-top: 80px;
 }
 
 
@@ -29,5 +27,6 @@
   color: white;
   background-color: blue;
   display: flex;
-  height: 200px;
+  height: 100vh;
+  padding-top: 80px;
 }

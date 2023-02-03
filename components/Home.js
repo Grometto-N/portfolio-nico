@@ -42,10 +42,10 @@ function Home() {
   //                                                       projetsPerso : 0,
   //                                                     }
 
-  const [startTextTranslation, setStartTextTranslation] = useState({presentation : true,
-                                                                    skills : false,
-                                                                    projetsCapsule : false,
-                                                                    projetsPerso : false,
+  const [startTextTranslation, setStartTextTranslation] = useState({presentation : {canStart : true, starting : false},
+                                                                    skills :  {canStart : true, starting : false},
+                                                                    projetsCapsule :  {canStart : true, starting : false},
+                                                                    projetsPerso :  {canStart : true, starting : false},
                                                                   })
 
                                                                   // console.log("scroll", yScroll)
@@ -75,23 +75,44 @@ const getHeight =(height,componentName) =>{
       setYScroll(window.scrollY);
 
       let sum = 0;
+      const triggerLevelY = {presentation : 0 , skills : 0, projetsCapsule : 0, projetsPerso : 0} 
+      let levelY = 0;
       for(let key in componentsHeight){
         sum = sum + componentsHeight[key];
+        if(Object.keys(triggerLevelY).some(elt=> elt === key)){
+          triggerLevelY[key] = levelY ;
+          levelY = levelY + componentsHeight[key];
+        }
       }
+
+      
 
       const textTranslationTempory = startTextTranslation;
       let barPurcent = 0;
       if(window.scrollY>0){
         barPurcent = (window.scrollY-componentsHeight.Header)/sum * 100;
-        textTranslationTempory.presentation = false;
+        textTranslationTempory.presentation.starting = true;
+        textTranslationTempory.presentation.canStart = false;
       }
       setBarProgress(barPurcent)
 
       
-      if(window.scrollY > 300){
-        textTranslationTempory.presentation = false;
-          textTranslationTempory.skills = true;
+      if(window.scrollY > triggerLevelY.skills){
+          textTranslationTempory.skills.starting = true;
+          textTranslationTempory.skills.canStart = false;
       }
+
+      if(window.scrollY > triggerLevelY.projetsCapsule){
+        textTranslationTempory.projetsCapsule.starting = true;
+        textTranslationTempory.projetsCapsule.canStart = false;
+    }
+
+    if(window.scrollY > triggerLevelY.projetsPerso){
+      textTranslationTempory.projetsPerso.starting = true;
+      textTranslationTempory.projetsPerso.canStart = false;
+  }
+
+
       
       setStartTextTranslation(textTranslationTempory)
     };

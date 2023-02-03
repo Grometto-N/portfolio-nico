@@ -51,12 +51,12 @@ function Box(props) {
         </div>)
     }
 
-const start = props.startAnimate ? "100%" : "0%";
+const start = props.startAnimate.starting ? "100%" : "0%";
 const startAnimate= useSpring({
         from: { transform: `translate(${start},0%)` },
         to: { transform: "translate(0%,0%)" },
-        config: { duration: 4000 },
-        reset: props.startAnimate,
+        config: { duration: 3000 },
+        reset: props.startAnimate.canStart,
         loop : false,
     });
 
