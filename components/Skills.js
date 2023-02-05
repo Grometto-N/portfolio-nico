@@ -1,13 +1,8 @@
 import styles from '../styles/Skills.module.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHtml5 , faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
+
 
 import Image from 'next/image'
 
-
-import { SiTypescript, SiMongodb} from "react-icons/si";
-// import {SiTypescript} 
-// SiMongodb
 
 function Skills() {
     const langages =[

@@ -1,6 +1,7 @@
 import styles from '../styles/Box.module.css';
 import Skills from './Skills';
 import Projects from './Projects';
+import Contact from './Contact';
 
 // import { animated, useSpring } from "react-spring";
 
@@ -32,6 +33,10 @@ function Box(props) {
 
     if(props.name === "projetsCapsule"){
         display = <Projects />
+    }
+
+    if(props.name === "contact"){
+        display = <Contact />
     }
 
     if(props.name === "presentation"){

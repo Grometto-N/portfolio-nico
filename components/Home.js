@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css';
 import Box from './Box';
 import Header from './Header';
 import Head from 'next/head'
+import Contact from './Contact';
 
 import { useRef, useEffect, useState } from 'react';
 
@@ -18,6 +19,7 @@ function Home() {
     {name : "skills", title : "Competences"}, 
     {name : "projetsCapsule", title : "Projets de formation"},
     {name : "projetsPerso", title : "Projets autodidacte"},
+    {name : "contact", title : "Contact"},
   ]
 
   
@@ -32,6 +34,7 @@ function Home() {
                                                       skills : 0,
                                                       projetsCapsule : 0,
                                                       projetsPerso : 0,
+                                                      contact : 0,
                                                     });
 
   // const componentsHeight = {
@@ -46,6 +49,7 @@ function Home() {
                                                                     skills :  {canStart : true, starting : false},
                                                                     projetsCapsule :  {canStart : true, starting : false},
                                                                     projetsPerso :  {canStart : true, starting : false},
+                                                                    contact : {canStart : true, starting : false},
                                                                   })
 
                                                                   // console.log("scroll", yScroll)
@@ -75,7 +79,7 @@ const getHeight =(height,componentName) =>{
       setYScroll(window.scrollY);
 
       let sum = 0;
-      const triggerLevelY = {presentation : 0 , skills : 0, projetsCapsule : 0, projetsPerso : 0} 
+      const triggerLevelY = {presentation : 0 , skills : 0, projetsCapsule : 0, projetsPerso : 0, contact : 0} 
       let levelY = 0;
       for(let key in componentsHeight){
         sum = sum + componentsHeight[key];
@@ -110,7 +114,12 @@ const getHeight =(height,componentName) =>{
     if(window.scrollY > triggerLevelY.projetsPerso){
       textTranslationTempory.projetsPerso.starting = true;
       textTranslationTempory.projetsPerso.canStart = false;
-  }
+    }
+
+    if(window.scrollY > triggerLevelY.contact){
+      textTranslationTempory.contact.starting = true;
+      textTranslationTempory.contact.canStart = false;
+    }
 
 
       
