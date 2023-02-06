@@ -64,19 +64,21 @@ function Skills() {
 
 return (
     <div  className={styles.container}>
-        
-        <div className={styles.field }>
-            <h3>Langages et BDD</h3>
-            {displayLangages}
+        <div className={styles.tableContainer}> 
+                <div className={styles.table}>
+                    <h3>Langages et BDD</h3>
+                    {displayLangages}
+                </div>
+                <div className={styles.table }>
+                    <h3>Frameworks et librairies</h3>
+                    {displayFrameworks}
+                </div>
+                <div className={styles.table }>
+                    <h3>Divers</h3>
+                    {displayDivers}
+                </div>
         </div>
-        <div className={styles.field }>
-            <h3>Frameworks et librairies</h3>
-            {displayFrameworks}
-        </div>
-        <div className={styles.field }>
-            <h3>Divers</h3>
-            {displayDivers}
-        </div>
+        <p>Vous trouverez davantage de précisions sur mes formation dans mon CV : </p>
     </div>
 );
 }

@@ -10,6 +10,7 @@
   overflow: scroll; 
   margin: 0px;
   padding: 0px;
+  width: 100vw;
 }
 
 .container{
@@ -24,8 +25,6 @@
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 13; */
-  color: white;
-  background-color: blue;
   display: flex;
   height: 100vh;
   padding-top: 80px;

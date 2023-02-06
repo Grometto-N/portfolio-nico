@@ -3,9 +3,11 @@ import Box from './Box';
 import Header from './Header';
 import Head from 'next/head'
 import Contact from './Contact';
+import MyImage from './MyImage';
 
 import { useRef, useEffect, useState } from 'react';
 
+import { getPlan, initComponentHeight, initStartTranslation } from '../modules/initialization';
 
 
 // import useSticky from "../Hooks/useSticky";
@@ -14,72 +16,32 @@ function Home() {
 
   const refImage = useRef();
 
-   const plan = [
-    {name : "presentation", title : "A propos"}, 
-    {name : "skills", title : "Competences"}, 
-    {name : "projetsCapsule", title : "Projets de formation"},
-    {name : "projetsPerso", title : "Projets autodidacte"},
-    {name : "contact", title : "Contact"},
-  ]
+   const plan = getPlan();
 
   
+// définition et initialisation des états
+  const [yScroll, setYScroll] = useState(0); // pour obtenir la longueur scrollée
+  const [barProgress, setBarProgress] = useState(0); // pour définir la longueur de la barre de progression
+  const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
+  const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
 
-  const [yScroll, setYScroll] = useState(0);
-  const [barProgress, setBarProgress] = useState(0);
-
-  const [componentsHeight, setComponentsHeight] = useState({
-                                                      Header : 0,
-                                                      image : 0,
-                                                      presentation : 0,
-                                                      skills : 0,
-                                                      projetsCapsule : 0,
-                                                      projetsPerso : 0,
-                                                      contact : 0,
-                                                    });
-
-  // const componentsHeight = {
-  //                                                       image : 0,
-  //                                                       presentation : 0,
-  //                                                       skills : 0,
-  //                                                       projetsCapsule : 0,
-  //                                                       projetsPerso : 0,
-  //                                                     }
-
-  const [startTextTranslation, setStartTextTranslation] = useState({presentation : {canStart : true, starting : false},
-                                                                    skills :  {canStart : true, starting : false},
-                                                                    projetsCapsule :  {canStart : true, starting : false},
-                                                                    projetsPerso :  {canStart : true, starting : false},
-                                                                    contact : {canStart : true, starting : false},
-                                                                  })
-
-                                                                  // console.log("scroll", yScroll)
-                                                            
-
-
-
+// récupération des hauteurs des différents composants
 const getHeight =(height,componentName) =>{
           const temporyComponentsHeight =  componentsHeight;
           temporyComponentsHeight[componentName] = height;
           setComponentsHeight(temporyComponentsHeight);
     }
 
-  // affichage
-  const display = plan.map(elt =>{
-    return <Box getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
-  })
-  console.log( componentsHeight)
-  console.log( yScroll)
+ 
+
+  // initialisation d'une fonction gérant la longueur de la scrollBar
 
   useEffect(() => {
-
-    
-
     const handleScroll = event => {
-      console.log("window", window.innerHeight)
       setYScroll(window.scrollY);
 
       let sum = 0;
-      const triggerLevelY = {presentation : 0 , skills : 0, projetsCapsule : 0, projetsPerso : 0, contact : 0} 
+      const triggerLevelY = initComponentHeight();
       let levelY = 0;
       for(let key in componentsHeight){
         sum = sum + componentsHeight[key];
@@ -120,9 +82,6 @@ const getHeight =(height,componentName) =>{
       textTranslationTempory.contact.starting = true;
       textTranslationTempory.contact.canStart = false;
     }
-
-
-      
       setStartTextTranslation(textTranslationTempory)
     };
 
@@ -137,18 +96,21 @@ const getHeight =(height,componentName) =>{
   }, []);
 
 
+ // variable d'affichage des différentes parties hors header fixe et contact
+ const display = plan.map(elt =>{
+  return <Box getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
+})
 
 
+// AFFICHAGE DES COMPOSANTS
   return (
-    
-
     <div className={styles.main} >
         {/* HEADER FIXE */}
         < Header getHeight={getHeight} dataHeader={plan} bar={`${barProgress}%`}/>
         <div className={styles.container} >
           {/* Photo */}
           <div ref={refImage} className={styles.headerImage}>
-              <p>vdfbdfbdgbgbgfbdgx</p>
+              <MyImage />
           </div>
           {/* Contenu */}
           {display}

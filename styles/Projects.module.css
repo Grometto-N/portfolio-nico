@@ -1,14 +1,13 @@
 .container {
     color: white;
-    background-color: red;
     display: flex;
     flex-direction: column;
     width : 100vw;
 }
 
 .explications {
-    color: white;
-    background-color: green;
+    color: #414141;
+    width : 90%
 }
 
 .cards {

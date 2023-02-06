@@ -1,5 +1,4 @@
 import styles from '../styles/Project.module.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import TextHover from './TextHover';
 
@@ -17,30 +16,18 @@ function Project(props) {
     // const {title, message, skills} = props.datasProject;
 
 
-{/* <ReactCSSTransitionGroup transitionName="anim"
-      transitionAppear={true}
-      transitionAppearTimeout={1000}
-      transitionEnter={false}
-      transitionLeave={false}>
-    		<h2>{'TutsPlus - Welcome to React Animations'}</h2>
-    		</ReactCSSTransitionGroup> */}
-
 const image = require(`../public/${props.datasProject.image}`);
 
-const hover = (<TextHover datasProject={props.datasProject}/>)
+const hover = (<TextHover datasProject={props.datasProject} isVisible = {isHover}/>)
 
 return (
-    <div className={styles.container}>
+    <div className={styles.container} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
         <Image src = {image } 
             className={styles.image}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            fill
-            // height={"1000px"}
+            fill={true}
             // onTouchStart={this.handleTouchStart}
         />
-        {/* {isHover && hover} */}
-        {hover}
+       {hover}
     </div>
 );
 }

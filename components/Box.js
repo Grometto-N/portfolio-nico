@@ -21,14 +21,17 @@ function Box(props) {
         props.getHeight(ref.current.scrollHeight, props.name);
     }, [])
 
+    // style pour couleur de fond
+// let style = {"backgroundcolor" : "#e5e1e1"};
 
-
+const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
   // const plan = [{name : "presentation", title : "A propos"}, {name : "competences", title : "Competences"}, {name : "projetsCapsule", title : "Projets de formation"} ]
     let display = (<div>{props.name}</div>);
 
     if(props.name === "skills"){
         display = <Skills />
-        
+        styleBack.backgroundColor = "#414141";
+        styleBack.color = "#ffff";
     }
 
     if(props.name === "projetsCapsule"){
@@ -37,6 +40,8 @@ function Box(props) {
 
     if(props.name === "contact"){
         display = <Contact />
+        styleBack.backgroundColor = "#414141";
+        styleBack.color = "#ffff";
     }
 
     if(props.name === "presentation"){
@@ -46,11 +51,12 @@ function Box(props) {
                 et de m'orienter vers le développement web.
             </p>
             <p>
-                J'ai appris rapidement de nombreuses competences en participant à un bootcamp de La Capsule à la fin de l'année 2022 et
-                je me suis découvert une passion pour le code.
+                J'ai appris rapidement de nombreuses competences en participant à un bootcamp de La Capsule à la fin de l'année 2022, 
+                durant lequel jai pu confirmer ma passion pour le code.
             </p>
             <p>
-                Je suis conscient du chemin qu'il me reste à parcourir dans un métier en constante évolution et j'espère trouver un poste qui me permettra de 
+                Ma formation mathématiques et mon expérience dans l'enseignement me permettent d'apprendre rapidement et de manière autonome.
+                Je suis cependant conscient du chemin qu'il me reste à parcourir dans un métier en constante évolution et j'espère trouver un poste qui me permettra de 
                 continuer à monter en compétences.
             </p>
         </div>)
@@ -67,13 +73,9 @@ const startAnimate= useSpring({
 
 const ref = useRef();
 
-// let startAnimate;
-// if(props.startAnimate){
-//     startAnimate = scrolling;
-// }
 
 return (
-    <div ref={ref} className={styles.container} id={props.name}>
+    <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
         {/* Titre */}
          <animated.div  className={styles.title}  style={startAnimate} >
           <h2 className={styles.titleText} >{props.title}</h2>

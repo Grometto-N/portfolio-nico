@@ -1,8 +1,9 @@
 .container {
     color: white;
-    background-color: red;
     display: flex;
     flex-direction: column;
     width : 100vw;
-    /* padding-top: 80px; */
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 2%;
   }

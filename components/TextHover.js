@@ -6,7 +6,7 @@ import Tag from "./Tag"
 
 function TextHover(props) {
     // récupération des données sur le projet 
-    const {title, message, skillsFront, skillsBack} = props.datasProject;
+    const {title, message, skillsFront, skillsBack,link, gitFront, gitBack} = props.datasProject;
 
     // affichage des tags
     const displayTagsFront = skillsFront.map(elt=>{
@@ -23,11 +23,13 @@ function TextHover(props) {
         // history.push(url)
     }
 
+const isVisible = {visibility : props.isVisible ? "visible": "hidden" }
+
 return (
-    <div className={styles.container}> 
+    <div className={styles.container} style={isVisible}> 
         {/* Titre */}
-        <h2>{title}</h2>
-        <p>   {message} </p>
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.message}>{message} </p>
         {/* Frontend */}
         <h4 className={styles.trait}>Front-End</h4>
         <div className={styles.tagContainer}> {displayTagsFront}</div>
@@ -38,13 +40,21 @@ return (
         <h4 className={styles.trait}>Liens</h4>
         {/* <div><button>Site</button> <Link href={`/hashtags/${elt.title.substring(1)}`} ></Link></div>  */}
         {/* <div ><button className={styles.btn} onClick={handleRedirection()}>Vers le site</button></div> */}
-        <div>
+        <div className={styles.linksContainer}>
         <button className={styles.btn}>
-            <a target="_blank" href="https://ticket-hack-perso-frontend.vercel.app/" rel="noopener noreferrer">
+            <a target="_blank" href={link} rel="noopener noreferrer"  className={styles.link}>
                 {/* <div className={styles.link}>Vers le site</div> */}
                 Vers le site
             </a>
             </button>
+            <div className={styles.gitContainer}> 
+                <div className={styles.linkGit}>
+                    GitHub Front-End : <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.link}>{gitFront}</a>
+                </div>
+                <div className={styles.linkGit}>
+                    GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={styles.link}>{gitBack}</a>
+                </div>
+            </div>
         </div>
 </div>
 );

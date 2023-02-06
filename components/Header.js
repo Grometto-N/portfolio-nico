@@ -27,7 +27,7 @@ function Header(props) {
     //     <p>Nicolas Grometto</p> <a  href="#projetsCapsule"> Nico</a>
     // </nav>
     <Nav ref={ref} className={styles.container}>
-    <h3 >Nicolas Grometto</h3>
+    <h3 className={styles.name}>Nicolas Grometto</h3>
         <div className={styles.menu} ><div className={styles.items}>{menuItems}</div><div className={styles.bar} style={{width: props.bar}}></div></div>
   </Nav>
 /* <nav className={sticky ? "navbar navbar-sticky" : "navbar"}>

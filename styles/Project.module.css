@@ -1,14 +1,14 @@
 .container{
     height: 400px;
     width : 40vw;
-    background-color: aquamarine;
     position: relative;
     border-radius: 5px;
+    border : solid 1px #414141;
     margin-left: 50px;
-    padding: 1%;
     margin-bottom: 5px;
     margin-top: 5px;
-   
+    background-color:#f5f6fb;
+   padding: 0.5%;
 }
 
 .image{

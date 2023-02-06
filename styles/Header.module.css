@@ -1,56 +1,57 @@
-/* .body { */
-    /* color: white;
-    background-color: #151d26;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    top : 0px;
-    left : 0px;
-    z-index: 10;
-    height: 10vh;
-    width: 100vw; */
-    /* margin: 0;
-    padding: 0; */
-  /* } */
 
   .container {
-    background-color: #151d26;
+    background-color:  #f5f6fb;
     margin: 0;
     padding: 0;
     height: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     position : fixed;
     z-index: 100;
     width : 100vw;
   }
+
+  .name {
+    color : #414141;
+    margin-left: 5%;
+  }
   
   .item {
-    color : white;
+    /* color : #414141; */
+    color: #2F6DE5;
     margin-left: 1vw;
     margin-right: 1vw;
+    text-decoration: none;
   }
 
   .menu {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    background-color: blue;
+    justify-content: flex-end;
     border-radius : 10px;
+    border: #2F6DE5 solid 2px;
+    height: 30px;
+    margin-right: 5%;
   }
 
   .items{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: flex-end;
+    border-radius : 10px;
+    margin: 0px;
   }
 
   .bar {
-    background-color: aqua;
-    height: 10px;
+    background-color: #2F6DE5;
+    height: 3px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 
 
