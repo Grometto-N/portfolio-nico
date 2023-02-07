@@ -34,13 +34,24 @@ function defProject(title, message, skillsFront, skillsBack, image, link, gitFro
 }
 
 function defProjectCapsule(){
-    // définition des message
-    const messageTicket = "1er Hackathon de la formation : à partir d'une maquette sous forme de vidéo, nous avons coder de zéro un site de réservation de billets";
     const arrayToRetrun =[];
+    // définition des messages
+    const messageTicket = "1er Hackathon de la formation : à partir d'une maquette sous forme de vidéo, nous avons codé de zéro un site de réservation de billets";
+    const messageWordle = "Travailler les notions apprises en HTML et CSS pour coder de zéro une reproduction du jeu à partir de consignes et d'une vidéo";
+    const messageTweet = "2èe Hackathon de la formation : à partir d'une maquette sous forme de vidéo, nous avons codé de zéro une version simplifiée de tweeteur";
 
-    arrayToRetrun.push(defProject("TicketHack", messageTicket, ["HTML", "CSS", "DOM", "Node.js"], ["Express","MongoDB"], "TicketHack.png", 
+
+    arrayToRetrun.push(defProject("TicketHack", messageTicket, ["HTML", "CSS","JavaScript", "DOM", "Node.js"], ["Node.js", "Express","MongoDB"], "TicketHack.png", 
                                  "https://ticket-hack-perso-frontend.vercel.app/", "https://github.com/Grometto-N/ticketHackPerso-frontend"
                                  , "https://github.com/Grometto-N/ticketHackPerso-backend"));
+
+    arrayToRetrun.push(defProject("Wordle", messageTicket, ["HTML", "CSS", "DOM", "JavaScript", "Node.js"], ["Node.js", "Express","MongoDB"], "WordleHTML.png", 
+                                 "https://wordle-frontend-hazel.vercel.app/", "https://github.com/Grometto-N/ticketHackPerso-frontend"
+                                 , "https://github.com/Grometto-N/ticketHackPerso-backend")); 
+                                 
+    arrayToRetrun.push(defProject("HackaTweet", messageTicket, ["JavaScript", "React", "CSS", "Next.js","Node.js", "Redux"], ["Node.js", "Express", "MongoDB"], "HackaTweet.png", 
+                                 "https://hackatweet-frontend-omega.vercel.app/", "https://github.com/Grometto-N/ticketHackPerso-frontend"
+                                 , "https://github.com/Grometto-N/ticketHackPerso-backend"));                              
 
     return arrayToRetrun;
 }
