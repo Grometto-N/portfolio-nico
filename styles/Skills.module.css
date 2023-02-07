@@ -43,3 +43,10 @@
 .textImage {
   margin-left: 10px;
 }
+
+.cv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2F6DE5;
+}

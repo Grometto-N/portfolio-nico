@@ -46,12 +46,12 @@ function defProjectCapsule(){
                                  , "https://github.com/Grometto-N/ticketHackPerso-backend"));
 
     arrayToRetrun.push(defProject("Wordle", messageTicket, ["HTML", "CSS", "DOM", "JavaScript", "Node.js"], ["Node.js", "Express","MongoDB"], "WordleHTML.png", 
-                                 "https://wordle-frontend-hazel.vercel.app/", "https://github.com/Grometto-N/ticketHackPerso-frontend"
-                                 , "https://github.com/Grometto-N/ticketHackPerso-backend")); 
+                                 "https://wordle-frontend-hazel.vercel.app/", "https://github.com/Grometto-N/wordle-frontend"
+                                 , "https://github.com/Grometto-N/wordle-backend")); 
                                  
     arrayToRetrun.push(defProject("HackaTweet", messageTicket, ["JavaScript", "React", "CSS", "Next.js","Node.js", "Redux"], ["Node.js", "Express", "MongoDB"], "HackaTweet.png", 
-                                 "https://hackatweet-frontend-omega.vercel.app/", "https://github.com/Grometto-N/ticketHackPerso-frontend"
-                                 , "https://github.com/Grometto-N/ticketHackPerso-backend"));                              
+                                 "https://hackatweet-frontend-omega.vercel.app/", "https://github.com/Grometto-N/Hackatweet-Frontend"
+                                 , "https://github.com/Grometto-N/Hackatweet-Backend"));                              
 
     return arrayToRetrun;
 }

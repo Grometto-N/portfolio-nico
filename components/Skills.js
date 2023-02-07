@@ -1,8 +1,9 @@
 import styles from '../styles/Skills.module.css';
 
+import Image from 'next/image';
 
-import Image from 'next/image'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 
 function Skills() {
     const langages =[
@@ -31,7 +32,24 @@ function Skills() {
         {name : "Trello" ,  src : require("../public/Trello.svg")},
         {name : "LaTeX" ,  src : require("../public/latex.svg")},
     ]
+
+    // fonction pour télécharger le CV au format pdf
+    const onButtonClick = () => {
+        // utilisation d'un fetch avec blob
+        fetch('CV_Nicolas_Grometto.pdf').then(response => {
+            response.blob().then(blob => {
+                //creation d'un nouvel objet pdf
+                const fileURL = window.URL.createObjectURL(blob);
+                // différentes propriété définies
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'CV_Nicolas_Grometto.pdf';
+                alink.click();
+            })
+        })
+    }
     
+    // variable d'affichage des langages
     const displayLangages = langages.map(elt=>{
          return(<div className={styles.row} > <Image src = {elt.src} 
                                                     alt ={elt.name} 
@@ -42,6 +60,7 @@ function Skills() {
                 </div>)
     })
 
+    // variable d'affichage des frameworks
     const displayFrameworks = frameworks.map(elt=>{
         return(<div className={styles.row} ><Image src = {elt.src} 
                                                     alt ={elt.name} 
@@ -52,6 +71,7 @@ function Skills() {
                 </div>)
     })
 
+    // variable d'affichage des informations dans la table divers
     const displayDivers = divers.map(elt=>{
         return(<div className={styles.row} ><Image src = {elt.src} 
                                                 alt ={elt.name} 
@@ -78,7 +98,11 @@ return (
                     {displayDivers}
                 </div>
         </div>
-        <p>Vous trouverez davantage de précisions sur mes formation dans mon CV : </p>
+        <p>Vous trouverez davantage de précisions sur mes formations : </p>
+        {/* <button onClick={onButtonClick}>
+                    Download PDF
+                </button> */}
+        <div onClick={onButtonClick} className={styles.cv}>Consulter mon CV <FontAwesomeIcon icon={faFilePdf} style={{height : "25px"}} /></div>
     </div>
 );
 }

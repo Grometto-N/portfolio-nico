@@ -24,7 +24,6 @@ return (
     <div className={styles.container} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
         <Image src = {image } 
             className={styles.image}
-            fill={true}
             // onTouchStart={this.handleTouchStart}
         />
        {hover}
