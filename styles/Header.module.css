@@ -26,6 +26,10 @@
     text-decoration: none;
   }
 
+  .item:hover{
+    transform: scale(1.2);
+  }
+
   .menu {
     display: flex;
     flex-direction: column;

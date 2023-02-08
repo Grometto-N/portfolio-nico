@@ -1,4 +1,6 @@
 import styles from '../styles/Skills.module.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {animated, useSpring} from '@react-spring/web'
 
 import Image from 'next/image';
 
@@ -82,12 +84,33 @@ function Skills() {
                 </div>)
     })
 
+    // <ReactCSSTransitionGroup transitionName="anim"
+    //   transitionAppear={true}
+    //   transitionAppearTimeout={2000}
+    //   transitionEnter={false}
+    //   transitionLeave={false}>
+    // 		<h2>{'TutsPlus - Welcome to React Animations'}</h2>
+    // 		</ReactCSSTransitionGroup>
+
+    const cardAnimation= useSpring({
+        transform: `scale(1)`,
+        from: { transform: `scale(0.5)`},
+        loop : true,
+    });
 return (
     <div  className={styles.container}>
         <div className={styles.tableContainer}> 
-                <div className={styles.table}>
+                <div className={styles.table} style={cardAnimation}>
                     <h3>Langages et BDD</h3>
                     {displayLangages}
+                    {/* <ReactCSSTransitionGroup className={styles.table}
+                     transitionName="fade"
+                     transitionAppear={true}
+      transitionAppearTimeout={2000}
+                     >
+    		<h3>Langages et BDD</h3>
+                    {displayLangages}
+    		</ReactCSSTransitionGroup> */}
                 </div>
                 <div className={styles.table }>
                     <h3>Frameworks et librairies</h3>
@@ -98,11 +121,13 @@ return (
                     {displayDivers}
                 </div>
         </div>
-        <p>Vous trouverez davantage de précisions sur mes formations : </p>
+        <p>Vous trouverez davantage de précisions sur mes formations et compétences : </p>
         {/* <button onClick={onButtonClick}>
                     Download PDF
                 </button> */}
-        <div onClick={onButtonClick} className={styles.cv}>Consulter mon CV <FontAwesomeIcon icon={faFilePdf} style={{height : "25px"}} /></div>
+        <div className={styles.cv}>
+            <div onClick={onButtonClick} className={styles.cvLink}>Consulter <FontAwesomeIcon icon={faFilePdf} style={{height : "25px"}} /> mon CV</div>
+        </div>
     </div>
 );
 }

@@ -17,12 +17,7 @@ function TextHover(props) {
         return <Tag text={elt}/> 
     })
 
-    // let history = useHistory();
-    const handleRedirection =()=> {console.log("click")
-        // url = "https://ticket-hack-perso-frontend.vercel.app/",
-        // history.push(url)
-    }
-
+// gestion de l'affichage du composant avec un style conditionnel
 const isVisible = {visibility : props.isVisible ? "visible": "hidden" }
 
 return (
@@ -49,10 +44,10 @@ return (
             </button>
             <div className={styles.gitContainer}> 
                 <div className={styles.linkGit}>
-                    GitHub Front-End : <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.link}>{gitFront}</a>
+                    GitHub Front-End : <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.gitLink}>{gitFront}</a>
                 </div>
                 <div className={styles.linkGit}>
-                    GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={styles.link}>{gitBack}</a>
+                    GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={styles.gitLink}>{gitBack}</a>
                 </div>
             </div>
         </div>
