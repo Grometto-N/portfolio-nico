@@ -1,31 +1,53 @@
-.text{
+.name{
     position: absolute;
-    color: white
+    top: 30vh;
+    left : 8vw;
+    color: white;
+    font-family: "Alata", sans-serif;
+    font-size: 1.5rem;
 }
 
-.fade-enter {
-    opacity: 0.01;
-  }
-  
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-  
-  .fade-leave {
-    opacity: 1;
-  }
-  
-  .fade-leave.fade-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
+.dev{
+  position: absolute;
+  top:45vh;
+  left : 60vw;
+  color: white;
+  font-size: 1.5rem;
+}
 
-  .anim-appear {
-    opacity: 0.01;
-  }
-  
-  .anim-appear.anim-appear-active {
-    opacity: 1;
-    transition: opacity 1s ease-in;
-  }
+.welcome{
+  position: absolute;
+  top: 75vh;
+  left : 30vw;
+  color: white;
+  font-size: 2rem;
+}
+
+
+.shape {
+  position: absolute;
+  top: 30vh;
+  left : 30vw;
+  background-color: white;
+  height: 20px;
+  width: 90vw;
+}
+
+.anim-enter {
+  opacity: 0.01;
+}
+
+.anim-enter.anim-enter-active {
+  opacity: 1;
+  transition: opacity 5s ease-in;
+}
+
+.anim-leave {
+  opacity: 1;
+}
+
+.anim-leave.anim-leave-active {
+  opacity: 0.01;
+  transition: opacity 3s ease-in;
+}
+

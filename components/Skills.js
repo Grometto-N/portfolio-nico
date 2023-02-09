@@ -100,18 +100,18 @@ function Skills() {
 return (
     <div  className={styles.container}>
         <div className={styles.tableContainer}> 
-                <div className={styles.table} style={cardAnimation}>
+                {/* <div className={styles.table} style={cardAnimation}>
                     <h3>Langages et BDD</h3>
-                    {displayLangages}
-                    {/* <ReactCSSTransitionGroup className={styles.table}
+                    {displayLangages} */}
+                    <ReactCSSTransitionGroup className={styles.table}
                      transitionName="fade"
                      transitionAppear={true}
-      transitionAppearTimeout={2000}
+                    transitionAppearTimeout={2000}
                      >
     		<h3>Langages et BDD</h3>
                     {displayLangages}
-    		</ReactCSSTransitionGroup> */}
-                </div>
+    		</ReactCSSTransitionGroup>
+                {/* </div> */}
                 <div className={styles.table }>
                     <h3>Frameworks et librairies</h3>
                     {displayFrameworks}
