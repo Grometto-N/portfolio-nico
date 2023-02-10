@@ -36,19 +36,18 @@ return (
         {/* <div><button>Site</button> <Link href={`/hashtags/${elt.title.substring(1)}`} ></Link></div>  */}
         {/* <div ><button className={styles.btn} onClick={handleRedirection()}>Vers le site</button></div> */}
         <div className={styles.linksContainer}>
-        <button className={styles.btn}>
+        {link && <button className={styles.btn}>
             <a target="_blank" href={link} rel="noopener noreferrer"  className={styles.link}>
-                {/* <div className={styles.link}>Vers le site</div> */}
                 Vers le site
             </a>
-            </button>
+            </button>}
             <div className={styles.gitContainer}> 
                 <div className={styles.linkGit}>
                     GitHub Front-End : <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.gitLink}>{gitFront}</a>
                 </div>
-                <div className={styles.linkGit}>
+                {gitBack && <div className={styles.linkGit}>
                     GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={styles.gitLink}>{gitBack}</a>
-                </div>
+                </div>}
             </div>
         </div>
 </div>

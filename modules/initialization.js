@@ -56,4 +56,17 @@ function defProjectCapsule(){
     return arrayToRetrun;
 }
 
-module.exports = { getPlan , initComponentHeight, initStartTranslation, defProjectCapsule};
+function defProjectPerso(){
+    const arrayToRetrun =[];
+    // définition des messages
+    const messagePortFolio = "Le PortFolio sur lequel vous vous trouvez...";
+
+
+    arrayToRetrun.push(defProject("PortFolio", messagePortFolio, ["JavaScript", "CSS","React", "Node.js"],[], "Portfolio.png", 
+                                 null, "https://github.com/Grometto-N/portfolio-nico"
+                                 , null));
+
+    return arrayToRetrun;
+}
+
+module.exports = { getPlan , initComponentHeight, initStartTranslation, defProjectCapsule, defProjectPerso};
