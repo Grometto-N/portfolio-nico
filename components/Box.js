@@ -70,6 +70,13 @@ const startAnimate= useSpring({
         reset: props.startAnimate.canStart,
         loop : false,
     });
+// const startAnimate= useSpring({
+//     from: { transform: `opacity(0.01)` },
+//     to: { transform: "opacity(1)" },
+//     config: { duration: 3000 },
+//     reset: props.startAnimate.canStart,
+//     loop : false,
+// });
 
 const ref = useRef();
 

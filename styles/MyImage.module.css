@@ -1,37 +1,103 @@
-.name{
+.image {
+  opacity: 0.9;
+}
+
+.firstname{
     position: absolute;
-    top: 30vh;
+    top: 25vh;
     left : 8vw;
-    color: white;
+    color: #d3d9f3;
     font-family: "Alata", sans-serif;
     font-size: 1.5rem;
 }
 
+.name{
+  position: absolute;
+  top: 30vh;
+  left : 12vw;
+  color: #d3d9f3;
+  font-family: "Alata", sans-serif;
+  font-size: 1.5rem;
+}
+
 .dev{
   position: absolute;
-  top:45vh;
-  left : 60vw;
-  color: white;
+  top:50vh;
+  left : 8vw;
+  color: #d3d9f3;
   font-size: 1.5rem;
+}
+
+.devWeb{
+  position: absolute;
+  top:55vh;
+  left : 13vw;
+  color: #d3d9f3;
+  font-size: 1.5rem;
+}
+
+.devJR{
+  position: absolute;
+  top:60vh;
+  left : 16vw;
+  color: #d3d9f3;
+  font-size: 1.5rem;
+}
+
+.frame{
+  /* border: 4px solid #2F6DE5; */
+  border: 4px solid #d3d9f3;
+  border-radius: 5px;
+  position: absolute;
+  top:24vh;
+  left : 5vw;
+  height : 50vh;
+  width : 22vw;
+  /* opacity: 0.1;
+  background-color: #414141; */
+}
+
+.links{
+  position: absolute;
+  top:42vh;
+  left : 11vw;
+  color: #d3d9f3;
+}
+
+.logo {
+  color : #d3d9f3;
+  height: 2.5rem;
+  margin: 10px;
 }
 
 .welcome{
   position: absolute;
-  top: 75vh;
-  left : 30vw;
+  top: 20vh;
+  left : 5vw;
   color: white;
   font-size: 2rem;
 }
 
+.picture {
+  position: absolute;
+  top: 40vh;
+  left : 50vw;
+  border: 4px solid #d3d9f3;
+  border-radius: 5px;
+  height : 50vh;
+  width : 40vw;
+}
 
-.shape {
+
+/* .shape {
+  border: 4px solid #d3d9f3;
+  
   position: absolute;
   top: 30vh;
   left : 30vw;
-  background-color: white;
   height: 20px;
-  width: 90vw;
-}
+  width: 50vw;
+} */
 
 .anim-enter {
   opacity: 0.01;

@@ -1,30 +1,27 @@
-import { useEffect, useRef } from "react";
+import {animated, useSpring} from '@react-spring/web'
 
-function Rectangle (){
- const canvasRef = useRef(null);
-
- const draw = ctx => {
-    ctx.fillStyle = '#000000'
-    ctx.beginPath()
-    ctx.arc(50, 100, 20, 0, 2*Math.PI)
-    ctx.fill()
-  }
-
-  useEffect(() => {
- if (canvasRef.current) {
- const context = canvasRef.current.getContext("2d");
-    //   ctx?.strokeRect(10, 10, 400, 5);
-    draw(context)
-    }
-  }, []);
+function Rectangle (props){
+ 
+  const pictureAnimate= useSpring({
+    from: { y: "10%"
+          },
+    to: { y : "0%"},
+    config: { duration: 3000 },
+    delay:10000,
+    reset: false,
+    loop : false,
+});
 
  return (
- <canvas
-      ref={canvasRef}
-      width="40"
-      height="20"
-      style={{ border: "2px solid white"}}
-    />
+ <animated.div style={{
+    backgroundColor:props.color,
+    position : "absolute",
+    top : props.top,
+    left : props.left,
+    height : props.height,
+    width : props.width,
+    }}>
+ </animated.div>
   );
 };
 
