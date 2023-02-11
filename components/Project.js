@@ -21,12 +21,15 @@ const image = require(`../public/${props.datasProject.image}`);
 const hover = (<TextHover datasProject={props.datasProject} isVisible = {isHover}/>)
 
 return (
-    <div className={styles.container} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-        <Image src = {image } 
-            className={styles.image}
-            // onTouchStart={this.handleTouchStart}
-        />
-       {hover}
+    <div className={styles.container} 
+        onMouseEnter={() => setIsHover(true)} 
+        onMouseLeave={() => setIsHover(false)}>
+            <Image src = {image } 
+                className={styles.image}
+                layout = "fill"
+                // onTouchStart={this.handleTouchStart}
+            />
+            {hover}
     </div>
 );
 }

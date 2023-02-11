@@ -9,8 +9,8 @@
     height: 98%;
     width: 98%;
     box-sizing: border-box;
-    padding-bottom: 1%;
     border-radius : 5px;
+    margin: 0px;
 }
 
 .title {
@@ -18,15 +18,12 @@
     color: #2F6DE5;
 }
 
-.message {
-    width: 100%;
-    margin: 0px;
-    padding-left: 1%;
-}
+
+
 .tagContainer {
     flex-wrap: wrap;
-    padding-left: 2%;
     align-items: center;
+    padding-left: 2%;
     margin: 0px;
     height: 10%;
 }
@@ -85,7 +82,6 @@
     height: 30px;
     justify-content: center;
     align-items: center;
-    margin-left: 4%;
 }
 
 .btn:hover {
@@ -107,7 +103,75 @@
     font-size: 12px;
 }
 
-.linkGit {
-    margin-top: 4px;
-    margin-bottom: 4px;
+
+
+/* If the screen size is 901px wide or more */
+@media screen and (min-width: 951px) {
+    .container {
+        font-size: 14px;
+        font-weight: "bold";
+        padding-bottom: 1%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .message {
+        font-size: 14px;
+        padding-left: 2%;
+    }
+
+    .linkGit {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+    .btn {
+        margin-left: 4%;
+    }
+
+    /* .tagContainer {
+        font-size: 14px;
+        font-weight: "bold";
+    } */
+}
+
+
+@media screen and (max-width: 950px) {
+    .container {
+        font-size: 12px;
+        font-weight: "bold";
+        padding-bottom: 0px;
+    }
+
+    .title {
+        margin : 0px;
+    }
+
+    .message {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .linkGit {
+        margin-top: 0px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+    }
+
+
+
+
+    .btn {
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 100px;
+        height: 40px;
+    }
+
+    /* .tagContainer {
+        font-size: 12px;
+        font-weight: "bold";
+    } */
 }

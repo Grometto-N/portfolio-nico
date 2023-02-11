@@ -18,41 +18,27 @@ function MyImage(props) {
 const devTitle = "Développeur".toLocaleUpperCase();
 
 
-{/* <ReactCSSTransitionGroup transitionName="anim"
-      transitionAppear={true}
-      transitionAppearTimeout={1000}
-      transitionEnter={false}
-      transitionLeave={false}>
-    		<h2>{'TutsPlus - Welcome to React Animations'}</h2>
-    		</ReactCSSTransitionGroup> */}
-
-            // const startAnimate= useSpring({
-            //     from: { transform: `scale(0)` },
-            //     to: { transform: "scale(1.5)" },
-            //     config: { duration: 3000 },
-            //     reset: true,
-            //     loop : true,
-            // });
-
-            // const transApi = useSpringRef()
-           
-            const startAnimate= useSpring({
-              from: { transform: `translate(50%,0%)` },
-              to: { transform: "translate(0%,0%)" },
-              config: { duration: 1000 },
-              reset: true,
-              loop : false,
-          });
-
   const frameAnimate= useSpring({
             // from: { transform: `translate(0%,200%)` },
             // to: { transform: "translate(0%,0%)" },
             from : {y: "200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
+            delay:4000,
             reset: false,
             loop : false,
    });
+
+   const frameWelcomeAnimate= useSpring({
+    // from: { transform: `translate(0%,200%)` },
+    // to: { transform: "translate(0%,0%)" },
+    from : {y: "-200%"},
+    to : {y:"0%"},
+    config: { duration: 2000 },
+    delay:5000,
+    reset: false,
+    loop : false,
+});
 
    const pictureAnimate= useSpring({
     from: { scale: "0", rotate : "0.5turn"
@@ -119,8 +105,10 @@ return (
                 <a target="_blank" href="https://github.com/Grometto-N?tab=repositories" rel="noopener noreferrer"  >  <FontAwesomeIcon icon={faGithub}  className={styles.logo}/></a> 
                 {/* </div> */}
                 </ReactCSSTransitionGroup>
-        {/* CADRE */}
+        {/* CADRES */}
         <animated.div   className={styles.frame}  style={frameAnimate} >
+        </animated.div> 
+        <animated.div   className={styles.frameWelcome}  style={frameWelcomeAnimate} >
         </animated.div> 
         {/* DESSIN */}
         <animated.div  className={styles.picture} style={pictureAnimate} >

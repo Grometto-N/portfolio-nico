@@ -1,16 +1,32 @@
 .form {
-    align-items: "center";
     border-radius : 10px;
     flex-shrink: 1;
-    height: 30px;
     justify-content: "center";
-    margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 2px;
-    font-size: 14;
-    font-weight: "bold";
     background-color: #2F6DE5;
     display: inline-block;
+    padding-top: 2px;
+    align-items: "center";
+    font-weight: "bold";
   }
-    
+
+/* If the screen size is 901px wide or more */
+@media screen and (min-width: 951px) {
+  .form{
+    height: 30px;
+    font-size: 14;
+    margin: 5px;
+    padding-top: 5px;
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .form{
+    height: 20px;
+    font-size: 12;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}

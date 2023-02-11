@@ -84,13 +84,6 @@ function Skills() {
                 </div>)
     })
 
-    // <ReactCSSTransitionGroup transitionName="anim"
-    //   transitionAppear={true}
-    //   transitionAppearTimeout={2000}
-    //   transitionEnter={false}
-    //   transitionLeave={false}>
-    // 		<h2>{'TutsPlus - Welcome to React Animations'}</h2>
-    // 		</ReactCSSTransitionGroup>
 
     const cardAnimation= useSpring({
         transform: `scale(1)`,
@@ -100,18 +93,10 @@ function Skills() {
 return (
     <div  className={styles.container}>
         <div className={styles.tableContainer}> 
-                {/* <div className={styles.table} style={cardAnimation}>
+                <div className={styles.table} style={cardAnimation}>
                     <h3>Langages et BDD</h3>
-                    {displayLangages} */}
-                    <ReactCSSTransitionGroup className={styles.table}
-                     transitionName="fade"
-                     transitionAppear={true}
-                    transitionAppearTimeout={2000}
-                     >
-    		<h3>Langages et BDD</h3>
                     {displayLangages}
-    		</ReactCSSTransitionGroup>
-                {/* </div> */}
+                </div>
                 <div className={styles.table }>
                     <h3>Frameworks et librairies</h3>
                     {displayFrameworks}

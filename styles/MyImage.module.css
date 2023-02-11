@@ -8,7 +8,6 @@
     left : 8vw;
     color: #d3d9f3;
     font-family: "Alata", sans-serif;
-    font-size: 1.5rem;
 }
 
 .name{
@@ -17,7 +16,6 @@
   left : 12vw;
   color: #d3d9f3;
   font-family: "Alata", sans-serif;
-  font-size: 1.5rem;
 }
 
 .dev{
@@ -25,7 +23,6 @@
   top:50vh;
   left : 8vw;
   color: #d3d9f3;
-  font-size: 1.5rem;
 }
 
 .devWeb{
@@ -33,7 +30,6 @@
   top:55vh;
   left : 13vw;
   color: #d3d9f3;
-  font-size: 1.5rem;
 }
 
 .devJR{
@@ -41,20 +37,25 @@
   top:60vh;
   left : 16vw;
   color: #d3d9f3;
-  font-size: 1.5rem;
 }
 
 .frame{
-  /* border: 4px solid #2F6DE5; */
   border: 4px solid #d3d9f3;
   border-radius: 5px;
   position: absolute;
   top:24vh;
   left : 5vw;
   height : 50vh;
-  width : 22vw;
-  /* opacity: 0.1;
-  background-color: #414141; */
+}
+
+.frameWelcome{
+  border: 4px solid #d3d9f3;
+  border-radius: 5px;
+  position: absolute;
+  top: 40vh;
+  left : 50vw;
+  height : 50vh;
+  width : 40vw;
 }
 
 .links{
@@ -66,8 +67,6 @@
 
 .logo {
   color : #d3d9f3;
-  height: 2.5rem;
-  margin: 10px;
 }
 
 .welcome{
@@ -75,29 +74,77 @@
   top: 20vh;
   left : 5vw;
   color: white;
-  font-size: 2rem;
 }
 
 .picture {
   position: absolute;
   top: 40vh;
   left : 50vw;
-  border: 4px solid #d3d9f3;
+  /* border: 4px solid #d3d9f3; */
   border-radius: 5px;
   height : 50vh;
   width : 40vw;
 }
 
 
-/* .shape {
-  border: 4px solid #d3d9f3;
-  
-  position: absolute;
-  top: 30vh;
-  left : 30vw;
-  height: 20px;
-  width: 50vw;
-} */
+ /* If the screen size is 901px wide or more */
+@media screen and (min-width: 951px) {
+  .name {
+    font-size: 20px;
+  }
+  .firstname {
+    font-size: 20px;
+  }
+  .dev {
+    font-size: 20px;
+  }
+  .devWeb {
+    font-size: 20px;
+  }
+  .devJR {
+    font-size: 20px;
+  }
+  .logo {
+    height: 50px;
+    margin: 10px;
+  }
+  .frame {
+    width : 300px;
+  }
+
+  .welcome {
+    font-size: 30px;
+  }
+}
+
+/* If the screen size is 600px wide or less */
+@media screen and (max-width: 950px) {
+  .name {
+    font-size: 14px;
+  }
+  .firstname {
+    font-size: 14px;
+  }
+  .dev {
+    font-size: 14px;
+  }
+  .devWeb {
+    font-size: 14px;
+  }
+  .devJR {
+    font-size: 14px;
+  }
+  .logo {
+    height: 25px;
+    margin: 5px;
+  }
+  .frame {
+    width : 180px;
+  }
+  .welcome {
+    font-size: 22px;
+  }
+}
 
 .anim-enter {
   opacity: 0.01;

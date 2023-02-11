@@ -61,7 +61,7 @@ const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
             </p>
             <p>
                 De part ma formation mathématiques, j'ai une certaine appétence pour les algorithmes de codage du back-end, 
-                mais le bootcamp auquel j'ai participé m'a permis de découvrir le HTML, le CSS et la librairie de React.
+                mais le bootcamp auquel j'ai participé m'a permis de découvrir le HTML, le CSS et la librairie React.
             </p>
             <p>
                 Mon expérience dans l'enseignement me permettent d'apprendre rapidement et de manière autonome.

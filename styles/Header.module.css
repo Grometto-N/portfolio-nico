@@ -37,7 +37,7 @@
     border-radius : 10px;
     border: #2F6DE5 solid 2px;
     height: 30px;
-    margin-right: 5%;
+    
   }
 
   .items{
@@ -58,6 +58,44 @@
     margin-right: 2px;
   }
 
+/* If the screen size is 901px wide or more */
+@media screen and (min-width: 951px) {
+  .container{
+    font-size: 14px;
+  }
+
+  .menu{
+    margin-right: 3vw;
+    margin-left: 0px;
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .name {
+    display: none;
+  }
+
+  .container{
+    font-size: 12px;
+  }
+
+  .menu{
+    margin-right: 0px;
+    margin-left: 10px;
+  }
+
+  .item{
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+
+  .item:hover{
+    transform: scale(1.2);
+    color: blue;
+  }
+
+}
 
 
   
