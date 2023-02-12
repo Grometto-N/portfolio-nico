@@ -107,6 +107,7 @@
   .logo {
     height: 50px;
     margin: 10px;
+    cursor: pointer;
   }
   .frame {
     width : 300px;

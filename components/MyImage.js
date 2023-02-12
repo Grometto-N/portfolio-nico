@@ -24,7 +24,7 @@ const devTitle = "Développeur".toLocaleUpperCase();
             from : {y: "200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
-            delay:4000,
+            delay:3000,
             reset: false,
             loop : false,
    });
@@ -35,7 +35,7 @@ const devTitle = "Développeur".toLocaleUpperCase();
     from : {y: "-200%"},
     to : {y:"0%"},
     config: { duration: 2000 },
-    delay:5000,
+    delay:3000,
     reset: false,
     loop : false,
 });
@@ -44,8 +44,8 @@ const devTitle = "Développeur".toLocaleUpperCase();
     from: { scale: "0", rotate : "0.5turn"
           },
     to: { scale: "1", rotate : "0turn" },
-    config: { duration: 3000 },
-    delay:2000,
+    config: { duration: 2000 },
+    delay:1000,
     reset: false,
     loop : false,
 });
@@ -97,14 +97,14 @@ return (
     		</ReactCSSTransitionGroup>
         {/* ICONES  */}
         {/* <div className={styles.links}> */}
-        <ReactCSSTransitionGroup 
+        {/* <ReactCSSTransitionGroup 
         className={styles.links}
         transitionName="anim" 
-        transitionAppear={true}>
-                <a target="_blank" href="https://linkedin.com/in/nicolas-grometto-77a755246" rel="noopener noreferrer"  ><FontAwesomeIcon icon={faLinkedin} className={styles.logo}  /></a>
+        transitionAppear={true}> */}
+                {/* <a target="_blank" href="https://linkedin.com/in/nicolas-grometto-77a755246" rel="noopener noreferrer"  ><FontAwesomeIcon icon={faLinkedin} className={styles.logo}  /></a>
                 <a target="_blank" href="https://github.com/Grometto-N?tab=repositories" rel="noopener noreferrer"  >  <FontAwesomeIcon icon={faGithub}  className={styles.logo}/></a> 
-                {/* </div> */}
-                </ReactCSSTransitionGroup>
+                </div> */}
+                {/* </ReactCSSTransitionGroup> */}
         {/* CADRES */}
         <animated.div   className={styles.frame}  style={frameAnimate} >
         </animated.div> 
@@ -143,7 +143,7 @@ return (
                 />
                 {/*  BIENVENUE */}
                 <div  className={styles.welcome}>
-                    <Wave text="Bienvenue sur mon Portfolio" 
+                    <Wave text="Bienvenue sur mon Portfolio !" 
                         effect="stretch"
                         effectChange={1.5}
                         speed = {20} 

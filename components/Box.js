@@ -64,7 +64,7 @@ const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
                 mais le bootcamp auquel j'ai participé m'a permis de découvrir le HTML, le CSS et la librairie React.
             </p>
             <p>
-                Mon expérience dans l'enseignement me permettent d'apprendre rapidement et de manière autonome.
+                Mon expérience dans l'enseignement et mon cursus mathématiques me permettent d'apprendre rapidement et de manière autonome.
                 Je suis cependant conscient du chemin qu'il me reste à parcourir dans un métier en constante évolution et j'espère trouver un poste qui me permettra de 
                 continuer à monter en compétences.
             </p>
@@ -75,7 +75,7 @@ const start = props.startAnimate.starting ? "100%" : "0%";
 const startAnimate= useSpring({
         from: { transform: `translate(${start},0%)` },
         to: { transform: "translate(0%,0%)" },
-        config: { duration: 3000 },
+        config: { duration: 1500 },
         reset: props.startAnimate.canStart,
         loop : false,
     });

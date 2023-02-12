@@ -7,7 +7,7 @@ import MyImage from './MyImage';
 
 import { useRef, useEffect, useState } from 'react';
 
-import { getPlan, initComponentHeight, initStartTranslation } from '../modules/initialization';
+import { getPlan, initComponentHeight, initTriggerLevel, initStartTranslation } from '../modules/initialization';
 
 
 // import useSticky from "../Hooks/useSticky";
@@ -27,9 +27,9 @@ function Home() {
 
 // récupération des hauteurs des différents composants
 const getHeight =(height,componentName) =>{
-          const temporyComponentsHeight =  componentsHeight;
-          temporyComponentsHeight[componentName] = height;
-          setComponentsHeight(temporyComponentsHeight);
+        const temporyComponentsHeight =  componentsHeight;
+        temporyComponentsHeight[componentName] = height;
+        setComponentsHeight(temporyComponentsHeight);
     }
 
  
@@ -41,26 +41,32 @@ const getHeight =(height,componentName) =>{
       setYScroll(window.scrollY);
 
       let sum = 0;
-      const triggerLevelY = initComponentHeight();
+      const triggerLevelY = initTriggerLevel();
       let levelY = 0;
       for(let key in componentsHeight){
-        sum = sum + componentsHeight[key];
+        // sum = sum + componentsHeight[key];
         if(Object.keys(triggerLevelY).some(elt=> elt === key)){
           triggerLevelY[key] = levelY ;
           levelY = levelY + componentsHeight[key];
         }
       }
 
-      
+      for(let key in componentsHeight){
+        if(key !== "Header" && key !== "contact")
+         sum = sum + componentsHeight[key];
+      }
+
+      console.log(window.scrollY)
+      console.log("triggerLevelY",triggerLevelY)
 
       const textTranslationTempory = startTextTranslation;
       let barPurcent = 0;
+
       if(window.scrollY>0){
-        barPurcent = (window.scrollY-componentsHeight.Header)/sum * 100;
-        textTranslationTempory.presentation.starting = true;
-        textTranslationTempory.presentation.canStart = false;
+           barPurcent = (window.scrollY + componentsHeight["contact"])/sum * 100;
+          textTranslationTempory.presentation.starting = true;
+          textTranslationTempory.presentation.canStart = false;
       }
-      setBarProgress(barPurcent)
 
       
       if(window.scrollY > triggerLevelY.skills){
@@ -79,11 +85,19 @@ const getHeight =(height,componentName) =>{
     }
 
     if(window.scrollY > triggerLevelY.contact){
+        if(window.scrollY > triggerLevelY.contact + componentsHeight["contact"]/2){
+          barPurcent = 99;
+        }
+
       textTranslationTempory.contact.starting = true;
       textTranslationTempory.contact.canStart = false;
     }
+
+      setBarProgress(barPurcent)
       setStartTextTranslation(textTranslationTempory)
     };
+
+ 
 
     window.addEventListener('scroll', handleScroll);
     const temporyComponentsHeight =  componentsHeight;
