@@ -34,4 +34,9 @@
         padding: 0px;
         width : 110vw;
     }
+
+    .informations{
+        margin-left: 2vw;
+        padding-left: 4vw;
+    }
 }

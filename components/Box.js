@@ -36,7 +36,7 @@ const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
 
     if(props.name === "projetsCapsule"){
         const introduction = "Durant le bootcamp de La Capsule, nous avons codé projets web et projets mobile de manière guidée. Nous avons également réalisé seul différents challenges, deux hackathons et un projet de fin de batch en groupe. Vous trouverez ci-dessous les projets réalisés de bout en bout en partant de zéro :";
-        display = <Projects dataProjects={defProjectCapsule()}  informations={introduction} />
+        display = (<Projects dataProjects={defProjectCapsule()}  informations={introduction} />)
     }
 
     if(props.name === "projetsPerso"){
@@ -50,8 +50,8 @@ const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
     }
 
     if(props.name === "presentation"){
-        display=(<div>
-            <p>
+        display=(<div className={styles.presentation}>
+            <p >
                 Après avoir enseigné les mathématiques dans le secondaire pendant quinze années, j'ai décidé de changer de carrière 
                 et de m'orienter vers le développement web.
             </p>
@@ -96,10 +96,6 @@ return (
          <animated.div  className={styles.title}  style={startAnimate} >
           <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div> 
-        {/* <AnimatedOnScroll animationIn="bounceInRight" 
-        style={{marginTop:"80px",color:"green"}}>
-             <h2>Welcome to Geeksforgeeks</h2>
-          </AnimatedOnScroll> */}
         {/* Contenu */}
         { display}
     </div>

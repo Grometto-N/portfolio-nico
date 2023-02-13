@@ -18,7 +18,7 @@ return (
                 Nous avons également réalisé seul différents challenges, deux hackathons et un projet de fin de batch en groupe.
                 Vous trouverez ci-dessous les projets réalisés de bout en bout en partant de zéro :
             </p> */}
-            <p>{props.informations}</p>
+            <p className={styles.informations}>{props.informations}</p>
         </div>
         {/* Affichage des projets */}
         <div className={styles.cards}>{display}</div>
