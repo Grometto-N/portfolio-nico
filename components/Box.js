@@ -71,7 +71,7 @@ const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
         </div>)
     }
 
-const start = props.startAnimate.starting ? "100%" : "0%";
+const start = props.startAnimate.starting ? "200%" : "0%";
 const startAnimate= useSpring({
         from: { transform: `translate(${start},0%)` },
         to: { transform: "translate(0%,0%)" },
