@@ -5,8 +5,8 @@ function Tag(props) {
 
     return (
         <div className={styles.form}>
-        <span style={{color:"white"}}>{props.text} </span>          
-         </div>
+            <span style={{color:"white"}}>{props.text} </span>          
+        </div>
     );
 
 }

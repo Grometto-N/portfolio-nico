@@ -1,13 +1,13 @@
 import styles from '../styles/Skills.module.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import {animated, useSpring} from '@react-spring/web'
 
 import Image from 'next/image';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 
+
 function Skills() {
+    // liste des compétences du tableau des langages
     const langages =[
         {name : "HTML5" , src : require("../public/HTML5.svg") },
         {name : "CSS" , src : require("../public/CSS3.svg") },
@@ -17,6 +17,7 @@ function Skills() {
         {name : "Python (bases)" , src : require("../public/Python.svg") },
     ]
 
+    // liste des compétences du tableau librairies/frameworks
     const frameworks =[
         {name : "Node.js" , src : require("../public/Node.svg")},
         {name : "Next.js" , src : require("../public/Next.svg")},
@@ -26,6 +27,7 @@ function Skills() {
         {name : "ReactNative" , src : require("../public/React.svg")},
     ]
 
+    // liste des compétences du tableau divers
     const divers =[
         {name : "Git/GitHub" ,  src : require("../public/GitHub.svg")},
         {name : "VS Code" ,  src : require("../public/VSC.svg")},
@@ -51,9 +53,9 @@ function Skills() {
         })
     }
     
-    // variable d'affichage des langages
+    // variable d'affichage des langages chaque ligne contient le logo + le nom
     const displayLangages = langages.map(elt=>{
-         return(<div className={styles.row} > <Image src = {elt.src} 
+        return(<div className={styles.row} > <Image src = {elt.src} 
                                                     alt ={elt.name} 
                                                     className={styles.image}
                                                     width={"25vw"}
@@ -62,7 +64,7 @@ function Skills() {
                 </div>)
     })
 
-    // variable d'affichage des frameworks
+    // variable d'affichage des frameworks chaque ligne contient le logo + le nom
     const displayFrameworks = frameworks.map(elt=>{
         return(<div className={styles.row} ><Image src = {elt.src} 
                                                     alt ={elt.name} 
@@ -73,7 +75,7 @@ function Skills() {
                 </div>)
     })
 
-    // variable d'affichage des informations dans la table divers
+    // variable d'affichage des informations dans la table divers chaque ligne contient le logo + le nom
     const displayDivers = divers.map(elt=>{
         return(<div className={styles.row} ><Image src = {elt.src} 
                                                 alt ={elt.name} 
@@ -84,16 +86,12 @@ function Skills() {
                 </div>)
     })
 
-
-    const cardAnimation= useSpring({
-        transform: `scale(1)`,
-        from: { transform: `scale(0.5)`},
-        loop : true,
-    });
+// AFFICHAGE DU COMPOSANT
 return (
     <div  className={styles.container}>
+        {/* TABLES */}
         <div className={styles.tableContainer}> 
-                <div className={styles.table} style={cardAnimation}>
+                <div className={styles.table} >
                     <h3>Langages et BDD</h3>
                     {displayLangages}
                 </div>
@@ -106,6 +104,7 @@ return (
                     {displayDivers}
                 </div>
         </div>
+        {/* CV */}
         <p>Vous trouverez davantage de précisions sur mes formations et compétences : </p>
         {/* <button onClick={onButtonClick}>
                     Download PDF

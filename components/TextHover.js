@@ -1,18 +1,18 @@
 import styles from '../styles/TextHover.module.css';
-import { useHistory } from "react-router-dom";
-import Link from "next/link";
 
 import Tag from "./Tag"
+
 
 function TextHover(props) {
     // récupération des données sur le projet 
     const {title, message, skillsFront, skillsBack,link, gitFront, gitBack} = props.datasProject;
 
-    // affichage des tags
+    // affichage des tags du front-end
     const displayTagsFront = skillsFront.map(elt=>{
         return <Tag text={elt}/> 
     })
 
+    // affichage des tags du back-end
     const displayTagsBack = skillsBack.map(elt=>{
         return <Tag text={elt}/> 
     })
@@ -20,6 +20,7 @@ function TextHover(props) {
 // gestion de l'affichage du composant avec un style conditionnel
 const isVisible = {visibility : props.isVisible ? "visible": "hidden" }
 
+// AFFICHAGE DU COMPOSANT
 return (
     <div className={styles.container} style={isVisible}> 
         {/* Titre */}
@@ -33,8 +34,6 @@ return (
         <div className={styles.tagContainer}> {displayTagsBack}</div>
         {/* Liens */}
         <h4 className={styles.trait}>Liens</h4>
-        {/* <div><button>Site</button> <Link href={`/hashtags/${elt.title.substring(1)}`} ></Link></div>  */}
-        {/* <div ><button className={styles.btn} onClick={handleRedirection()}>Vers le site</button></div> */}
         <div className={styles.linksContainer}>
         {link && <button className={styles.btn}>
             <a target="_blank" href={link} rel="noopener noreferrer"  className={styles.link}>

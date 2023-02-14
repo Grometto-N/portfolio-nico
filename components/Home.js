@@ -2,7 +2,6 @@ import styles from '../styles/Home.module.css';
 import Box from './Box';
 import Header from './Header';
 import Head from 'next/head'
-import Contact from './Contact';
 import MyImage from './MyImage';
 
 import { useRef, useEffect, useState } from 'react';
@@ -10,13 +9,13 @@ import { useRef, useEffect, useState } from 'react';
 import { getPlan, initComponentHeight, initTriggerLevel, initStartTranslation } from '../modules/initialization';
 
 
-// import useSticky from "../Hooks/useSticky";
-
 function Home() {
 
+  // on utilise une référence pour obtenir la hauteur du composant contenant l'image et l'animation d'introduction
   const refImage = useRef();
 
-   const plan = getPlan();
+  // variable définissant le plan du site (les informations sont dans le module initialization)
+  const plan = getPlan();
 
   
 // définition et initialisation des états
@@ -25,7 +24,7 @@ function Home() {
   const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
   const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
 
-// récupération des hauteurs des différents composants
+// récupération des hauteurs des différents composants (utiliser pour l'invers data flow)
 const getHeight =(height,componentName) =>{
         const temporyComponentsHeight =  componentsHeight;
         temporyComponentsHeight[componentName] = height;
@@ -35,56 +34,61 @@ const getHeight =(height,componentName) =>{
  
 
   // initialisation d'une fonction gérant la longueur de la scrollBar
-
   useEffect(() => {
     const handleScroll = event => {
+      // la hauteur scrollée sera assigné à l'état scrollY
       setYScroll(window.scrollY);
 
-      let sum = 0;
-      const triggerLevelY = initTriggerLevel();
+      // définition des hauteurs scrollées déclenchant les animations
+      const triggerLevelY = initTriggerLevel(); // les données initiales sont dans le module initialization
       let levelY = 0;
       for(let key in componentsHeight){
-        // sum = sum + componentsHeight[key];
         if(Object.keys(triggerLevelY).some(elt=> elt === key)){
           triggerLevelY[key] = levelY ;
           levelY = levelY + componentsHeight[key];
         }
       }
 
+      // calcul de la hauteur totale des composants (sum) 
+      let sum = 0;
       for(let key in componentsHeight){
         if(key !== "Header" && key !== "contact")
-         sum = sum + componentsHeight[key];
+          sum = sum + componentsHeight[key];
       }
 
-      console.log(window.scrollY)
-      console.log("triggerLevelY",triggerLevelY)
-
+      // initialisation de textTranslationTempory qui permet de déclencher les animations quand on scolle
       const textTranslationTempory = startTextTranslation;
+      // initialisation de barPurcent pour gérer l'avancée de la barre de progression du header fixe
       let barPurcent = 0;
 
+      // cas de base : l'utilisateur a scrollé
       if(window.scrollY>0){
            barPurcent = (window.scrollY + componentsHeight["contact"])/sum * 100;
           textTranslationTempory.presentation.starting = true;
           textTranslationTempory.presentation.canStart = false;
       }
 
-      
+      // l'utilisateur arrive aux compétences
       if(window.scrollY > triggerLevelY.skills){
           textTranslationTempory.skills.starting = true;
           textTranslationTempory.skills.canStart = false;
       }
 
+      // l'utilisateur arrive aux projets de formations
       if(window.scrollY > triggerLevelY.projetsCapsule){
         textTranslationTempory.projetsCapsule.starting = true;
         textTranslationTempory.projetsCapsule.canStart = false;
     }
 
+    // l'utilisateur arrive aux projets perso
     if(window.scrollY > triggerLevelY.projetsPerso){
       textTranslationTempory.projetsPerso.starting = true;
       textTranslationTempory.projetsPerso.canStart = false;
     }
 
+    // l'utilisateur arrive au niveau du contact 
     if(window.scrollY > triggerLevelY.contact){
+        // on pousse la barre de progression jusqu'à la fin 
         if(window.scrollY > triggerLevelY.contact + componentsHeight["contact"]/2){
           barPurcent = 99;
         }
@@ -93,21 +97,22 @@ const getHeight =(height,componentName) =>{
       textTranslationTempory.contact.canStart = false;
     }
 
+    // on met à jour les états pour la bar de progression et pour lancer les animations
       setBarProgress(barPurcent)
       setStartTextTranslation(textTranslationTempory)
     };
 
- 
-
+    // initialisation : on met une écoute sur la scroll bar
     window.addEventListener('scroll', handleScroll);
     const temporyComponentsHeight =  componentsHeight;
           temporyComponentsHeight["image"] = refImage.current.scrollHeight;
           setComponentsHeight(temporyComponentsHeight);
 
+    // unmount : on supprime l'écoute sur la scroll bar
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, []); // fin du useEffect
 
 
  // variable d'affichage des différentes parties hors header fixe et contact

@@ -4,7 +4,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
 function Contact() {
-  
+  // affichage du contenu du composant
   return (
     <div className={styles.container}>
         <div className={styles.infos}>

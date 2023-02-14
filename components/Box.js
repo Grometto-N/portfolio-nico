@@ -3,52 +3,54 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
 
-// import { animated, useSpring } from "react-spring";
 
-import { useState } from 'react';
-import { useRef } from 'react';
-import { useEffect } from 'react';
-import { useMemo } from 'react';
+import { useRef, useEffect} from 'react';
 
-import {animated, useScroll, useSpring} from '@react-spring/web'
+import {animated, useSpring} from '@react-spring/web'
 
-// import {AnimatedOnScroll} from "react-animated-css-onscroll"
 import { defProjectCapsule, defProjectPerso } from '../modules/initialization';
 
 function Box(props) {
-    
+    // on utilise une reférence pour obtenir la hauteur du composant
+    const ref = useRef();
+
+    // initialisation : on transmet la hauteur au parent via la props getHeight (inverse data flow)
     useEffect(() => {
         props.getHeight(ref.current.scrollHeight, props.name);
     }, [])
 
     // style pour couleur de fond
-// let style = {"backgroundcolor" : "#e5e1e1"};
+    const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
 
-const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
-  // const plan = [{name : "presentation", title : "A propos"}, {name : "competences", title : "Competences"}, {name : "projetsCapsule", title : "Projets de formation"} ]
+    // variable d'affichage du contenu
     let display = (<div>{props.name}</div>);
 
+    // cas partie compétences
     if(props.name === "skills"){
         display = <Skills />
         styleBack.backgroundColor = "#414141";
         styleBack.color = "#ffff";
     }
 
+    // cas partie projets formation
     if(props.name === "projetsCapsule"){
         const introduction = "Durant le bootcamp de La Capsule, nous avons codé projets web et projets mobile de manière guidée. Nous avons également réalisé seul différents challenges, deux hackathons et un projet de fin de batch en groupe. Vous trouverez ci-dessous les projets réalisés de bout en bout en partant de zéro :";
         display = (<Projects dataProjects={defProjectCapsule()}  informations={introduction} />)
     }
 
+    // cas partie projets perso
     if(props.name === "projetsPerso"){
         display = <Projects dataProjects={defProjectPerso()} informations={null}/>
     }
 
+    // cas partie contact
     if(props.name === "contact"){
         display = <Contact />
         styleBack.backgroundColor = "#414141";
         styleBack.color = "#ffff";
     }
 
+    // cas partie présentation perso
     if(props.name === "presentation"){
         display=(<div className={styles.presentation}>
             <p >
@@ -71,25 +73,19 @@ const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
         </div>)
     }
 
-const start = props.startAnimate.starting ? "200%" : "0%";
-const startAnimate= useSpring({
+    // animation du titre
+    const start = props.startAnimate.starting ? "200%" : "0%";
+    const startAnimate= useSpring({
         from: { transform: `translate(${start},0%)` },
         to: { transform: "translate(0%,0%)" },
-        config: { duration: 1500 },
+        config: { duration: 1000 },
         reset: props.startAnimate.canStart,
         loop : false,
     });
-// const startAnimate= useSpring({
-//     from: { transform: `opacity(0.01)` },
-//     to: { transform: "opacity(1)" },
-//     config: { duration: 3000 },
-//     reset: props.startAnimate.canStart,
-//     loop : false,
-// });
-
-const ref = useRef();
 
 
+
+// affichage du composant
 return (
     <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
         {/* Titre */}

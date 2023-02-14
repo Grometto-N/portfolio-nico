@@ -9,15 +9,11 @@ const display = props.dataProjects.map(elt=>{
     return(<Project datasProject={elt}/>)
 })
 
-
+// AFFICHAGE DU COMPOSANT
 return (
     <div  className={styles.container}>
         {/* Explications */}
         <div className={styles.explications}>
-            {/* <p>Durant le bootcamp de La Capsule, nous avons codé projets web et projets mobile de manière guidée. 
-                Nous avons également réalisé seul différents challenges, deux hackathons et un projet de fin de batch en groupe.
-                Vous trouverez ci-dessous les projets réalisés de bout en bout en partant de zéro :
-            </p> */}
             <p className={styles.informations}>{props.informations}</p>
         </div>
         {/* Affichage des projets */}

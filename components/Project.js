@@ -12,14 +12,13 @@ function Project(props) {
     // state gérant l'affichage conditionnel
     const [isHover, setIsHover] = useState(false);
 
-    // récupération des données sur le projet 
-    // const {title, message, skills} = props.datasProject;
+    // récupération de l'image à afficher
+    const image = require(`../public/${props.datasProject.image}`);
 
+    // affichage au-dessus de la photo avec les informations
+    const hover = (<TextHover datasProject={props.datasProject} isVisible = {isHover}/>)
 
-const image = require(`../public/${props.datasProject.image}`);
-
-const hover = (<TextHover datasProject={props.datasProject} isVisible = {isHover}/>)
-
+// AFFICHAGE DU COMPOSANT
 return (
     <div className={styles.container} 
         onMouseEnter={() => setIsHover(true)} 

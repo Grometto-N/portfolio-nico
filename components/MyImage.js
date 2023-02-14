@@ -7,49 +7,46 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-import { Wave, Random } from "react-animated-text";
-
-// import {animated, useSpring} from '@react-spring/web'
+import { Wave} from "react-animated-text";
 
 import Rectangle from './Rectangle';
 
+
 function MyImage(props) { 
+    // On met en majuscule le mot développeur
+    const devTitle = "Développeur".toLocaleUpperCase();
 
-const devTitle = "Développeur".toLocaleUpperCase();
-
-
-  const frameAnimate= useSpring({
-            // from: { transform: `translate(0%,200%)` },
-            // to: { transform: "translate(0%,0%)" },
+    // animation du cadre autour du nom-prénom
+    const frameAnimate= useSpring({
             from : {y: "200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
             delay:3000,
             reset: false,
             loop : false,
-   });
+    });
 
-   const frameWelcomeAnimate= useSpring({
-    // from: { transform: `translate(0%,200%)` },
-    // to: { transform: "translate(0%,0%)" },
-    from : {y: "-200%"},
-    to : {y:"0%"},
-    config: { duration: 2000 },
-    delay:3000,
-    reset: false,
-    loop : false,
-});
+    // animation du cadre autour du bienvenue
+    const frameWelcomeAnimate= useSpring({
+            from : {y: "-200%"},
+            to : {y:"0%"},
+            config: { duration: 2000 },
+            delay:3000,
+            reset: false,
+            loop : false,
+    });
 
-   const pictureAnimate= useSpring({
-    from: { scale: "0", rotate : "0.5turn"
-          },
-    to: { scale: "1", rotate : "0turn" },
-    config: { duration: 2000 },
-    delay:1000,
-    reset: false,
-    loop : false,
-});
+    // animation de la div avec les rectangle et le bienvenue
+    const pictureAnimate= useSpring({
+            from: { scale: "0", rotate : "0.5turn"},
+            to: { scale: "1", rotate : "0turn" },
+            config: { duration: 2000 },
+            delay:1000,
+            reset: false,
+            loop : false,
+    });
 
+// AFFICHAGE DU COMPOSANT
 return (
     <> 
         <Image src = {require("../public/HeaderFloute.png")} 
