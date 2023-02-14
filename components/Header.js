@@ -10,7 +10,7 @@ function Header(props) {
   const ref = useRef();
 
    const menuItems = props.dataHeader.map(elt=>{
-    return (<a className={styles.item} href={`#${elt.name}`} >
+    return (<a key = {elt.name} className={styles.item} href={`#${elt.name}`} >
         {elt.title}
       </a>
       )

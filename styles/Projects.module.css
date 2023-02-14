@@ -22,14 +22,14 @@
 }
 
 /* If the screen size is 901px wide or more */
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 801px) {
     .container{
         padding-left: 2vw;
     }
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .container{
         padding: 0px;
         width : 110vw;

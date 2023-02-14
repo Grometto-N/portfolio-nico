@@ -60,14 +60,16 @@ return (
         <ReactCSSTransitionGroup 
             className={styles.firstname}
             transitionName="anim" 
-            transitionAppear={true}  >
+            transitionAppear={true}
+            transitionAppearTimeout={500}  >
                 <h2>Nicolas</h2> 
     		</ReactCSSTransitionGroup>
         {/*  NOM */}
         <ReactCSSTransitionGroup 
             className={styles.name}
             transitionName="anim" 
-            transitionAppear={true}   >
+            transitionAppear={true} 
+            transitionAppearTimeout={500}  >
                 <h2>Grometto</h2> 
     		</ReactCSSTransitionGroup>
         {/* <ReactCSSTransitionGroup transitionName="anim" 
@@ -80,19 +82,22 @@ return (
         <ReactCSSTransitionGroup
             className={styles.dev}
             transitionName="anim" 
-            transitionAppear={true}>
+            transitionAppear={true}
+            transitionAppearTimeout={500}>
     		        <h2>{devTitle}</h2> 
     		</ReactCSSTransitionGroup>
         <ReactCSSTransitionGroup
             className={styles.devWeb}
             transitionName="anim" 
-            transitionAppear={true}>
+            transitionAppear={true}
+            transitionAppearTimeout={500}>
     		        <h2>WEB</h2> 
     		</ReactCSSTransitionGroup>
         <ReactCSSTransitionGroup
             className={styles.devJR}
             transitionName="anim" 
-            transitionAppear={true}>
+            transitionAppear={true}
+            transitionAppearTimeout={500}>
     		        <h2>JUNIOR</h2> 
     		</ReactCSSTransitionGroup>
         {/* ICONES  */}
@@ -193,18 +198,6 @@ return (
                     width = {"12vw"}
                 />
         </animated.div>
-        
-        {/* Bienvenue */}
-        {/* <ReactCSSTransitionGroup transitionName="welcome" className={styles.welcome}
-      transitionAppear={true}
-      transitionAppearTimeout={2000}
-      transitionEnterTimeout={5000}
-      transitionEnter={false}
-      transitionLeave={false}>
-    		<h2>Bienvenue sur mon Portfolio</h2>
-    		</ReactCSSTransitionGroup> */}
-        {/* <div className={styles.welcome} ></div> */}
-         
     </> 
 );
 }
