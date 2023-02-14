@@ -7,8 +7,6 @@
     background-color: #2F6DE5;
     display: inline-block;
     padding-top: 2px;
-    align-items: "center";
-    font-weight: "bold";
   }
 
 /* If the screen size is 901px wide or more */
@@ -18,15 +16,20 @@
     font-size: 14;
     margin: 5px;
     padding-top: 5px;
+    font-weight: bold;
+    align-items: center;
   }
 }
 
 
 @media screen and (max-width: 600px) {
   .form{
-    height: 20px;
+    height: 18px;
     font-size: 12;
     margin-left: 2px;
     margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    align-items:flex-start;
   }
 }
