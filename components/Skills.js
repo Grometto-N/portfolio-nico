@@ -13,6 +13,7 @@ function Skills() {
         {name : "CSS" , src : require("../public/CSS3.svg") },
         {name : "JavaScript" , src : require("../public/JS.svg") },
         {name : "TypeScript" , src : require("../public/TS.svg") },
+        {name : "PHP" , src : require("../public/PHP.svg") },
         {name : "MongoDB" , src : require("../public/Mongo.svg") },
         {name : "Python (bases)" , src : require("../public/Python.svg") },
     ]
