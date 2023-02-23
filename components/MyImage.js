@@ -21,7 +21,7 @@ function MyImage(props) {
             from : {y: "200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
-            delay:3000,
+            delay:2000,
             reset: false,
             loop : false,
     });
@@ -31,7 +31,7 @@ function MyImage(props) {
             from : {y: "-200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
-            delay:3000,
+            delay:2000,
             reset: false,
             loop : false,
     });

@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 
 import { useState } from 'react';
+import {animated, useSpring} from '@react-spring/web'
 
 
 function Project(props) { 
@@ -15,11 +16,16 @@ function Project(props) {
     // récupération de l'image à afficher
     const image = require(`../public/${props.datasProject.image}`);
 
+    
+
     // affichage au-dessus de la photo avec les informations
-    const hover = (<TextHover datasProject={props.datasProject} isVisible = {isHover}/>)
+    const hover = (<TextHover datasProject={props.datasProject} isVisible = {isHover}/> )
+
+    
 
 // AFFICHAGE DU COMPOSANT
 return (
+    // <animated.div  className={styles.container}  style = {textStyles} 
     <div className={styles.container} 
         onMouseEnter={() => setIsHover(true)} 
         onMouseLeave={() => setIsHover(false)}>
@@ -30,6 +36,7 @@ return (
             />
             {hover}
     </div>
+    // </animated.div> 
 );
 }
 

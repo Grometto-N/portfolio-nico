@@ -74,27 +74,48 @@ function Box(props) {
     }
 
     // animation du titre
-    const start = props.startAnimate.starting ? "200%" : "0%";
+    const start = props.startAnimate.starting ? "50%" : "0%";
+    // const startAnimate= useSpring({
+    //     from: { transform: `translate(${start},0%)` },
+    //     to: { transform: "translate(0%,0%)" },
+    //     config: { duration: 1000 },
+    //     reset: props.startAnimate.canStart,
+    //     loop : false,
+    // });
     const startAnimate= useSpring({
-        from: { transform: `translate(${start},0%)` },
-        to: { transform: "translate(0%,0%)" },
+        from: {y : start},
+        to: { y : "0%" },
         config: { duration: 1000 },
         reset: props.startAnimate.canStart,
         loop : false,
     });
 
+    const startBox = props.startAnimate.starting ? 0.1 : 1;
+    
+    const animateBox = useSpring({
+        from: {opacity : startBox },
+        to: { opacity : 1 },
+        config: { duration: 2500 },
+        reset: props.startAnimate.canStart,
+        loop : false,
+    });
 
+    var componentStyles = Object.assign({}, 
+        styleBack,animateBox
+        );
 
 // affichage du composant
 return (
-    <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
+    // <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
+    <animated.div  ref={ref} className={styles.container}  style = {componentStyles} id={props.name}>
         {/* Titre */}
          <animated.div  className={styles.title}  style={startAnimate} >
           <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div> 
         {/* Contenu */}
         { display}
-    </div>
+    {/* </div> */}
+    </animated.div> 
 );
 }
 

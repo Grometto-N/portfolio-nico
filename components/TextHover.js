@@ -2,6 +2,7 @@ import styles from '../styles/TextHover.module.css';
 
 import Tag from "./Tag"
 
+import {animated, useSpring} from '@react-spring/web'
 
 function TextHover(props) {
     // récupération des données sur le projet 
@@ -20,9 +21,24 @@ function TextHover(props) {
 // gestion de l'affichage du composant avec un style conditionnel
 const isVisible = {visibility : props.isVisible ? "visible": "hidden" }
 
+const start = props.isVisible ? 0 : 0.9;
+    const animateBox = useSpring({
+        from: {opacity : start },
+        to: { opacity: 0.9 },
+        config: { duration: 1000 },
+        reset: true,
+        loop : false,
+    });
+
+    var componentStyles = Object.assign({}, 
+        isVisible,animateBox
+        );
+
 // AFFICHAGE DU COMPOSANT
 return (
-    <div className={styles.container} style={isVisible}> 
+    
+    // <div className={styles.container} style={isVisible}> 
+    <animated.div className={styles.container} style = {componentStyles}  >
         {/* Titre */}
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.message}>{message} </p>
@@ -49,7 +65,8 @@ return (
                 </div>}
             </div>
         </div>
-</div>
+    </animated.div>
+// </div>
 );
 }
 
