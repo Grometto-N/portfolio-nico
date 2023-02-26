@@ -27,7 +27,7 @@ function Box(props) {
 
     // cas partie compétences
     if(props.name === "skills"){
-        display = <Skills />
+        display = <Skills startAnimate={props.startAnimate} />
         styleBack.backgroundColor = "#414141";
         styleBack.color = "#ffff";
     }
@@ -96,7 +96,7 @@ function Box(props) {
         from: {opacity : startBox },
         to: { opacity : 1 },
         config: { duration: 2500 },
-        reset: props.startAnimate.canStart,
+        // reset: props.startAnimate.canStart,
         loop : false,
     });
 

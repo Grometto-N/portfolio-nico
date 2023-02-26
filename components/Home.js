@@ -24,7 +24,7 @@ function Home() {
   const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
   const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
 
-// récupération des hauteurs des différents composants (utiliser pour l'invers data flow)
+// récupération des hauteurs des différents composants (utiliser pour l'inverse data flow)
 const getHeight =(height,componentName) =>{
         const temporyComponentsHeight =  componentsHeight;
         temporyComponentsHeight[componentName] = height;
@@ -70,6 +70,7 @@ const getHeight =(height,componentName) =>{
 
       // l'utilisateur arrive aux compétences
       if(window.scrollY > triggerLevelY.skills){
+
           textTranslationTempory.skills.starting = true;
           textTranslationTempory.skills.canStart = false;
       }

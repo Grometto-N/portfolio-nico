@@ -18,7 +18,7 @@ function MyImage(props) {
 
     // animation du cadre autour du nom-prénom
     const frameAnimate= useSpring({
-            from : {y: "200%"},
+            from : {y: "160%"},
             to : {y:"0%"},
             config: { duration: 2000 },
             delay:2000,

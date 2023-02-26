@@ -5,8 +5,16 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 
+import {animated, useSpring} from '@react-spring/web'
 
-function Skills() {
+import { useState } from 'react';
+
+import Circle from './Circle';
+
+
+function Skills(props) {
+    const [isHover, setIsHover] = useState(false);
+
     // liste des compétences du tableau des langages
     const langages =[
         {name : "HTML5" , src : require("../public/HTML5.svg") },
@@ -38,21 +46,7 @@ function Skills() {
         {name : "LaTeX" ,  src : require("../public/latex.svg")},
     ]
 
-    // fonction pour télécharger le CV au format pdf
-    const onButtonClick = () => {
-        // utilisation d'un fetch avec blob
-        fetch('CV_Nicolas_Grometto.pdf').then(response => {
-            response.blob().then(blob => {
-                //creation d'un nouvel objet pdf
-                const fileURL = window.URL.createObjectURL(blob);
-                // différentes propriété définies
-                let alink = document.createElement('a');
-                alink.href = fileURL;
-                alink.download = 'CV_Nicolas_Grometto.pdf';
-                alink.click();
-            })
-        })
-    }
+
     
     // variable d'affichage des langages chaque ligne contient le logo + le nom
     const displayLangages = langages.map(elt=>{
@@ -87,12 +81,22 @@ function Skills() {
                 </div>)
     })
 
+     // variables et style d'animations
+     console.log(props.startAnimate.starting);
+    const startanimate= props.startAnimate.starting  ? "-100%" : "0%";
+     const animateBox = useSpring({
+         from: {x : startanimate},
+         to: { x: "30%" },
+         config: { duration: 2000 },
+        reset : true,
+     });
+
 // AFFICHAGE DU COMPOSANT
 return (
     <div  className={styles.container}>
         {/* TABLES */}
         <div className={styles.tableContainer}> 
-                <div className={styles.table} >
+                <div  className={styles.table} style={animateBox}>
                     <h3>Langages et BDD</h3>
                     {displayLangages}
                 </div>
@@ -110,8 +114,11 @@ return (
         {/* <button onClick={onButtonClick}>
                     Download PDF
                 </button> */}
-        <div className={styles.cv}>
-            <div onClick={onButtonClick} className={styles.cvLink}>Consulter <FontAwesomeIcon icon={faFilePdf} style={{height : "25px"}} /> mon CV</div>
+        <div className={styles.cv} 
+         onMouseEnter={() => setIsHover(true)} 
+         onMouseLeave={() => setIsHover(false)}>
+            <Circle isHover={isHover} />
+            {/* <div onClick={onButtonClick} className={styles.cvLink}>Consulter <FontAwesomeIcon icon={faFilePdf} style={{height : "25px"}} /> mon CV</div> */}
         </div>
     </div>
 );
