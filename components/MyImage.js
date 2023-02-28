@@ -145,11 +145,12 @@ return (
                 />
                 {/*  BIENVENUE */}
                 <div  className={styles.welcome}>
-                    <Wave text="Bienvenue sur mon Portfolio !" 
+                    {/* <Wave text="Bienvenue sur mon Portfolio !" 
                         effect="stretch"
                         effectChange={1.5}
                         speed = {20} 
-                    />
+                    /> */}
+                    Bienvenue sur mon Portfolio ! 
                 </div>
                 {/* RIGHT */}
                 <Rectangle 
