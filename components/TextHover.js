@@ -34,6 +34,9 @@ const start = props.isVisible ? 0 : 0.9;
         isVisible,animateBox
         );
 
+// Affichage conditionnel du nom du dépôt gitHub
+const repoGitName = gitBack? "GitHub Front-End" : "Dépôt GitHub";
+
 // AFFICHAGE DU COMPOSANT
 return (
     
@@ -58,7 +61,7 @@ return (
             </button>}
             <div className={styles.gitContainer}> 
                 <div className={styles.linkGit}>
-                    GitHub Front-End : <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.gitLink}>{gitFront}</a>
+                {repoGitName }: <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.gitLink}>{gitFront}</a>
                 </div>
                 {gitBack && <div className={styles.linkGit}>
                     GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={styles.gitLink}>{gitBack}</a>

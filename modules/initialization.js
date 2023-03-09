@@ -70,10 +70,15 @@ function defProjectPerso(){
     const arrayToRetrun =[];
     // définition des messages
     const messagePortFolio = "Le PortFolio sur lequel vous vous trouvez...";
+    const messageWeatherApp = "Apprentissage autodidacte de Symfony5 en refaisant entièrement un projet de formation";
 
 
     arrayToRetrun.push(defProject("PortFolio", messagePortFolio, ["JavaScript", "CSS","React", "Node.js"],[], "Portfolio.png", 
                                  null, "https://github.com/Grometto-N/portfolio-nico"
+                                 , null));
+
+                                 arrayToRetrun.push(defProject("WeatherApp", messageWeatherApp, ["HTML", "CSS","Symfony5"],["PHP", "MariaDB/MySQL", "API externe", "Symfony5"], "WeatherApp.png", 
+                                 null, "https://github.com/Grometto-N/weatherapp"
                                  , null));
 
     return arrayToRetrun;
