@@ -32,7 +32,7 @@ function MyImage(props) {
             from : {y: "-200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
-            delay:4000,
+            delay:5500,
             reset: false,
             loop : false,
     });

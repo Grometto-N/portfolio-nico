@@ -9,13 +9,13 @@ function TextHover(props) {
     const {title, message, skillsFront, skillsBack,link, gitFront, gitBack} = props.datasProject;
 
     // affichage des tags du front-end
-    const displayTagsFront = skillsFront.map(elt=>{
-        return <Tag text={elt}/> 
+    const displayTagsFront = skillsFront.map((elt,i)=>{
+        return <Tag text={elt} key={i}/> 
     })
 
     // affichage des tags du back-end
-    const displayTagsBack = skillsBack.map(elt=>{
-        return <Tag text={elt}/> 
+    const displayTagsBack = skillsBack.map((elt,i)=>{
+        return <Tag text={elt} key={i}/> 
     })
 
 // gestion de l'affichage du composant avec un style conditionnel

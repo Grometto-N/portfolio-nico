@@ -5,8 +5,8 @@ import Project from './Project';
 function Projects(props) { 
 
 // variable d'affichage des projets
-const display = props.dataProjects.map(elt=>{
-    return(<Project datasProject={elt}/>)
+const display = props.dataProjects.map((elt,i)=>{
+    return(<Project datasProject={elt} key={i}/>)
 })
 
 // AFFICHAGE DU COMPOSANT
