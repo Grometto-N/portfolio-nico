@@ -10,6 +10,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Wave} from "react-animated-text";
 
 import Rectangle from './Rectangle';
+import Bienvenue from './Bienvenue';
 
 
 function MyImage(props) { 
@@ -46,6 +47,14 @@ function MyImage(props) {
             loop : false,
     });
 
+    // effet de transition sur le nom et prénom
+    const nameAnimate = useSpring({
+        from: {opacity : 0 },
+        to: { opacity : 1 },
+        config: { duration: 2500 },
+        loop : false,
+    });
+
 // AFFICHAGE DU COMPOSANT
 return (
     <> 
@@ -53,69 +62,40 @@ return (
                 className={styles.image}
             // height={"1000px"}
         />
+
         {/*  PRENOM */}
-        <ReactCSSTransitionGroup 
-            className={styles.firstname}
-            transitionName="anim" 
-            transitionAppear={true}
-            transitionAppearTimeout={500}  >
-                <h2>Nicolas</h2> 
-    		</ReactCSSTransitionGroup>
+        <animated.div   className={styles.firstname} style={nameAnimate} >
+            <h2>Nicolas</h2> 
+        </animated.div> 
         {/*  NOM */}
-        <ReactCSSTransitionGroup 
-            className={styles.name}
-            transitionName="anim" 
-            transitionAppear={true} 
-            transitionAppearTimeout={500}  >
-                <h2>Grometto</h2> 
-    		</ReactCSSTransitionGroup>
-        {/* <ReactCSSTransitionGroup transitionName="anim" 
-      transitionAppear={true}>
-    		<div className={styles.shape}></div>
-    		</ReactCSSTransitionGroup>  */}
-         {/* <animated.div   className={styles.shape}  style={startAnimate} >
-        </animated.div>  */}
+        <animated.div   className={styles.name} style={nameAnimate} >
+            <h2>Grometto</h2>  
+        </animated.div> 
         {/* DEV */}
-        <ReactCSSTransitionGroup
-            className={styles.dev}
-            transitionName="anim" 
-            transitionAppear={true}
-            transitionAppearTimeout={500}>
-    		        <h2>{devTitle}</h2> 
-    		</ReactCSSTransitionGroup>
-        <ReactCSSTransitionGroup
-            className={styles.devWeb}
-            transitionName="anim" 
-            transitionAppear={true}
-            transitionAppearTimeout={500}>
-    		        <h2>WEB</h2> 
-    		</ReactCSSTransitionGroup>
-        <ReactCSSTransitionGroup
-            className={styles.devJR}
-            transitionName="anim" 
-            transitionAppear={true}
-            transitionAppearTimeout={500}>
-    		        <h2>JUNIOR</h2> 
-    		</ReactCSSTransitionGroup>
-        {/* ICONES  */}
-        {/* <div className={styles.links}> */}
-        {/* <ReactCSSTransitionGroup 
-        className={styles.links}
-        transitionName="anim" 
-        transitionAppear={true}> */}
-                {/* <a target="_blank" href="https://linkedin.com/in/nicolas-grometto-77a755246" rel="noopener noreferrer"  ><FontAwesomeIcon icon={faLinkedin} className={styles.logo}  /></a>
-                <a target="_blank" href="https://github.com/Grometto-N?tab=repositories" rel="noopener noreferrer"  >  <FontAwesomeIcon icon={faGithub}  className={styles.logo}/></a> 
-                </div> */}
-                {/* </ReactCSSTransitionGroup> */}
+        <animated.div   className={styles.dev} style={nameAnimate} >
+            <h2>{devTitle}</h2> 
+        </animated.div>
+        <animated.div   className={styles.devWeb} style={nameAnimate} >
+            <h2>WEB</h2>
+        </animated.div>
+        <animated.div   className={styles.devJR} style={nameAnimate} >
+            <h2>JUNIOR</h2> 
+        </animated.div>
         {/* CADRES */}
         <animated.div   className={styles.frame}  style={frameAnimate} >
         </animated.div> 
         <animated.div   className={styles.frameWelcome}  style={frameWelcomeAnimate} >
         </animated.div> 
+         {/* ICONES  */}
+         <animated.div   className={styles.links} style={nameAnimate} >
+            <a target="_blank" href="https://linkedin.com/in/nicolas-grometto-77a755246" rel="noopener noreferrer"  ><FontAwesomeIcon icon={faLinkedin} className={styles.logo}  /></a>
+            <a target="_blank" href="https://github.com/Grometto-N?tab=repositories" rel="noopener noreferrer"  >  <FontAwesomeIcon icon={faGithub}  className={styles.logo}/></a>   
+        </animated.div> 
         {/* DESSIN */}
-        <animated.div  className={styles.picture} style={pictureAnimate} >
-              {/* LEFT */}
-              <Rectangle 
+        {/* <div className={styles.picture} > */}
+            <Bienvenue />
+        {/* </div> */}
+         {/* {/* <animated.div  className={styles.picture} style={pictureAnimate} > <Rectangle 
                     top={"5vh"}
                     left = {"1vw"}
                     color={"white"}
@@ -142,60 +122,58 @@ return (
                     color={"white"}
                     height={"2vh"}
                     width = {"10vw"}
-                />
-                {/*  BIENVENUE */}
-                <div  className={styles.welcome}>
-                    {/* <Wave text="Bienvenue sur mon Portfolio !" 
+                /> 
+                 <div  className={styles.welcome}>
+                     <Wave text="Bienvenue sur mon Portfolio !" 
                         effect="stretch"
                         effectChange={1.5}
                         speed = {20} 
-                    /> */}
-                    Bienvenue sur mon Portfolio ! 
-                </div>
-                {/* RIGHT */}
-                <Rectangle 
-                    top={"6vh"}
-                    left = {"15vw"}
-                    color={"#2F6DE5"}
-                    height={"3vh"}
-                    width = {"20vw"}
-                />
-                <Rectangle 
-                    top={"11vh"}
-                    left = {"18vw"}
-                    color={"#d3d9f3"}
-                    height={"2vh"}
-                    width = {"12vw"}
-                />
-                <Rectangle 
-                    top={"15vh"}
-                    left = {"20vw"}
-                    color={"white"}
-                    height={"2vh"}
-                    width = {"12vw"}
-                />
-                <Rectangle 
-                    top={"31vh"}
-                    left = {"15vw"}
-                    color={"#2F6DE5"}
-                    height={"3vh"}
-                    width = {"20vw"}
-                />
-                <Rectangle 
-                    top={"36vh"}
-                    left = {"18vw"}
-                    color={"#d3d9f3"}
-                    height={"2vh"}
-                    width = {"12vw"}
-                />
-                <Rectangle 
-                    top={"40vh"}
-                    left = {"20vw"}
-                    color={"white"}
-                    height={"2vh"}
-                    width = {"12vw"}
-                />
-        </animated.div>
+                    /> 
+                 Bienvenue sur mon Portfolio ! 
+                </div> 
+                 <Rectangle 
+        //             top={"6vh"}
+        //             left = {"15vw"}
+        //             color={"#2F6DE5"}
+        //             height={"3vh"}
+        //             width = {"20vw"}
+        //         />
+        //         <Rectangle 
+        //             top={"11vh"}
+        //             left = {"18vw"}
+        //             color={"#d3d9f3"}
+        //             height={"2vh"}
+        //             width = {"12vw"}
+        //         />
+        //         <Rectangle 
+        //             top={"15vh"}
+        //             left = {"20vw"}
+        //             color={"white"}
+        //             height={"2vh"}
+        //             width = {"12vw"}
+        //         />
+        //         <Rectangle 
+        //             top={"31vh"}
+        //             left = {"15vw"}
+        //             color={"#2F6DE5"}
+        //             height={"3vh"}
+        //             width = {"20vw"}
+        //         />
+        //         <Rectangle 
+        //             top={"36vh"}
+        //             left = {"18vw"}
+        //             color={"#d3d9f3"}
+        //             height={"2vh"}
+        //             width = {"12vw"}
+        //         />
+        //         <Rectangle 
+        //             top={"40vh"}
+        //             left = {"20vw"}
+        //             color={"white"}
+        //             height={"2vh"}
+        //             width = {"12vw"}
+        //         />
+        // </animated.div> */}
     </> 
 );
 }
