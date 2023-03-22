@@ -32,6 +32,7 @@ function Skills(props) {
         {name : "Next.js" , src : require("../public/Next.svg")},
         {name : "Express" , src : require("../public/Express.svg")},
         {name : "Expo" , src : require("../public/Expo.svg")},
+        {name : "Symfony" , src : require("../public/Symfony.svg")},
         {name : "React.js" , src : require("../public/React.svg")},
         {name : "ReactNative" , src : require("../public/React.svg")},
     ]
@@ -82,7 +83,6 @@ function Skills(props) {
     })
 
      // variables et style d'animations
-     console.log(props.startAnimate.starting);
     const startanimate= props.startAnimate.starting  ? "-100%" : "0%";
      const animateBox = useSpring({
          from: {x : startanimate},

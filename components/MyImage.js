@@ -32,7 +32,7 @@ function MyImage(props) {
             from : {y: "-200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
-            delay:2000,
+            delay:4000,
             reset: false,
             loop : false,
     });
@@ -42,7 +42,7 @@ function MyImage(props) {
             from: { scale: "0", rotate : "0.5turn"},
             to: { scale: "1", rotate : "0turn" },
             config: { duration: 2000 },
-            delay:1000,
+            delay:3000,
             reset: false,
             loop : false,
     });

@@ -26,7 +26,7 @@ function Bienvenue() {
 
     // définition de l'animation de chaque lettre
     const springsBienvenue = useSprings(bienvenue.length, bienvenue.map((elt, i) => ({ ...animateWord, delay: 200 * i +1500 })))
-    const springsPortfolio = useSprings(portfolio.length, portfolio.map((elt, i) => ({ ...animateWord, delay: 200 * i +5000 })))
+    const springsPortfolio = useSprings(portfolio.length, portfolio.map((elt, i) => ({ ...animateWord, delay: 200 * i +4300 })))
 
     // variable d'affichage
     const display= springsBienvenue.map((animateLetter, i) => {
