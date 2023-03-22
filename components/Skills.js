@@ -96,17 +96,24 @@ return (
     <div  className={styles.container}>
         {/* TABLES */}
         <div className={styles.tableContainer}> 
-                <div  className={styles.table} style={animateBox}>
+                <div  className={styles.table}>
                     <h3>Langages et BDD</h3>
-                    {displayLangages}
+                    <div>
+                        {displayLangages}
+                    </div>
+                    
                 </div>
                 <div className={styles.table }>
                     <h3>Frameworks et librairies</h3>
-                    {displayFrameworks}
+                    <div>
+                        {displayFrameworks}
+                    </div>
                 </div>
                 <div className={styles.table }>
                     <h3>Divers</h3>
-                    {displayDivers}
+                    <div>
+                        {displayDivers}
+                    </div> 
                 </div>
         </div>
         {/* CV */}
