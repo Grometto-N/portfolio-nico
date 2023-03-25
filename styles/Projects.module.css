@@ -1,5 +1,4 @@
 .container {
-    color: white;
     display: flex;
     flex-direction: column;
     width : 100vw;
@@ -8,7 +7,6 @@
 }
 
 .explications {
-    color: #414141;
     width : 90%
 }
 

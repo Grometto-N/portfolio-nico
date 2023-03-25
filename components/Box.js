@@ -10,7 +10,7 @@ import useInView from 'react-inview-callback';
 
 import {animated, useSpring} from '@react-spring/web'
 
-import { defProjectCapsule, defProjectPerso } from '../modules/initialization';
+import {getDarkBGColors, getLightBGColors, defProjectCapsule, defAutoFormation, defProjectPerso } from '../modules/initialization';
 
 function Box(props) {
     // on utilise une reférence pour obtenir la hauteur du composant
@@ -26,7 +26,8 @@ function Box(props) {
     }, [])
 
     // style pour couleur de fond
-    const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
+    // const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
+    let styleBack = getLightBGColors();
 
     // variable d'affichage du contenu
     let display = (<div>{props.name}</div>);
@@ -34,14 +35,20 @@ function Box(props) {
     // cas partie compétences
     if(props.name === "skills"){
         display = <Skills startAnimate={props.startAnimate} />
-        styleBack.backgroundColor = "#414141";
-        styleBack.color = "#ffff";
+        styleBack = getDarkBGColors();
     }
 
     // cas partie projets formation
     if(props.name === "projetsCapsule"){
         const introduction = "Durant le bootcamp de La Capsule, nous avons codé projets web et projets mobile de manière guidée. Nous avons également réalisé seul différents challenges, deux hackathons et un projet de fin de batch en groupe. Vous trouverez ci-dessous les projets réalisés de bout en bout en partant de zéro :";
         display = (<Projects dataProjects={defProjectCapsule()}  informations={introduction} />)
+    }
+
+     // cas partie projets formation personnelle
+    if(props.name === "autoformation"){
+        const introduction = "Afin de continuer à apprendre (PHP, Symfony) ou progresser (TypeScript), j'ai développé seul des projets :";
+        display = (<Projects dataProjects={defAutoFormation()}  informations={introduction} />)
+        styleBack = getDarkBGColors();
     }
 
     // cas partie projets perso
@@ -52,8 +59,7 @@ function Box(props) {
     // cas partie contact
     if(props.name === "contact"){
         display = <Contact />
-        styleBack.backgroundColor = "#414141";
-        styleBack.color = "#ffff";
+        styleBack = getDarkBGColors();
     }
 
     // cas partie présentation perso
@@ -97,8 +103,8 @@ function Box(props) {
         loop : false,
     });
 
-const startBox  = isVisible ? 0.25 : 1;
-
+    // animation de l'ensemble de la card
+    const startBox  = isVisible ? 0.25 : 1;
     const animateBox = useSpring({
         from: {opacity : startBox   },
         to: { opacity : 1 },
@@ -112,24 +118,24 @@ const startBox  = isVisible ? 0.25 : 1;
         );
 
 
-
-        function onEntry(entry) {
+    // définition des fonction gérant l'entrée ou la sortie dans la viewport (pour déclencher les animations)
+    function onEntry(entry) {
             // console.log('Element has entered the view port', props.title);
-            SetIsVisible(true)
-          }
-      
-          function onExit(entry) {
+        SetIsVisible(true)
+    }
+
+    function onExit(entry) {
             // console.log('Element has exited the view port');
-            SetIsVisible(false)
-          }
-      
-          const options = {
-            root : 'root',
-            rootMargin : '0px',
-            threshold : 0.01
-          }
-      
-          useInView(ref, options, onEntry, onExit);
+        SetIsVisible(false)
+    }
+
+    const options = {
+        root : 'root',
+        rootMargin : '0px',
+        threshold : 0.01 // permet de déclencher quand la card commence à rentrer dans la viewport : 1%
+    }
+
+    useInView(ref, options, onEntry, onExit);
 
 // affichage du composant
 return (
