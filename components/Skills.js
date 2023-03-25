@@ -83,13 +83,13 @@ function Skills(props) {
     })
 
      // variables et style d'animations
-    const startanimate= props.startAnimate.starting  ? "-100%" : "0%";
-     const animateBox = useSpring({
-         from: {x : startanimate},
-         to: { x: "30%" },
-         config: { duration: 2000 },
-        reset : true,
-     });
+    // const startanimate= props.startAnimate.starting  ? "-100%" : "0%";
+    //  const animateBox = useSpring({
+    //      from: {x : startanimate},
+    //      to: { x: "30%" },
+    //      config: { duration: 2000 },
+    //     reset : true,
+    //  });
 
 // AFFICHAGE DU COMPOSANT
 return (

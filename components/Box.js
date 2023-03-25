@@ -4,7 +4,9 @@ import Projects from './Projects';
 import Contact from './Contact';
 
 
-import { useRef, useEffect} from 'react';
+import { useRef, useEffect, useState} from 'react';
+// import { useInView } from 'react-hook-inview'
+import useInView from 'react-inview-callback';
 
 import {animated, useSpring} from '@react-spring/web'
 
@@ -13,6 +15,10 @@ import { defProjectCapsule, defProjectPerso } from '../modules/initialization';
 function Box(props) {
     // on utilise une reférence pour obtenir la hauteur du composant
     const ref = useRef();
+
+    // état pour savoir quand lancer les animations 
+    const [isVisible,SetIsVisible] = useState(false);
+
 
     // initialisation : on transmet la hauteur au parent via la props getHeight (inverse data flow)
     useEffect(() => {
@@ -73,8 +79,9 @@ function Box(props) {
         </div>)
     }
 
+ 
     // animation du titre
-    const start = props.startAnimate.starting ? "50%" : "0%";
+    const startTitleTranslation = isVisible ? "70%" : "0%";
     // const startAnimate= useSpring({
     //     from: { transform: `translate(${start},0%)` },
     //     to: { transform: "translate(0%,0%)" },
@@ -82,20 +89,20 @@ function Box(props) {
     //     reset: props.startAnimate.canStart,
     //     loop : false,
     // });
-    const startAnimate= useSpring({
-        from: {y : start},
+    const startAnimateTitle= useSpring({
+        from: {y : startTitleTranslation},
         to: { y : "0%" },
         config: { duration: 1000 },
-        reset: props.startAnimate.canStart,
+        // reset: debut,
         loop : false,
     });
 
-    const startBox = props.startAnimate.starting ? 0.1 : 1;
-    
+const startBox  = isVisible ? 0.25 : 1;
+
     const animateBox = useSpring({
-        from: {opacity : startBox },
+        from: {opacity : startBox   },
         to: { opacity : 1 },
-        config: { duration: 2500 },
+        config: { duration: 3000 },
         // reset: props.startAnimate.canStart,
         loop : false,
     });
@@ -104,12 +111,32 @@ function Box(props) {
         styleBack,animateBox
         );
 
+
+
+        function onEntry(entry) {
+            // console.log('Element has entered the view port', props.title);
+            SetIsVisible(true)
+          }
+      
+          function onExit(entry) {
+            // console.log('Element has exited the view port');
+            SetIsVisible(false)
+          }
+      
+          const options = {
+            root : 'root',
+            rootMargin : '0px',
+            threshold : 0.01
+          }
+      
+          useInView(ref, options, onEntry, onExit);
+
 // affichage du composant
 return (
     // <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
     <animated.div  ref={ref} className={styles.container}  style = {componentStyles} id={props.name}>
         {/* Titre */}
-         <animated.div  className={styles.title}  style={startAnimate} >
+         <animated.div  className={styles.title}  style={startAnimateTitle} >
           <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div> 
         {/* Contenu */}

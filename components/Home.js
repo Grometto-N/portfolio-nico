@@ -6,6 +6,9 @@ import MyImage from './MyImage';
 
 import { useRef, useEffect, useState } from 'react';
 
+
+// import { useInView } from 'react-hook-inview'
+
 import { getPlan, initComponentHeight, initTriggerLevel, initStartTranslation } from '../modules/initialization';
 
 
@@ -64,30 +67,30 @@ const getHeight =(height,componentName) =>{
       // cas de base : l'utilisateur a scrollé
       if(window.scrollY>0){
            barPurcent = (window.scrollY + componentsHeight["contact"])/sum * 100;
-          textTranslationTempory.presentation.starting = true;
-          textTranslationTempory.presentation.canStart = false;
+          // textTranslationTempory.presentation.starting = true;
+          // textTranslationTempory.presentation.canStart = false;
       }
 
       // l'utilisateur arrive aux compétences
-      if(window.scrollY > triggerLevelY.skills){
+    //   if(window.scrollY > triggerLevelY.skills){
 
-          textTranslationTempory.skills.starting = true;
-          textTranslationTempory.skills.canStart = false;
-      }
+    //       textTranslationTempory.skills.starting = true;
+    //       textTranslationTempory.skills.canStart = false;
+    //   }
 
-      // l'utilisateur arrive aux projets de formations
-      if(window.scrollY > triggerLevelY.projetsCapsule){
-        textTranslationTempory.projetsCapsule.starting = true;
-        textTranslationTempory.projetsCapsule.canStart = false;
-    }
+    //   // l'utilisateur arrive aux projets de formations
+    //   if(window.scrollY > triggerLevelY.projetsCapsule){
+    //     textTranslationTempory.projetsCapsule.starting = true;
+    //     textTranslationTempory.projetsCapsule.canStart = false;
+    // }
 
-    // l'utilisateur arrive aux projets perso
-    if(window.scrollY > triggerLevelY.projetsPerso){
-      textTranslationTempory.projetsPerso.starting = true;
-      textTranslationTempory.projetsPerso.canStart = false;
-    }
+    // // l'utilisateur arrive aux projets perso
+    // if(window.scrollY > triggerLevelY.projetsPerso){
+    //   textTranslationTempory.projetsPerso.starting = true;
+    //   textTranslationTempory.projetsPerso.canStart = false;
+    // }
 
-    // l'utilisateur arrive au niveau du contact 
+    // // l'utilisateur arrive au niveau du contact 
     if(window.scrollY > triggerLevelY.contact){
         // on pousse la barre de progression jusqu'à la fin 
         if(window.scrollY > triggerLevelY.contact + componentsHeight["contact"]/2){
@@ -117,8 +120,9 @@ const getHeight =(height,componentName) =>{
 
 
  // variable d'affichage des différentes parties hors header fixe et contact
- const display = plan.map(elt =>{
-  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
+  const display = plan.map(elt =>{
+  // return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
+  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} />
 })
 
 
