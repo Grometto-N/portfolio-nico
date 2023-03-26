@@ -24,6 +24,7 @@
     margin-left: 1vw;
     margin-right: 1vw;
     text-decoration: none;
+    width: 80px;
   }
 
   .item:hover{
@@ -36,8 +37,6 @@
     justify-content: flex-end;
     border-radius : 10px;
     border: #2F6DE5 solid 2px;
-    height: 30px;
-    
   }
 
   .items{
@@ -47,6 +46,7 @@
     align-items: center;
     border-radius : 10px;
     margin: 0px;
+    height: 40px;
   }
 
   .bar {

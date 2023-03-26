@@ -54,7 +54,8 @@ const getHeight =(height,componentName) =>{
       // calcul de la hauteur totale des composants (sum) 
       let sum = 0;
       for(let key in componentsHeight){
-        if(key !== "Header" && key !== "contact")
+        // if(key !== "Header" && key !== "contact")
+        if(key !== "Header" && key !== "image" )
           sum = sum + componentsHeight[key];
       }
 
@@ -65,39 +66,35 @@ const getHeight =(height,componentName) =>{
 
       // cas de base : l'utilisateur a scrollé
       if(window.scrollY>0){
-           barPurcent = (window.scrollY + componentsHeight["contact"])/sum * 100;
-          // textTranslationTempory.presentation.starting = true;
-          // textTranslationTempory.presentation.canStart = false;
+           barPurcent = (window.scrollY)/triggerLevelY.skills *16.7;
       }
 
       // l'utilisateur arrive aux compétences
-    //   if(window.scrollY > triggerLevelY.skills){
-
-    //       textTranslationTempory.skills.starting = true;
-    //       textTranslationTempory.skills.canStart = false;
-    //   }
-
-    //   // l'utilisateur arrive aux projets de formations
-    //   if(window.scrollY > triggerLevelY.projetsCapsule){
-    //     textTranslationTempory.projetsCapsule.starting = true;
-    //     textTranslationTempory.projetsCapsule.canStart = false;
-    // }
-
-    // // l'utilisateur arrive aux projets perso
-    // if(window.scrollY > triggerLevelY.projetsPerso){
-    //   textTranslationTempory.projetsPerso.starting = true;
-    //   textTranslationTempory.projetsPerso.canStart = false;
-    // }
-
-    // // l'utilisateur arrive au niveau du contact 
-    if(window.scrollY > triggerLevelY.contact){
-        // on pousse la barre de progression jusqu'à la fin 
-        if(window.scrollY > triggerLevelY.contact + componentsHeight["contact"]/2){
-          barPurcent = 99;
+      if(window.scrollY > triggerLevelY.skills){
+          barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *16.6 + 16.6;
         }
 
-      // textTranslationTempory.contact.starting = true;
-      // textTranslationTempory.contact.canStart = false;
+      // l'utilisateur arrive aux projets de formations
+      if(window.scrollY > triggerLevelY.projetsCapsule){
+          barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *16.6 + 16.6*2;
+      }
+
+      // l'utilisateur arrive aux projets de formations
+      if(window.scrollY > triggerLevelY.autoformation){
+        barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *16.6 + 16.6*3;
+    }
+
+
+      // l'utilisateur arrive aux projets perso
+      if(window.scrollY > triggerLevelY.projetsPerso){
+          barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *16.6 + 16.6*4;
+     }
+
+     console.log(window.scrollY);
+     console.log(sum);
+    // // l'utilisateur arrive au niveau du contact 
+    if(window.scrollY > triggerLevelY.contact){
+      barPurcent = (window.scrollY -triggerLevelY.contact)/(sum-triggerLevelY.contact) *16.6 + 16.6*5;
     }
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
