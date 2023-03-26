@@ -4,9 +4,11 @@ import Tag from "./Tag"
 
 import {animated, useSpring} from '@react-spring/web'
 
+import {getDarkBGColors, getLightBGColors} from '../modules/initialization';
+
 function TextHover(props) {
     // récupération des données sur le projet 
-    const {title, message, skillsFront, skillsBack,link, gitFront, gitBack} = props.datasProject;
+    const {title, message, skillsFront, skillsBack,link, gitFront, gitBack, animateCard} = props.datasProject;
 
     // affichage des tags du front-end
     const displayTagsFront = skillsFront.map((elt,i)=>{
@@ -19,20 +21,21 @@ function TextHover(props) {
     })
 
 // gestion de l'affichage du composant avec un style conditionnel
-const isVisible = {visibility : props.isVisible ? "visible": "hidden" }
+const direction = {rotateY : animateCard ? "180deg": "0deg" }
+const colors =  animateCard ? getLightBGColors() : getDarkBGColors();
 
-const start = props.isVisible ? 0 : 0.9;
-    const animateBox = useSpring({
-        from: {opacity : start },
-        to: { opacity: 0.9 },
+// animation d'apparition
+const animateBox = useSpring({
+        from: {opacity : 0 },
+        to: { opacity: 0.9},
         config: { duration: 1000 },
-        reset: true,
-        loop : false,
+        delay : animateCard ? 400: 0,
     });
 
+    // groupement des différents styles à appliquer (animation, couleurs...)
     var componentStyles = Object.assign({}, 
-        isVisible,animateBox
-        );
+        animateBox, direction, colors
+    );
 
 // Affichage conditionnel du nom du dépôt gitHub
 const repoGitName = gitBack? "GitHub Front-End" : "Dépôt GitHub";
@@ -59,12 +62,14 @@ return (
                 Vers le site
             </a>
             </button>}
-            <div className={styles.gitContainer}> 
+            <div className={styles.gitContainer}>
+                 {/* lien vers front-end ou lien unique  */}
                 <div className={styles.linkGit}>
-                {repoGitName }: <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={styles.gitLink}>{gitFront}</a>
+                {repoGitName }: <a target="_blank" href={gitFront} rel="noopener noreferrer"  className={animateCard ? styles.gitLinkCard : styles.gitLink} >{gitFront}</a>
                 </div>
+                {/* lien vers backend s'il existe */}
                 {gitBack && <div className={styles.linkGit}>
-                    GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={styles.gitLink}>{gitBack}</a>
+                    GitHub Back-End: <a target="_blank" href={gitBack} rel="noopener noreferrer"  className={animateCard ? styles.gitLinkCard : styles.gitLink}>{gitBack}</a>
                 </div>}
             </div>
         </div>
