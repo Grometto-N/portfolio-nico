@@ -87,7 +87,7 @@ function Box(props) {
 
  
     // animation du titre
-    const startTitleTranslation = isVisible ? "70%" : "0%";
+    const startTranslation = isVisible ? "20%" : "0%";
     // const startAnimate= useSpring({
     //     from: { transform: `translate(${start},0%)` },
     //     to: { transform: "translate(0%,0%)" },
@@ -95,26 +95,27 @@ function Box(props) {
     //     reset: props.startAnimate.canStart,
     //     loop : false,
     // });
-    const startAnimateTitle= useSpring({
-        from: {y : startTitleTranslation},
+    const animateTranslation= useSpring({
+        from: {y : startTranslation},
         to: { y : "0%" },
-        config: { duration: 1000 },
+        config: { duration: 1500 },
         // reset: debut,
         loop : false,
     });
 
     // animation de l'ensemble de la card
-    const startBox  = isVisible ? 0.25 : 1;
+    const startBox  = isVisible ? 0.1 : 1;
     const animateBox = useSpring({
         from: {opacity : startBox   },
         to: { opacity : 1 },
-        config: { duration: 3000 },
-        // reset: props.startAnimate.canStart,
+        // opacity : isVisible ? 1 : 0,
+        config: { duration: 1500 },
+
         loop : false,
     });
 
     var componentStyles = Object.assign({}, 
-        styleBack,animateBox
+        styleBack,animateBox, 
         );
 
 
@@ -142,11 +143,14 @@ return (
     // <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
     <animated.div  ref={ref} className={styles.container}  style = {componentStyles} id={props.name}>
         {/* Titre */}
-         <animated.div  className={styles.title}  style={startAnimateTitle} >
+         {/* <animated.div  className={styles.title}  style={startAnimateTitle} > */}
+         <animated.div  className={styles.title}  style={animateTranslation} >
           <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div> 
         {/* Contenu */}
+        <animated.div  style={animateTranslation} >
         { display}
+        </animated.div> 
     {/* </div> */}
     </animated.div> 
 );
