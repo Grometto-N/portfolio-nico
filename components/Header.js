@@ -21,7 +21,6 @@ function Header(props) {
     props.getHeight(ref.current.scrollHeight, "Header");
   }, [])
 
-  console.log(props.bar)
   // affichage du composant
   return (
     <Nav ref={ref} className={styles.container}>
