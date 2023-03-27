@@ -44,19 +44,22 @@ const getHeight =(height,componentName) =>{
       // définition des hauteurs scrollées déclenchant les animations
       const triggerLevelY = initTriggerLevel(); // les données initiales sont dans le module initialization
       let levelY = 0;
+      let sumBis = 0;
       for(let key in componentsHeight){
         if(Object.keys(triggerLevelY).some(elt=> elt === key)){
           triggerLevelY[key] = levelY ;
           levelY = levelY + componentsHeight[key];
         }
+        sumBis = sumBis + triggerLevelY[key];
       }
 
       // calcul de la hauteur totale des composants (sum) 
       let sum = 0;
       for(let key in componentsHeight){
         // if(key !== "Header" && key !== "contact")
-        if(key !== "Header" && key !== "image" )
+        if(key !== "Header" && key !== "image"){
           sum = sum + componentsHeight[key];
+        }
       }
 
       // initialisation de textTranslationTempory qui permet de déclencher les animations quand on scolle
@@ -71,30 +74,34 @@ const getHeight =(height,componentName) =>{
 
       // l'utilisateur arrive aux compétences
       if(window.scrollY > triggerLevelY.skills){
-          barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *16.6 + 16.6;
+          barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *16.7 + 16.7;
         }
 
       // l'utilisateur arrive aux projets de formations
       if(window.scrollY > triggerLevelY.projetsCapsule){
-          barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *16.6 + 16.6*2;
+          barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *16.7 + 16.7*2;
       }
 
       // l'utilisateur arrive aux projets de formations
       if(window.scrollY > triggerLevelY.autoformation){
-        barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *16.6 + 16.6*3;
+        barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *16.8 + 16.8*3;
     }
 
 
       // l'utilisateur arrive aux projets perso
       if(window.scrollY > triggerLevelY.projetsPerso){
-          barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *16.6 + 16.6*4;
+          barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *16.8 + 16.8*4;
      }
 
+     console.log(window.scrollMaxY);
      console.log(window.scrollY);
-     console.log(sum);
+    //  console.log(sum);
+    //  console.log(sumBis);
+    //  console.log(triggerLevelY);
+    //  console.log(componentsHeight);
     // // l'utilisateur arrive au niveau du contact 
-    if(window.scrollY > triggerLevelY.contact){
-      barPurcent = (window.scrollY -triggerLevelY.contact)/(sum-triggerLevelY.contact) *16.6 + 16.6*5;
+    if(window.scrollY >triggerLevelY.contact){
+      barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *16.6 + 16.5*5;
     }
 
     // on met à jour les états pour la bar de progression et pour lancer les animations

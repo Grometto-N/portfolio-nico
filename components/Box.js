@@ -96,9 +96,10 @@ function Box(props) {
     //     loop : false,
     // });
     const animateTranslation= useSpring({
-        from: {y : startTranslation},
-        to: { y : "0%" },
-        config: { duration: 1500 },
+        // from: {y : startTranslation},
+        // to: { y : "0%" },
+        y : isVisible ? "0%" : "10%",
+        config: { duration: 1000 },
         // reset: debut,
         loop : false,
     });
@@ -106,9 +107,9 @@ function Box(props) {
     // animation de l'ensemble de la card
     const startBox  = isVisible ? 0.1 : 1;
     const animateBox = useSpring({
-        from: {opacity : startBox   },
-        to: { opacity : 1 },
-        // opacity : isVisible ? 1 : 0,
+        // from: {opacity : startBox   },
+        // to: { opacity : 1 },
+        opacity : isVisible ? 1 : 0,
         config: { duration: 1500 },
 
         loop : false,
