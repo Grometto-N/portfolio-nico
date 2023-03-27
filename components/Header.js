@@ -21,11 +21,14 @@ function Header(props) {
     props.getHeight(ref.current.scrollHeight, "Header");
   }, [])
 
+  console.log(props.bar)
   // affichage du composant
   return (
     <Nav ref={ref} className={styles.container}>
     <h3 className={styles.name}>Portfolio Nicolas Grometto</h3>
-        <div className={styles.menu} ><div className={styles.items}>{menuItems}</div><div className={styles.bar} style={{width: props.bar}}></div></div>
+        <div className={styles.menu} >
+          <div className={styles.items}>{menuItems}</div><div className={styles.bar} style={{width: props.bar}}></div>
+        </div>
   </Nav>
   );
 }
