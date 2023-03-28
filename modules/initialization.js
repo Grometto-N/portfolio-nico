@@ -17,25 +17,7 @@ function getPlan() {
       ]
 }
 
-// fonction permettant de renvoyer un objet reprenant les clés name du plan et initialisant la hauteur à 0
-function initComponentHeight(){
-    const objToReturn = {Header : 0, image : 0};
 
-    for(let item of getPlan()){
-        objToReturn[item.name] = 0;
-    }
-    return objToReturn;
-}
-
-// fonction permettant de renvoyer un objet reprenant les clés name du plan et initialisant la hauteur à 0
-function initTriggerLevel(){
-    const objToReturn = {};
-
-    for(let item of getPlan()){
-        objToReturn[item.name] = 0;
-    }
-    return objToReturn;
-}
 
 // fonction permettant renvoyer un objet reprenant les clés name du plan  et initialisant les informations d'animation
 function initStartTranslation(){
@@ -112,4 +94,4 @@ function defProjectPerso(){
     return arrayToReturn;
 }
 
-module.exports = {getDarkBGColors, getLightBGColors, getPlan , initComponentHeight, initTriggerLevel, initStartTranslation, defProjectCapsule, defAutoFormation, defProjectPerso};
+module.exports = {getDarkBGColors, getLightBGColors, getPlan , initStartTranslation, defProjectCapsule, defAutoFormation, defProjectPerso};

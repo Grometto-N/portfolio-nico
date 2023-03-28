@@ -22,6 +22,7 @@ function Box(props) {
 
     // initialisation : on transmet la hauteur au parent via la props getHeight (inverse data flow)
     useEffect(() => {
+        console.log(ref.current);
         props.getHeight(ref.current.scrollHeight, props.name);
     }, [])
 

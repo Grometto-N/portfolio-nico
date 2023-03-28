@@ -9,7 +9,9 @@ import { useRef, useEffect, useState } from 'react';
 
 // import { useInView } from 'react-hook-inview'
 
-import { getPlan, initComponentHeight, initTriggerLevel, initStartTranslation } from '../modules/initialization';
+import { getPlan} from '../modules/initialization';
+
+import {initComponentHeight, initTriggerLevel} from '../modules/progressBar';
 
 
 function Home() {
@@ -32,7 +34,7 @@ const getHeight =(height,componentName) =>{
         const temporyComponentsHeight =  componentsHeight;
         temporyComponentsHeight[componentName] = height;
         setComponentsHeight(temporyComponentsHeight);
-    }
+}
 
 
   // initialisation d'une fonction gérant la longueur de la scrollBar pour la barre 
@@ -66,7 +68,7 @@ const getHeight =(height,componentName) =>{
       // const textTranslationTempory = startTextTranslation;
       // initialisation de barPurcent pour gérer l'avancée de la barre de progression du header fixe
       let barPurcent = 0;
-
+      const partSize = 100/getPlan().length; 
       // cas de base : l'utilisateur a scrollé
       if(window.scrollY>0){
            barPurcent = (window.scrollY)/triggerLevelY.skills *16.7;
@@ -74,23 +76,23 @@ const getHeight =(height,componentName) =>{
 
       // l'utilisateur arrive aux compétences
       if(window.scrollY > triggerLevelY.skills){
-          barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *16.7 + 16.7;
+          barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *partSize + partSize;
         }
 
       // l'utilisateur arrive aux projets de formations
       if(window.scrollY > triggerLevelY.projetsCapsule){
-          barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *16.7 + 16.7*2;
+          barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *partSize + partSize*2;
       }
 
       // l'utilisateur arrive aux projets de formations
       if(window.scrollY > triggerLevelY.autoformation){
-        barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *16.8 + 16.8*3;
+        barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *partSize+ partSize*3;
     }
 
 
       // l'utilisateur arrive aux projets perso
       if(window.scrollY > triggerLevelY.projetsPerso){
-          barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *16.8 + 16.8*4;
+          barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
      }
 
      console.log(window.scrollMaxY);
@@ -98,10 +100,15 @@ const getHeight =(height,componentName) =>{
     //  console.log(sum);
     //  console.log(sumBis);
     //  console.log(triggerLevelY);
-    //  console.log(componentsHeight);
+     console.log(componentsHeight);
     // // l'utilisateur arrive au niveau du contact 
     if(window.scrollY >triggerLevelY.contact){
-      barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *16.6 + 16.5*5;
+        if(window.scrollMaxY){
+            barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.95;
+        }else{
+          barPurcent = (window.scrollY -triggerLevelY.contact)/(sum - triggerLevelY.contact) *partSize + partSize*5;
+        }
+      
     }
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
