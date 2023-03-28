@@ -5,9 +5,8 @@ import Contact from './Contact';
 
 
 import { useRef, useEffect, useState} from 'react';
-// import { useInView } from 'react-hook-inview'
-import useInView from 'react-inview-callback';
 
+import useInView from 'react-inview-callback';
 import {animated, useSpring} from '@react-spring/web'
 
 import {getDarkBGColors, getLightBGColors, defProjectCapsule, defAutoFormation, defProjectPerso } from '../modules/initialization';
@@ -22,7 +21,6 @@ function Box(props) {
 
     // initialisation : on transmet la hauteur au parent via la props getHeight (inverse data flow)
     useEffect(() => {
-        console.log(ref.current);
         props.getHeight(ref.current.scrollHeight, props.name);
     }, [])
 
@@ -99,8 +97,8 @@ function Box(props) {
     const animateTranslation= useSpring({
         // from: {y : startTranslation},
         // to: { y : "0%" },
-        y : isVisible ? "0%" : "10%",
-        config: { duration: 1000 },
+        y : isVisible ? "0%" : "15%",
+        config: { duration: 1500 },
         // reset: debut,
         loop : false,
     });
@@ -110,9 +108,8 @@ function Box(props) {
     const animateBox = useSpring({
         // from: {opacity : startBox   },
         // to: { opacity : 1 },
-        opacity : isVisible ? 1 : 0,
+        // opacity : isVisible ? 1 : 0,
         config: { duration: 1500 },
-
         loop : false,
     });
 
