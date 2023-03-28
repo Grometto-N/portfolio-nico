@@ -46,7 +46,7 @@ function Project(props) {
     const options = {
         root : 'root',
         rootMargin : '0px',
-        threshold : 0.3 // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
+        threshold : 0.5 // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
     }
 
     const appearanceAnimate = useSpring({
@@ -54,12 +54,14 @@ function Project(props) {
         config: { duration : 2000},
     })
 
+
+
     useInView(ref, options, onEntry, onExit);
     
 
     // regroupement des styles
     var componentStyles = Object.assign({}, 
-        appearanceAnimate,animateBox, 
+        appearanceAnimate,animateBox
         );
 
 

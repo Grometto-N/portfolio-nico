@@ -85,19 +85,11 @@ function Box(props) {
     }
 
  
-    // animation du titre
-    const startTranslation = isVisible ? "20%" : "0%";
-    // const startAnimate= useSpring({
-    //     from: { transform: `translate(${start},0%)` },
-    //     to: { transform: "translate(0%,0%)" },
-    //     config: { duration: 1000 },
-    //     reset: props.startAnimate.canStart,
-    //     loop : false,
-    // });
+    // animation : effet de translation
     const animateTranslation= useSpring({
         // from: {y : startTranslation},
         // to: { y : "0%" },
-        y : isVisible ? "0%" : "15%",
+        y : isVisible ? "0%" : "20%",
         config: { duration: 1500 },
         // reset: debut,
         loop : false,
