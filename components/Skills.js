@@ -15,7 +15,9 @@ import Circle from './Circle';
 
 function Skills(props) {
     // on utilise une reférence pour obtenir la hauteur du composant
-    const ref = useRef();
+    const refLangagesTable = useRef();
+    const refFrameworkksTable = useRef();
+    const refDiversTable = useRef();
 
     // état pour savoir quand lancer les animations 
     const [isVisible,SetIsVisible] = useState(false);
@@ -75,8 +77,9 @@ function Skills(props) {
         config: { duration : 1500},
     })
 
-    useInView(ref, options, onEntry, onExit);
-
+    useInView(refLangagesTable, options, onEntry, onExit);
+    useInView(refFrameworkksTable, options, onEntry, onExit);
+    useInView(refDiversTable, options, onEntry, onExit);
     
     // variable d'affichage des langages chaque ligne contient le logo + le nom
     const displayLangages = langages.map(elt=>{
@@ -117,19 +120,19 @@ return (
     <div  className={styles.container}>
         {/* TABLES */}
         <div className={styles.tableContainer} > 
-                <animated.div  className={styles.table} ref={ref} style = {appearanceAnimate}>
+                <animated.div  className={styles.table} ref={refLangagesTable} style = {appearanceAnimate}>
                     <h3>Langages et BDD</h3>
                     <div>
                         {displayLangages}
                     </div>
                 </animated.div>
-                <animated.div className={styles.table } ref={ref} style = {appearanceAnimate}>
+                <animated.div className={styles.table } ref={refFrameworkksTable} style = {appearanceAnimate}>
                     <h3>Frameworks et librairies</h3>
                     <div>
                         {displayFrameworks}
                     </div>
                 </animated.div>
-                <animated.div className={styles.table } ref={ref} style = {appearanceAnimate}>
+                <animated.div className={styles.table } ref={refDiversTable} style = {appearanceAnimate}>
                     <h3>Divers</h3>
                     <div>
                         {displayDivers}

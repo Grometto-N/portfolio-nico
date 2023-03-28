@@ -26,6 +26,10 @@
     width: 100%;
 }
 
+.link{
+    text-decoration: none;
+}
+
 .logo{
     height: 30px;
     margin: 4px;

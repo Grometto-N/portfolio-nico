@@ -16,8 +16,8 @@ function Contact() {
             <div className={styles.links}>
                 <p>Vous pouvez également me retrouver sur :</p>
                 <div>
-                <a target="_blank" href="https://linkedin.com/in/nicolas-grometto-77a755246" rel="noopener noreferrer"  ><FontAwesomeIcon icon={faLinkedin} className={styles.logo}  /></a>
-                <a target="_blank" href="https://github.com/Grometto-N?tab=repositories" rel="noopener noreferrer"  >  <FontAwesomeIcon icon={faGithub}  className={styles.logo}/></a> 
+                <a target="_blank" href="https://linkedin.com/in/nicolas-grometto-77a755246" rel="noopener noreferrer" className={styles.link}  ><FontAwesomeIcon icon={faLinkedin} className={styles.logo}  /></a>
+                <a target="_blank" href="https://github.com/Grometto-N?tab=repositories" rel="noopener noreferrer"  className={styles.link} >  <FontAwesomeIcon icon={faGithub}  className={styles.logo}/></a> 
                 </div>
             </div>
         </div>
