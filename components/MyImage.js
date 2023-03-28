@@ -35,7 +35,7 @@ function MyImage() {
     const frameAppearanceWelcome= useSpring({
         from : {opacity: 0},
         to : {opacity:1},
-        delay:5500,
+        delay:5000,
     });
 
     // animation du cadre autour du bienvenue
@@ -43,7 +43,7 @@ function MyImage() {
             from : {y: "-200%"},
             to : {y:"0%"},
             config: { duration: 2000 },
-            delay:5500,
+            delay:5000,
     });
 
     // const pictureAnimate= useSpring({
