@@ -9,13 +9,15 @@
     padding: 0px;
   }
 
-  .presentation{
-    padding-left: 2vw;
-    padding-right: 1vw;
-  }
 
   .titleText {
     font-size: 30px;
+  }
+
+  .title{
+    /* background-color: red; */
+    margin : 0px;
+    height : 10vh
   }
 
   /* If the screen size is 901px wide or more */

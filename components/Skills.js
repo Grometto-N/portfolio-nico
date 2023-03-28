@@ -67,7 +67,7 @@ function Skills(props) {
     const options = {
         root : 'root',
         rootMargin : '0px',
-        threshold : 0.5 // permet de déclencher quand la card commence à rentrer dans la viewport : 15%
+        threshold : 0.3 // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
     }
 
     const appearanceAnimate = useSpring({
@@ -116,27 +116,26 @@ function Skills(props) {
 return (
     <div  className={styles.container}>
         {/* TABLES */}
-        <animated.div className={styles.tableContainer} ref={ref} style = {appearanceAnimate}> 
-                <div  className={styles.table}>
+        <div className={styles.tableContainer} > 
+                <animated.div  className={styles.table} ref={ref} style = {appearanceAnimate}>
                     <h3>Langages et BDD</h3>
                     <div>
                         {displayLangages}
                     </div>
-                    
-                </div>
-                <div className={styles.table }>
+                </animated.div>
+                <animated.div className={styles.table } ref={ref} style = {appearanceAnimate}>
                     <h3>Frameworks et librairies</h3>
                     <div>
                         {displayFrameworks}
                     </div>
-                </div>
-                <div className={styles.table }>
+                </animated.div>
+                <animated.div className={styles.table } ref={ref} style = {appearanceAnimate}>
                     <h3>Divers</h3>
                     <div>
                         {displayDivers}
                     </div> 
-                </div>
-        </animated.div>
+                </animated.div>
+        </div>
         {/* CV */}
         <p>Vous trouverez davantage de précisions sur mes formations et compétences : </p>
         <div className={styles.cv} 

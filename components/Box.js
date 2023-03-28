@@ -86,13 +86,19 @@ function Box(props) {
 
  
     // animation : effet de translation
+    const animateTranslationTitle= useSpring({
+        // from: {y : startTranslation},
+        // to: { y : "0%" },
+        y : isVisible ? "0%" : "35%",
+        config: { duration: 1000 },
+        delay : 200,
+    });
+
     const animateTranslation= useSpring({
         // from: {y : startTranslation},
         // to: { y : "0%" },
-        y : isVisible ? "0%" : "20%",
-        config: { duration: 1500 },
-        // reset: debut,
-        loop : false,
+        y : isVisible ? "0%" : "10%",
+        config: { duration: 1200 },
     });
 
     // animation de l'ensemble de la card
@@ -131,19 +137,19 @@ function Box(props) {
 
 // affichage du composant
 return (
-    // <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
-    <animated.div  ref={ref} className={styles.container}  style = {componentStyles} id={props.name}>
+     <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
+     {/* <animated.div  ref={ref} className={styles.container}  style = {componentStyles} id={props.name}> */}
         {/* Titre */}
          {/* <animated.div  className={styles.title}  style={startAnimateTitle} > */}
-         <animated.div  className={styles.title}  style={animateTranslation} >
+         <animated.div  className={styles.title}  style={animateTranslationTitle} >
           <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div> 
         {/* Contenu */}
         <animated.div  style={animateTranslation} >
         { display}
         </animated.div> 
-    {/* </div> */}
-    </animated.div> 
+    </div>
+    // {/* </animated.div>  */}
 );
 }
 
