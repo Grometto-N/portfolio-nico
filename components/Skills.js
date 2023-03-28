@@ -69,7 +69,7 @@ function Skills(props) {
     const options = {
         root : 'root',
         rootMargin : '0px',
-        threshold : 0.3 // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
+        threshold : 0.25 // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
     }
 
     const appearanceAnimate = useSpring({
@@ -83,7 +83,7 @@ function Skills(props) {
     
     // variable d'affichage des langages chaque ligne contient le logo + le nom
     const displayLangages = langages.map(elt=>{
-        return(<div  className={styles.row} key={elt}> <Image src = {elt.src} 
+        return(<div  className={styles.row} key={elt.name}> <Image src = {elt.src} 
                                                     alt ={elt.name} 
                                                     className={styles.image}
                                                     width={"25vw"}
@@ -94,7 +94,7 @@ function Skills(props) {
 
     // variable d'affichage des frameworks chaque ligne contient le logo + le nom
     const displayFrameworks = frameworks.map(elt=>{
-        return(<div  className={styles.row} key={elt} ><Image src = {elt.src} 
+        return(<div  className={styles.row} key={elt.name} ><Image src = {elt.src} 
                                                     alt ={elt.name} 
                                                     className={styles.image}
                                                     width={"25vw"}
@@ -105,7 +105,7 @@ function Skills(props) {
 
     // variable d'affichage des informations dans la table divers chaque ligne contient le logo + le nom
     const displayDivers = divers.map(elt=>{
-        return(<div  className={styles.row} key={elt} ><Image src = {elt.src} 
+        return(<div  className={styles.row} key={elt.name} ><Image src = {elt.src} 
                                                 alt ={elt.name} 
                                                 className={styles.image}
                                                 width={"25vw"}

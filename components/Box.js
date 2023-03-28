@@ -25,8 +25,7 @@ function Box(props) {
     }, [])
 
     // style pour couleur de fond
-    // const styleBack = {backgroundColor : "#d3d9f3", color : "#414141"};
-    let styleBack = getLightBGColors();
+    let styleColors = getLightBGColors();
 
     // variable d'affichage du contenu
     let display = (<div>{props.name}</div>);
@@ -34,7 +33,7 @@ function Box(props) {
     // cas partie compétences
     if(props.name === "skills"){
         display = <Skills startAnimate={props.startAnimate} />
-        styleBack = getDarkBGColors();
+        styleColors = getDarkBGColors();
     }
 
     // cas partie projets formation
@@ -45,9 +44,9 @@ function Box(props) {
 
      // cas partie projets formation personnelle
     if(props.name === "autoformation"){
-        const introduction = "Afin de continuer à apprendre (PHP, Symfony) ou progresser (TypeScript), j'ai développé seul des projets :";
+        const introduction = "Afin de continuer à apprendre (PHP, Symfony) ou progresser (TypeScript), j'ai développé seul plusieurs projets :";
         display = (<Projects dataProjects={defAutoFormation()}  informations={introduction} />)
-        styleBack = getDarkBGColors();
+        styleColors = getDarkBGColors();
     }
 
     // cas partie projets perso
@@ -58,7 +57,7 @@ function Box(props) {
     // cas partie contact
     if(props.name === "contact"){
         display = <Contact />
-        styleBack = getDarkBGColors();
+        styleColors = getDarkBGColors();
     }
 
     // cas partie présentation perso
@@ -77,9 +76,9 @@ function Box(props) {
                 mais le bootcamp auquel j'ai participé m'a permis de découvrir le HTML, le CSS et la librairie React.
             </p>
             <p>
-                Mon expérience dans l'enseignement et mon cursus mathématiques me permettent d'apprendre rapidement et de manière autonome.
+                Mon expérience dans l'enseignement, ma formation universitaire en mathématiques et ma passion pour le code me permettent d'apprendre rapidement et de manière autonome.
                 Je suis cependant conscient du chemin qu'il me reste à parcourir dans un métier en constante évolution et j'espère trouver un poste qui me permettra de 
-                continuer à monter en compétences.
+                continuer à monter en compétences, explorer de nouvelles technologies.
             </p>
         </div>)
     }
@@ -87,33 +86,26 @@ function Box(props) {
  
     // animation : effet de translation
     const animateTranslationTitle= useSpring({
-        // from: {y : startTranslation},
-        // to: { y : "0%" },
         y : isVisible ? "0%" : "35%",
         config: { duration: 1000 },
         delay : 200,
     });
 
     const animateTranslation= useSpring({
-        // from: {y : startTranslation},
-        // to: { y : "0%" },
         y : isVisible ? "0%" : "10%",
         config: { duration: 1200 },
     });
 
     // animation de l'ensemble de la card
-    const startBox  = isVisible ? 0.1 : 1;
-    const animateBox = useSpring({
-        // from: {opacity : startBox   },
-        // to: { opacity : 1 },
-        // opacity : isVisible ? 1 : 0,
-        config: { duration: 1500 },
-        loop : false,
-    });
+    // const startBox  = isVisible ? 0.1 : 1;
+    // const animateBox = useSpring({
+    //     // from: {opacity : startBox   },
+    //     // to: { opacity : 1 },
+    //     // opacity : isVisible ? 1 : 0,
+    //     config: { duration: 1500 },
+    //     loop : false,
+    // });
 
-    var componentStyles = Object.assign({}, 
-        styleBack,animateBox, 
-        );
 
 
     // définition des fonction gérant l'entrée ou la sortie dans la viewport (pour déclencher les animations)
@@ -137,10 +129,8 @@ function Box(props) {
 
 // affichage du composant
 return (
-     <div ref={ref} className={styles.container}  style = {styleBack} id={props.name}>
-     {/* <animated.div  ref={ref} className={styles.container}  style = {componentStyles} id={props.name}> */}
+     <div ref={ref} className={styles.container}  style = {styleColors} id={props.name}>
         {/* Titre */}
-         {/* <animated.div  className={styles.title}  style={startAnimateTitle} > */}
          <animated.div  className={styles.title}  style={animateTranslationTitle} >
           <h2 className={styles.titleText} >{props.title}</h2>
         </animated.div> 
@@ -149,7 +139,6 @@ return (
         { display}
         </animated.div> 
     </div>
-    // {/* </animated.div>  */}
 );
 }
 
