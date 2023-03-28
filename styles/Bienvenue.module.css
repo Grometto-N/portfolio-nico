@@ -1,4 +1,4 @@
-.picture {
+.container {
     position: absolute;
     top: 40vh;
     left : 50vw;
@@ -22,7 +22,7 @@
 
    /* If the screen size is 901px wide or more */
 @media screen and (min-width: 701px) {
-    .picture {
+    .container {
         flex-direction: row;
     }
     .welcome {
@@ -34,12 +34,13 @@
 @media screen and (max-width: 700px) {
 
     .welcome {
-        font-size: 20px;
+        font-size: 24px;
     }
 
-    .picture {
+    .container {
         flex-direction: column;
-        left: 55vw;
+        left: 40vw;
+        top : 49vh;
     }
 }
 

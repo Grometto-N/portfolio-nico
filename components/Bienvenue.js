@@ -25,9 +25,9 @@ function Bienvenue() {
     }
 
     // définition de l'animation de chaque lettre
-    const delaySecondPart = 1500 + bienvenue.length*180;
-    const springsBienvenue = useSprings(bienvenue.length, bienvenue.map((elt, i) => ({ ...animateWord, delay: 180 * i +1500 })))
-    const springsPortfolio = useSprings(portfolio.length, portfolio.map((elt, i) => ({ ...animateWord, delay: 180 * i +4300 })))
+    const delaySecondPart = 2500 + bienvenue.length*180;
+    const springsBienvenue = useSprings(bienvenue.length, bienvenue.map((elt, i) => ({ ...animateWord, delay: 180 * i +2500 })))
+    const springsPortfolio = useSprings(portfolio.length, portfolio.map((elt, i) => ({ ...animateWord, delay: 180 * i +delaySecondPart })))
 
     // variable d'affichage
     const display= springsBienvenue.map((animateLetter, i) => {
@@ -47,7 +47,7 @@ function Bienvenue() {
 
 // AFFICHAGE DU COMPOSANT
 return (
-    <div className={styles.picture} > 
+    <div className={styles.container} > 
         <div>{display}</div> <div>{displayPorfolio}</div>
     </div>
 );

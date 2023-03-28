@@ -74,22 +74,6 @@
   color : white;
 }
 
-/* .welcome{
-  position: absolute;
-  top: 20vh;
-  left : 5vw;
-  color: white;
-} */
-
-/* .picture {
-  position: absolute;
-  top: 40vh;
-  left : 50vw;
-  border-radius: 5px;
-  height : 50vh;
-  width : 40vw;
-  background-color: red;
-} */
 
 
  /* If the screen size is 901px wide or more */
@@ -133,17 +117,26 @@
 
   .name {
     font-size: 14px;
+    top: 24vh;
   }
   .firstname {
     font-size: 14px;
+    top: 20vh;
+  }
+  .links{
+    top : 32vh;
+    left : 17vw;
   }
   .dev {
+    top : 36vh;
     font-size: 14px;
   }
   .devWeb {
+    top : 40vh;
     font-size: 14px;
   }
   .devJR {
+    top : 44vh;
     font-size: 14px;
   }
   .logo {
@@ -152,13 +145,18 @@
   }
   .frame {
     width : 170px;
+    top : 19vh;
+    height : 35vh;
   }
   .welcome {
     font-size: 17px;
   }
 
   .frameWelcome {
-    left : 55vw;
+    left : 31vw;
+    top : 63vh;
+    height : 22vh;
+    width : 58vw;
   }
 
   .picture {
@@ -167,21 +165,4 @@
 
 }
 
-/* .anim-enter {
-  opacity: 0.01;
-}
-
-.anim-enter.anim-enter-active {
-  opacity: 1;
-  transition: opacity 5s ease-in;
-}
-
-.anim-leave {
-  opacity: 1;
-}
-
-.anim-leave.anim-leave-active {
-  opacity: 0.01;
-  transition: opacity 3s ease-in;
-} */
 
