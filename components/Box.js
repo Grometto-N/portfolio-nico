@@ -56,7 +56,7 @@ function Box(props) {
 
     // cas partie contact
     if(props.name === "contact"){
-        display = <Contact />
+        display = <Contact info={props.info} />
         styleColors = getDarkBGColors();
     }
 

@@ -41,7 +41,7 @@ const getHeight =(height,componentName) =>{
   useEffect(() => {
     const handleScroll = event => {
       // la hauteur scrollée sera assigné à l'état scrollY
-      setYScroll(window.scrollY);
+      setYScroll(window.scrollMaxY);
 
       // définition des hauteurs scrollées déclenchant les animations
       const triggerLevelY = initTriggerLevel(); // les données initiales sont dans le module initialization
@@ -126,7 +126,7 @@ const getHeight =(height,componentName) =>{
  // variable d'affichage des différentes parties hors header fixe et contact
   const display = plan.map(elt =>{
   // return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
-  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} />
+  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} />
 })
 
 

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 
-function Contact() {
+function Contact(props) {
   // affichage du contenu du composant
   return (
     <div className={styles.container}>
@@ -11,7 +11,8 @@ function Contact() {
            {/* Mail */}
             <div className={styles.mail}>
                 <p >Vous pouvez me contacter à l'adresse mail suivante :</p> 
-                <p>nicolas.grometto@gmail.com</p></div> 
+                <p>nicolas.grometto@gmail.com</p>
+                <p>{props.info}</p></div> 
              {/* Liens  */}
             <div className={styles.links}>
                 <p>Vous pouvez également me retrouver sur :</p>
