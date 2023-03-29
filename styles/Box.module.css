@@ -6,7 +6,6 @@
     flex-direction: column;
     width : 100vw;
     margin : 0px;
-    padding: 0px;
   }
 
 
@@ -23,7 +22,8 @@
   /* If the screen size is 901px wide or more */
 @media screen and (min-width: 801px) {
   .container{
-    padding-left: 0vw;
+    padding-left: 5vw;
+    padding-right: 1vw;
     padding-bottom: 2%;
   }
 }
