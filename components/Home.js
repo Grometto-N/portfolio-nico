@@ -25,6 +25,7 @@ function Home() {
   
 // définition et initialisation des états
   const [yScroll, setYScroll] = useState(0); // pour obtenir la longueur scrollée
+  const [essai, setEssai] = useState(0);
   const [barProgress, setBarProgress] = useState(0); // pour définir la longueur de la barre de progression
   const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
   // const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
@@ -41,7 +42,7 @@ const getHeight =(height,componentName) =>{
   useEffect(() => {
     const handleScroll = event => {
       // la hauteur scrollée sera assigné à l'état scrollY
-      setYScroll(window.scrollMaxY);
+      setYScroll(window.scrollY);
 
       // définition des hauteurs scrollées déclenchant les animations
       const triggerLevelY = initTriggerLevel(); // les données initiales sont dans le module initialization
@@ -104,6 +105,7 @@ const getHeight =(height,componentName) =>{
           barPurcent = 99.5
       
     }
+    setEssai(triggerLevelY.contact)
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
       setBarProgress(barPurcent)
@@ -126,7 +128,7 @@ const getHeight =(height,componentName) =>{
  // variable d'affichage des différentes parties hors header fixe et contact
   const display = plan.map(elt =>{
   // return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
-  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} />
+  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
 })
 
 
