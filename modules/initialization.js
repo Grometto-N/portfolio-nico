@@ -40,6 +40,7 @@ function defProjectCapsule(){
     const messageTicket = "1er Hackathon de la formation : à partir d'une maquette sous forme de vidéo, nous avons codé de zéro un site de réservation de billets";
     const messageWordle = "Travailler les notions apprises en HTML et CSS pour coder de zéro une reproduction du jeu à partir de consignes et d'une vidéo";
     const messageTweet = "2ème Hackathon de la formation : à partir d'une maquette sous forme de vidéo, nous avons codé de zéro une version simplifiée de tweeteur";
+   const messageContags = "Projet de fin de batch réalisé en équipe,nous étions 4, d'une application mobile de gestion de contacts. Possibilité de taguer ses contacts et de faire des recherches grâce à ces tags."
     const animateCard = false;
 
     arrayToReturn.push(defProject("TicketHack", messageTicket, ["HTML", "CSS","JavaScript", "DOM", "Node.js"], ["Node.js", "Express","MongoDB"], "TicketHack.png", 
@@ -54,6 +55,10 @@ function defProjectCapsule(){
                                  "https://hackatweet-frontend-omega.vercel.app/", "https://github.com/Grometto-N/Hackatweet-Frontend"
                                  , "https://github.com/Grometto-N/Hackatweet-Backend",animateCard)); 
     
+    arrayToReturn.push(defProject("Contags", messageContags, ["JavaScript", "ReactNative", "Expo", "Redux"], ["Node.js", "Express", "MongoDB"], "Contags.png", 
+                                 null, "https://github.com/Grometto-N/contags-frontend"
+                                 , "https://github.com/Grometto-N/contags-backend",animateCard)); 
+    
 
     return arrayToReturn;
 }
@@ -64,7 +69,7 @@ function defAutoFormation(){
     const messageMorning = "Un projet de formation refait avec TypeScript pour le front-end. Site appelant une API externe pour obtenir des articles, SignIn/SignUP et possibilité de masquer les articles";
     const messageWeatherApp = "Apprentissage autodidacte de Symfony5 en refaisant entièrement un projet de formation. Site appelant une API externe pour obtenir la météo d'une ville saisie. SignIn/SignUP et enregistrement des favoris en BDD";
     const messageMorningSymfony = "Suite de mon auto-formation en créant une API Rest avec Symfony et adaptation du front-end React. SignIn/SignUp avec utilisation de JWT, appel à une API externe pour afficher des articles ";
-   const messageCommerce = "Coder un site de e-commerce avec panier, recherche de produit, interface administrateur et compte utilisateur";
+   const messageCommerce = "Coder un site de e-commerce avec panier, recherche de produits, interface administrateur et compte utilisateur";
     const animateCard = true;
 
     arrayToReturn.push(defProject("MorningNews TypeScript", messageMorning, ["TypeScript", "React", "CSS", "Next.js","Node.js", "Redux"], ["Node.js", "Express", "MongoDB", "API externe"], "MorningNews.png", 
