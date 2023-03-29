@@ -111,7 +111,7 @@ const isMobile = width <= 768;
           barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
       }
 
-      if(window.scrollY > triggerLevelY.projetsPerso + 50 && isMobile){
+      if(window.scrollY > triggerLevelY.projetsPerso && isMobile){
         barPurcent =99.5;
     }
 
