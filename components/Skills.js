@@ -55,6 +55,7 @@ function Skills(props) {
         {name : "Figma" ,  src : require("../public/Figma.svg")},
         {name : "Trello" ,  src : require("../public/Trello.svg")},
         {name : "LaTeX" ,  src : require("../public/latex.svg")},
+        {name : "Postman" ,  src : require("../public/Postman.svg")},
     ]
 
     // animation d'apparition
