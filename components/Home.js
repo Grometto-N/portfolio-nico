@@ -105,7 +105,7 @@ const getHeight =(height,componentName) =>{
           barPurcent = 99.5
       
     }
-    setEssai(triggerLevelY.contact)
+    setEssai(triggerLevelY.projetsPerso)
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
       setBarProgress(barPurcent)
