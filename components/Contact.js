@@ -5,6 +5,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 function Contact(props) {
   // affichage du contenu du composant
+  const aff = props.essai ? "true": "false";
   return (
     <div className={styles.container}>
         <div className={styles.infos}>
@@ -13,7 +14,7 @@ function Contact(props) {
                 <p >Vous pouvez me contacter à l'adresse mail suivante :</p> 
                 <p>nicolas.grometto@gmail.com</p>
                 <p>{props.info}</p>
-                <p>{props.essai}</p></div> 
+                <p>{aff}</p></div> 
              {/* Liens  */}
             <div className={styles.links}>
                 <p>Vous pouvez également me retrouver sur :</p>

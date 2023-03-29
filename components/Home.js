@@ -37,6 +37,21 @@ const getHeight =(height,componentName) =>{
         setComponentsHeight(temporyComponentsHeight);
 }
 
+const [width, setWidth] = useState();
+
+
+useEffect(() => {
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+}
+
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+        window.removeEventListener('resize', handleWindowSizeChange);
+    }
+}, []);
+
+const isMobile = width <= 768;
 
   // initialisation d'une fonction gérant la longueur de la scrollBar pour la barre 
   useEffect(() => {
@@ -128,7 +143,7 @@ const getHeight =(height,componentName) =>{
  // variable d'affichage des différentes parties hors header fixe et contact
   const display = plan.map(elt =>{
   // return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
-  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
+  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={isMobile} />
 })
 
 
