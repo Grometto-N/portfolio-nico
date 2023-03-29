@@ -64,19 +64,24 @@ function defAutoFormation(){
     const messageMorning = "Un projet de formation refait avec TypeScript pour le front-end. Site appelant une API externe pour obtenir des articles, SignIn/SignUP et possibilité de masquer les articles";
     const messageWeatherApp = "Apprentissage autodidacte de Symfony5 en refaisant entièrement un projet de formation. Site appelant une API externe pour obtenir la météo d'une ville saisie. SignIn/SignUP et enregistrement des favoris en BDD";
     const messageMorningSymfony = "Suite de mon auto-formation en créant une API Rest avec Symfony et adaptation du front-end React. SignIn/SignUp avec utilisation de JWT, appel à une API externe pour afficher des articles ";
+   const messageCommerce = "Coder un site de e-commerce avec panier, recherche de produit, interface administrateur et compte utilisateur";
     const animateCard = true;
 
     arrayToReturn.push(defProject("MorningNews TypeScript", messageMorning, ["TypeScript", "React", "CSS", "Next.js","Node.js", "Redux"], ["Node.js", "Express", "MongoDB", "API externe"], "MorningNews.png", 
                                  "https://morningnews-xi.vercel.app/", "https://github.com/Grometto-N/morningnews"
                                  , "https://github.com/Grometto-N/morningnews-backend",animateCard));
 
-    arrayToReturn.push(defProject("WeatherApp", messageWeatherApp, ["HTML", "CSS","Symfony5"],["PHP", "MariaDB/MySQL", "API externe", "Symfony5"], "WeatherApp.png", 
+    arrayToReturn.push(defProject("WeatherApp", messageWeatherApp, ["HTML", "CSS","TWIG"],["PHP", "MariaDB/MySQL", "API externe", "Symfony 5"], "WeatherApp.png", 
                                  null, "https://github.com/Grometto-N/weatherapp"
                                  , null,animateCard));
 
     arrayToReturn.push(defProject("MorningNews API Symfony", messageMorningSymfony, ["TypeScript", "React", "CSS", "Next.js", "Redux"],["PHP", "MariaDB/MySQL", "API externe", "Symfony5", "JWT"], "MorningNews2.png", 
                                  null, "https://github.com/Grometto-N/front-morningnews", "https://github.com/Grometto-N/api-morningnews"
                                  ,animateCard));
+
+     arrayToReturn.push(defProject("Site e-commerce", messageCommerce, ["Twig", "Boostrap", "CSS"],["PHP", "MariaDB/MySQL", "Symfony5", "Fixtures"], "Commerce.png", 
+                                 null, "https://github.com/Grometto-N/commercial", null,animateCard));
+
     return arrayToReturn;
 }
 
