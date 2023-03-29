@@ -93,18 +93,12 @@ const getHeight =(height,componentName) =>{
       // l'utilisateur arrive aux projets perso
       if(window.scrollY > triggerLevelY.projetsPerso){
           barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
-     }
+      }
 
-     console.log(window.scrollMaxY);
-    //  console.log(window.scrollY);
-     console.log(sum);
-    // //  console.log(sumBis);
-      console.log(triggerLevelY);
-     console.log(componentsHeight);
-    // // l'utilisateur arrive au niveau du contact 
+    // l'utilisateur arrive au niveau du contact 
     if(window.scrollY >triggerLevelY.contact){
           barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.95;
-          if(window.scrollY >triggerLevelY.contact+100){
+          if(window.scrollY >triggerLevelY.contact+40){
             barPurcent = 99.5;
           }
       
