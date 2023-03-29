@@ -143,7 +143,7 @@ const isMobile = width <= 768;
  // variable d'affichage des différentes parties hors header fixe et contact
   const display = plan.map(elt =>{
   // return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
-  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={isMobile} />
+  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
 })
 
 
