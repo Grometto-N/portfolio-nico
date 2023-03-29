@@ -146,7 +146,7 @@ const isMobile = width <= 768;
   return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
 })
 
-const bar = isMobile ? `${barProgress}vw`: `${barProgress}%`;
+const bar = isMobile ? `${barProgress}px`: `${barProgress}%`;
 // AFFICHAGE DES COMPOSANTS
   return (
     <div className={styles.main} >
