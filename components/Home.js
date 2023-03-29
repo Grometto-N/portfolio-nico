@@ -112,7 +112,7 @@ const isMobile = width <= 768;
       }
 
       if(window.scrollY > triggerLevelY.projetsPerso && isMobile){
-        barPurcent =150;
+        barPurcent =500;
     }
 
     // l'utilisateur arrive au niveau du contact 
@@ -146,7 +146,7 @@ const isMobile = width <= 768;
   return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
 })
 
-const bar = isMobile ? `${barProgress}px`: `${barProgress}%`;
+const bar = isMobile ? `${barProgress}vw`: `${barProgress}%`;
 // AFFICHAGE DES COMPOSANTS
   return (
     <div className={styles.main} >
