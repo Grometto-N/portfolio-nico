@@ -112,7 +112,7 @@ const isMobile = width <= 768;
       }
 
       if(window.scrollY > triggerLevelY.projetsPerso && isMobile){
-        barPurcent =100;
+        barPurcent =150;
     }
 
     // l'utilisateur arrive au niveau du contact 
