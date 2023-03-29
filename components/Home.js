@@ -97,10 +97,11 @@ const getHeight =(height,componentName) =>{
 
     // l'utilisateur arrive au niveau du contact 
     if(window.scrollY >triggerLevelY.contact){
-          barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.95;
-          if(window.scrollY >triggerLevelY.contact+40){
-            barPurcent = 99.5;
-          }
+          // barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.95;
+          // if(window.scrollY >triggerLevelY.contact+40){
+          //   barPurcent = 99.5;
+          // }
+          barPurcent = 99.5
       
     }
 
