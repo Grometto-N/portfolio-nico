@@ -13,8 +13,9 @@ function Contact(props) {
             <div className={styles.mail}>
                 <p >Vous pouvez me contacter à l'adresse mail suivante :</p> 
                 <p>nicolas.grometto@gmail.com</p>
-                <p>{props.info}</p>
-                <p>{aff}</p></div> 
+                {/* <p>{props.info}</p> */}
+                {/* <p>{aff}</p> */}
+                </div> 
              {/* Liens  */}
             <div className={styles.links}>
                 <p>Vous pouvez également me retrouver sur :</p>
