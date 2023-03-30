@@ -53,7 +53,7 @@ useEffect(() => {
     }
 }, []);
 
-const isMobile = width <= 768;
+const isMobile = width <= 700;
 
   // initialisation d'une fonction gérant la longueur de la scrollBar pour la barre 
   useEffect(() => {
@@ -120,8 +120,8 @@ const isMobile = width <= 768;
           barPurcent = window.scrollMaxY ? (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96 :99.5;
     }
 
-    if(window.scrollY > triggerLevelY.projetsPerso + 100 && isMobile){
-      barPurcent =84.6;
+    if(window.scrollY > triggerLevelY.projetsPerso + 50 && isMobile){
+      barPurcent =100;
     }
     
     setEssai(triggerLevelY.projetsPerso)
