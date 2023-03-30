@@ -121,7 +121,7 @@ const isMobile = width <= 700;
     }
 
     if(window.scrollY > triggerLevelY.projetsPerso  && isMobile){
-      barPurcent =5000;
+      barPurcent =50000;
     }
     
     setEssai(triggerLevelY.projetsPerso)
