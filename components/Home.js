@@ -28,7 +28,6 @@ function Home() {
   const [yScroll, setYScroll] = useState(0); // pour obtenir la longueur scrollée
   const [essai, setEssai] = useState(0);
   const [barProgress, setBarProgress] = useState(0); // pour définir la longueur de la barre de progression
-  const [pix, setPix] = useState(0)
   const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
   // const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
 
@@ -128,8 +127,6 @@ const isMobile = width <= 700;
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
       setBarProgress(barPurcent)
-      setPix(`${barPurcent*2}px`)
-      // setStartTextTranslation(textTranslationTempory)
     };
 
     // initialisation : on met une écoute sur la scroll bar
