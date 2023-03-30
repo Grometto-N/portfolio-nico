@@ -115,10 +115,16 @@ const isMobile = width <= 768;
         barPurcent =100;
       }
 
+      console.log(window.scrollY);
+      console.log(sum);
+      console.log(triggerLevelY);
+
+
     // l'utilisateur arrive au niveau du contact 
-    if(window.scrollY >triggerLevelY.contact){
+    if(window.scrollMaxY  && window.scrollY >triggerLevelY.contact){
           barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96;
-      
+    }else{
+        barPurcent = (window.scrollY -triggerLevelY.contact)/(sum - triggerLevelY.contact) *partSize + partSize*4.96;
     }
     setEssai(triggerLevelY.projetsPerso)
 
