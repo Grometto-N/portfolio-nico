@@ -111,12 +111,12 @@ const isMobile = width <= 768;
           barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
       }
 
-      if(window.scrollY > triggerLevelY.projetsPerso && isMobile){
-        barPurcent =500;
-    }
+      // if(window.scrollY > triggerLevelY.projetsPerso && isMobile){
+      //   barPurcent =500;
+      // }
 
     // l'utilisateur arrive au niveau du contact 
-    if(window.scrollY >triggerLevelY.contact && !isMobile){
+    if(window.scrollY >triggerLevelY.contact){
           barPurcent = (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96;
       
     }

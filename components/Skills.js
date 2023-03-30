@@ -141,7 +141,7 @@ return (
                 </animated.div>
         </div>
         {/* CV */}
-        <p>Vous trouverez davantage de précisions sur mes formations et compétences : </p>
+        <p className={styles.text} >Vous trouverez davantage de précisions sur mes formations et compétences : </p>
         <div className={styles.cv} 
             onMouseEnter={() => setIsHover(true)} 
             onMouseLeave={() => setIsHover(false)}

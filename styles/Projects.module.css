@@ -8,6 +8,7 @@
 
 .explications {
     width : 90%
+
 }
 
 .cards {
@@ -29,12 +30,17 @@
 
 @media screen and (max-width: 800px) {
     .container{
-        padding: 0px;
+        padding-left: 0vw;
         width : 110vw;
+        padding-right: 2vw;
     }
 
     .informations{
         margin-left: 2vw;
-        padding-left: 4vw;
+        padding-left: 4vw; 
+    }
+
+    .explications{
+        padding-left: 2vw;
     }
 }
