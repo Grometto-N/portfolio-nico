@@ -12,6 +12,7 @@ import { useRef, useEffect, useState } from 'react';
 import { getPlan} from '../modules/initialization';
 
 import {initComponentHeight, initTriggerLevel} from '../modules/progressBar';
+import { is } from '@react-spring/shared';
 
 
 function Home() {
@@ -27,6 +28,7 @@ function Home() {
   const [yScroll, setYScroll] = useState(0); // pour obtenir la longueur scrollée
   const [essai, setEssai] = useState(0);
   const [barProgress, setBarProgress] = useState(0); // pour définir la longueur de la barre de progression
+  const [pix, setPix] = useState(0)
   const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
   // const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
 
@@ -111,23 +113,22 @@ const isMobile = width <= 768;
           barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
       }
 
-      if(window.scrollY > triggerLevelY.projetsPerso && isMobile){
-        barPurcent =100;
-      }
-
-      console.log(window.scrollY);
-      console.log(sum);
-      console.log(triggerLevelY);
 
 
     // l'utilisateur arrive au niveau du contact 
-    if(window.scrollY >triggerLevelY.contact){
+    if(window.scrollY >triggerLevelY.contact && !isMobile){
           barPurcent = window.scrollMaxY ? (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96 :99.5;
     }
+
+    if(window.scrollY > triggerLevelY.projetsPerso + 100 && isMobile){
+      barPurcent =84.6;
+    }
+    
     setEssai(triggerLevelY.projetsPerso)
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
       setBarProgress(barPurcent)
+      setPix(`${barPurcent*2}px`)
       // setStartTextTranslation(textTranslationTempory)
     };
 
@@ -150,7 +151,8 @@ const isMobile = width <= 768;
   return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
 })
 
-const bar = isMobile ? `${barProgress}vw`: `${barProgress}%`;
+// const bar = isMobile ? `${barProgress}`: `${barProgress}`;
+const bar = isMobile ? `${barProgress*4.3}px`: `${barProgress}%`;
 // AFFICHAGE DES COMPOSANTS
   return (
     <div className={styles.main} >
