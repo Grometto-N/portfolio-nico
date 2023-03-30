@@ -89,7 +89,7 @@ const isMobile = width <= 700;
       const partSize = 100/getPlan().length; 
       // cas de base : l'utilisateur a scrollé
       if(window.scrollY>0){
-           barPurcent = (window.scrollY)/triggerLevelY.skills *16.7;
+           barPurcent = (window.scrollY)/triggerLevelY.skills *partSize;
       }
 
       // l'utilisateur arrive aux compétences
@@ -120,8 +120,8 @@ const isMobile = width <= 700;
           barPurcent = window.scrollMaxY ? (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96 :99.5;
     }
 
-    if(window.scrollY > triggerLevelY.projetsPerso + 50 && isMobile){
-      barPurcent =200;
+    if(window.scrollY > triggerLevelY.projetsPerso  && isMobile){
+      barPurcent =1000;
     }
     
     setEssai(triggerLevelY.projetsPerso)
