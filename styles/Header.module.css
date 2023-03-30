@@ -19,12 +19,11 @@
   }
   
   .item {
-    /* color : #414141; */
     color: #2F6DE5;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin-left: 2vw;
+    margin-right: 0vw;
     text-decoration: none;
-    width: 80px;
+    width: 100px;
   }
 
   .item:hover{
@@ -42,11 +41,12 @@
   .items{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     border-radius : 10px;
     margin: 0px;
     height: 40px;
+    /* width :100vw; */
   }
 
   .bar {
@@ -69,6 +69,7 @@
   .menu{
     margin-right: 3vw;
     margin-left: 0px;
+    width:45vw;
   }
 }
 
@@ -83,14 +84,15 @@
   }
 
   .menu{
-    margin-right: 0px;
-    margin-left: 10px;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    width: 95vw;
   }
 
   .item{
-    margin-left: 5px;
-    /* margin-right: 5px; */
-    width: 53px;
+    /* margin-left: 2vw; */
+    margin-right: 2px;
+    width: 60px;
     display: flex;
     justify-content : center;
     /* padding-left: 5px;
