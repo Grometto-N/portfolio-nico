@@ -31,7 +31,8 @@
 
 @media screen and (max-width: 800px) {
   .container{
-      padding-left: 0vw;
+      padding-left: 2vw;
+      padding-right: 2vw;
   }
   
 }
