@@ -7,12 +7,8 @@ import MyImage from './MyImage';
 import { useRef, useEffect, useState } from 'react';
 
 
-// import { useInView } from 'react-hook-inview'
-
 import { getPlan} from '../modules/initialization';
-
-import {initComponentHeight, initTriggerLevel} from '../modules/progressBar';
-import { is } from '@react-spring/shared';
+import {initComponentHeight, initTriggerLevel, progressBarLength} from '../modules/progressBar';
 
 
 function Home() {
@@ -26,7 +22,6 @@ function Home() {
   
 // définition et initialisation des états
   const [yScroll, setYScroll] = useState(0); // pour obtenir la longueur scrollée
-  const [essai, setEssai] = useState(0);
   const [barProgress, setBarProgress] = useState(0); // pour définir la longueur de la barre de progression
   const [componentsHeight, setComponentsHeight] = useState(initComponentHeight()) // pour obtenir la hauteur de chaque composant principal
   // const [startTextTranslation, setStartTextTranslation] = useState((initStartTranslation)) // pour savoir si l'animation du texte a déjà été lancé + un boolean de déclenchement
@@ -42,9 +37,10 @@ const [width, setWidth] = useState();
 
 
 useEffect(() => {
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-}
+    
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
 
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
@@ -73,60 +69,59 @@ const isMobile = width <= 700;
       }
 
       // calcul de la hauteur totale des composants (sum) 
-      let sum = 0;
-      for(let key in componentsHeight){
-        // if(key !== "Header" && key !== "contact")
-        if(key !== "Header" && key !== "image"){
-          sum = sum + componentsHeight[key];
-        }
-      }
+      // let sum = 0;
+      // for(let key in componentsHeight){
+      //   // if(key !== "Header" && key !== "contact")
+      //   if(key !== "Header" && key !== "image"){
+      //     sum = sum + componentsHeight[key];
+      //   }
+      // }
 
       // initialisation de textTranslationTempory qui permet de déclencher les animations quand on scolle
       // const textTranslationTempory = startTextTranslation;
       // initialisation de barPurcent pour gérer l'avancée de la barre de progression du header fixe
-      let barPurcent = 0;
-      const partSize = 100/getPlan().length; 
-      // cas de base : l'utilisateur a scrollé
-      if(window.scrollY>0){
-           barPurcent = (window.scrollY)/triggerLevelY.skills *partSize;
-      }
+    //   let barPurcent = 0;
+    //   const partSize = 100/getPlan().length; 
+    //   // cas de base : l'utilisateur a scrollé
+    //   if(window.scrollY>0){
+    //        barPurcent = (window.scrollY)/triggerLevelY.skills *partSize;
+    //   }
 
-      // l'utilisateur arrive aux compétences
-      if(window.scrollY > triggerLevelY.skills){
-          barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *partSize + partSize;
-        }
+    //   // l'utilisateur arrive aux compétences
+    //   if(window.scrollY > triggerLevelY.skills){
+    //       barPurcent = (window.scrollY-triggerLevelY.skills)/(triggerLevelY.projetsCapsule-triggerLevelY.skills) *partSize + partSize;
+    //     }
 
-      // l'utilisateur arrive aux projets de formations
-      if(window.scrollY > triggerLevelY.projetsCapsule){
-          barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *partSize + partSize*2;
-      }
+    //   // l'utilisateur arrive aux projets de formations
+    //   if(window.scrollY > triggerLevelY.projetsCapsule){
+    //       barPurcent = (window.scrollY -triggerLevelY.projetsCapsule)/(triggerLevelY.autoformation -triggerLevelY.projetsCapsule) *partSize + partSize*2;
+    //   }
 
-      // l'utilisateur arrive aux projets de formations
-      if(window.scrollY > triggerLevelY.autoformation){
-        barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *partSize+ partSize*3;
-    }
-
-
-      // l'utilisateur arrive aux projets perso
-      if(window.scrollY > triggerLevelY.projetsPerso){
-          barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
-      }
+    //   // l'utilisateur arrive aux projets de formations
+    //   if(window.scrollY > triggerLevelY.autoformation){
+    //     barPurcent = (window.scrollY -triggerLevelY.autoformation)/(triggerLevelY.projetsPerso-triggerLevelY.autoformation) *partSize+ partSize*3;
+    // }
 
 
+    //   // l'utilisateur arrive aux projets perso
+    //   if(window.scrollY > triggerLevelY.projetsPerso){
+    //       barPurcent = (window.scrollY -triggerLevelY.projetsPerso)/(triggerLevelY.contact-triggerLevelY.projetsPerso) *partSize+ partSize*4;
+    //   }
 
-    // l'utilisateur arrive au niveau du contact 
-    if(window.scrollY >triggerLevelY.contact && !isMobile){
-          barPurcent = window.scrollMaxY ? (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96 :99.5;
-    }
 
-    if(window.scrollY > triggerLevelY.projetsPerso  && isMobile){
-      barPurcent =50000;
-    }
+
+    // // l'utilisateur arrive au niveau du contact 
+    // if(window.scrollY >triggerLevelY.contact && !isMobile){
+    //       barPurcent = window.scrollMaxY ? (window.scrollY -triggerLevelY.contact)/(window.scrollMaxY - triggerLevelY.contact) *partSize + partSize*4.96 :99.5;
+    // }
+
+    // if(window.scrollY > triggerLevelY.projetsPerso  && isMobile){
+    //   barPurcent =50000;
+    // }
     
-    setEssai(triggerLevelY.projetsPerso)
 
     // on met à jour les états pour la bar de progression et pour lancer les animations
-      setBarProgress(barPurcent)
+      setBarProgress(progressBarLength(triggerLevelY,isMobile));
     };
 
     // initialisation : on met une écoute sur la scroll bar
@@ -145,7 +140,7 @@ const isMobile = width <= 700;
  // variable d'affichage des différentes parties hors header fixe et contact
   const display = plan.map(elt =>{
   // return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} startAnimate={startTextTranslation[elt.name]}/>
-  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} essai={essai} />
+  return <Box key = {elt.name} getHeight={getHeight} title ={elt.title} name={elt.name} info={yScroll} />
 })
 
 // const bar = isMobile ? `${barProgress}`: `${barProgress}`;
