@@ -46,14 +46,6 @@ function MyImage() {
             delay:5000,
     });
 
-    // const pictureAnimate= useSpring({
-    //         from: { scale: "0", rotate : "0.5turn"},
-    //         to: { scale: "1", rotate : "0turn" },
-    //         config: { duration: 2000 },
-    //         delay:3000,
-    //         reset: false,
-    //         loop : false,
-    // });
 
      // regroupement des styles pour les rectangles
      var componentFrameName = Object.assign({}, 

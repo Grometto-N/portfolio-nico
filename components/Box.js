@@ -96,16 +96,6 @@ function Box(props) {
         config: { duration: 1200 },
     });
 
-    // animation de l'ensemble de la card
-    // const startBox  = isVisible ? 0.1 : 1;
-    // const animateBox = useSpring({
-    //     // from: {opacity : startBox   },
-    //     // to: { opacity : 1 },
-    //     // opacity : isVisible ? 1 : 0,
-    //     config: { duration: 1500 },
-    //     loop : false,
-    // });
-
 
 
     // définition des fonction gérant l'entrée ou la sortie dans la viewport (pour déclencher les animations)

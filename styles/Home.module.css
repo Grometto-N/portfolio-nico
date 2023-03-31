@@ -21,11 +21,14 @@
 
 
 .headerImage {
-  /* grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 13; */
   display: flex;
   height: 100vh;
   padding-top: 80px;
 }
+
+/* @media screen and (max-width: 700px) {
+  .headerImage {
+    padding-top: 0px;
+  }
+
+} */

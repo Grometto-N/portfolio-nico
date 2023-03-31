@@ -29,15 +29,16 @@ function Bienvenue() {
     const springsBienvenue = useSprings(bienvenue.length, bienvenue.map((elt, i) => ({ ...animateWord, delay: 150 * i +2500 })))
     const springsPortfolio = useSprings(portfolio.length, portfolio.map((elt, i) => ({ ...animateWord, delay: 150 * i +delaySecondPart })))
 
-    // variable d'affichage
-    const display= springsBienvenue.map((animateLetter, i) => {
+    // variables d'affichage : on coupe en deux parties en cas de retour à la ligne (sur smartphone)
+    const displayStarting= springsBienvenue.map((animateLetter, i) => {
         return (
             <animated.span key={`char${i}`} style={animateLetter} className={styles.welcome}>
                     {bienvenue[i] === ' ' ? <>&nbsp;</> : bienvenue[i]} 
             </animated.span>
         )
     });
-    const displayPorfolio = springsPortfolio.map((animateLetter, i) => {
+
+    const displayEnd= springsPortfolio.map((animateLetter, i) => {
         return (
             <animated.span key={`char${i}`} style={animateLetter} className={styles.welcome}>
                     {portfolio[i] === ' ' ? <>&nbsp;</> : portfolio[i]} 
@@ -48,7 +49,7 @@ function Bienvenue() {
 // AFFICHAGE DU COMPOSANT
 return (
     <div className={styles.container} > 
-        <div>{display}</div> <div>{displayPorfolio}</div>
+        <div>{displayStarting}</div> <div>{displayEnd}</div>
     </div>
 );
 }

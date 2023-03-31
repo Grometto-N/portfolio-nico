@@ -34,6 +34,7 @@ export default function Home() {
 
   // utilisation du hook pour savoir si la taille de l'écran est celui d'un smartphone
   const isMobile = useScreenWidth();
+  // const isMobile =true;
 
   // utilisation du hook pour avoir la longueur de la progress bar
   const barProgress = useProgressBar(componentsHeight,isMobile);
@@ -49,7 +50,7 @@ const bar = isMobile ? `${barProgress*4.3}px`: `${barProgress}%`;
   return (
     <div className={styles.main} >
         {/* HEADER FIXE */}
-        < Header getHeight={getHeight} dataHeader={plan} bar={bar}/>
+        < Header getHeight={getHeight} dataHeader={plan} bar={bar} isMobile={isMobile}/>
         <div className={styles.container} >
           {/* Photo */}
           <div ref={refImage} className={styles.headerImage}>
