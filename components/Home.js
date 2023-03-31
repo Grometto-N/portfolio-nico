@@ -10,6 +10,7 @@ import { useRef, useEffect, useState } from 'react';
 import { getPlan} from '../modules/initialization';
 import {initComponentHeight, getPartLevelY, progressBarLength} from '../modules/progressBar';
 
+import useScreenWidth from '../hooks/useIsMobile';
 
 function Home() {
 
@@ -32,22 +33,9 @@ const getHeight =(height,componentName) =>{
         setComponentsHeight(temporyComponentsHeight);
 }
 
-const [width, setWidth] = useState();
+// utilisation du hook pour savoir si la taille de l'écran est celui d'un smartphone
+const isMobile = useScreenWidth();
 
-
-useEffect(() => {
-    
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-        window.removeEventListener('resize', handleWindowSizeChange);
-    }
-}, []);
-
-const isMobile = width <= 700;
 
   // initialisation d'une fonction gérant la longueur de la scrollBar pour la barre 
   useEffect(() => {
