@@ -8,7 +8,7 @@ import { useRef, useEffect, useState } from 'react';
 
 
 import { getPlan} from '../modules/initialization';
-import {initComponentHeight, initTriggerLevel, progressBarLength} from '../modules/progressBar';
+import {initComponentHeight, getPartLevelY, progressBarLength} from '../modules/progressBar';
 
 
 function Home() {
@@ -51,36 +51,17 @@ const isMobile = width <= 700;
 
   // initialisation d'une fonction gérant la longueur de la scrollBar pour la barre 
   useEffect(() => {
-    
+
     const handleScroll = event => {
-      // définition des hauteurs scrollées déclenchant les animations
-      const triggerLevelY = initTriggerLevel(); // les données initiales sont dans le module initialization
-      let levelY = 0;
-      for(let key in componentsHeight){
-        if(Object.keys(triggerLevelY).some(elt=> elt === key)){
-          triggerLevelY[key] = levelY ;
-          levelY = levelY + componentsHeight[key];
-        }
-      }
+      // définition des hauteurs scrollées correspondant à chaque partie
+      const partLevelY = getPartLevelY(componentsHeight); // les données initiales sont dans le module initialization
 
-      // calcul de la hauteur totale des composants (sum) 
-      // let sum = 0;
-      // for(let key in componentsHeight){
-      //   // if(key !== "Header" && key !== "contact")
-      //   if(key !== "Header" && key !== "image"){
-      //     sum = sum + componentsHeight[key];
-      //   }
-      // }
-
-    // on met à jour les états pour la bar de progression et pour lancer les animations
-      setBarProgress(progressBarLength(triggerLevelY,isMobile));
+     // on met à jour l'état pour la longueur de la barrre de progression 
+      setBarProgress(progressBarLength(partLevelY,isMobile));
     };
 
-    // initialisation : on met une écoute sur la scroll bar
+    // initialisation : on met une écoute sur la scroll barre avec la fonction crée
     window.addEventListener('scroll', handleScroll);
-    const temporyComponentsHeight =  componentsHeight;
-          temporyComponentsHeight["image"] = refImage.current.scrollHeight;
-          setComponentsHeight(temporyComponentsHeight);
 
     // unmount : on supprime l'écoute sur la scroll bar
     return () => {

@@ -20,15 +20,26 @@ function initTriggerLevel(){
     return objToReturn;
 }
 
-// fonction permettant d'avoir les valeurs correspondant de chaque parties sur la scrollBarY
-function getPartLevelY(){
-
+// fonction permettant d'avoir les valeurs au début de chaque parties sur la scrollBarY
+function getPartLevelY(componentsHeight){
+    const partLevelY = initTriggerLevel(); // les données initiales sont dans le module initialization
+        let levelY = 0;
+        for(let key in componentsHeight){
+            if(Object.keys(partLevelY).some(elt=> elt === key)){
+                partLevelY[key] = levelY ;
+                levelY = levelY + componentsHeight[key];
+            }
+        }
+    return partLevelY;
 }
+
 
 // function calculer la longueur proportionnelle pour chaque partie
 function barLengthProportionPart(currentLevel, nextLevel){
     return  (window.scrollY - currentLevel)/(nextLevel-currentLevel);
 } 
+
+
 
 // fonction permettant de calculer la longueur de la progress bar
 function progressBarLength(partLevelY, isMobile){
@@ -38,7 +49,7 @@ function progressBarLength(partLevelY, isMobile){
     // l'utilisateur arrive au niveau du contact 
     if(window.scrollY >partLevelY.contact && !isMobile){
         // la méthode scrollMaxY n'existe pas dans tous les navigateurs
-        return window.scrollMaxY ? (window.scrollY -partLevelY.contact)/(window.scrollMaxY - partLevelY.contact) *partSize + partSize*4.96 :99.5;
+        return window.scrollMaxY ? barLengthProportionPart(partLevelY.contact,window.scrollMaxY) *partSize + partSize*4.96 :99.5;
     }
 
     // pour mobile
@@ -69,7 +80,7 @@ function progressBarLength(partLevelY, isMobile){
 
     // cas de base : l'utilisateur a scrollé
     if(window.scrollY>0){
-        return  barLengthProportionPart(partLevelY.skills,0) *partSize;
+        return  barLengthProportionPart(partLevelY.presentation,partLevelY.skills) *partSize;
     }
 
     //sécurité : renvoyer un nombre
