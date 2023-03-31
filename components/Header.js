@@ -9,7 +9,7 @@ function Header(props) {
   const ref = useRef();
 
  // définition des menus qu'on affiche (selon smartphone ou non)
-  const datasMenu = props.isMobile ? props.dataHeader.filter(elt=> elt.name === "skills" || elt.name === "contact") : props.dataHeader;
+  const datasMenu = props.isMobile ? props.dataHeader.filter(elt=> elt.name === "skills" || elt.name === "autoformation" || elt.name === "contact") : props.dataHeader;
 
    // variable d'affichage des items du menu contenant les liens
   const menuItems = datasMenu.map(elt=>{

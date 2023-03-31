@@ -1,12 +1,4 @@
 .main {
-  /* width: 100vw;
-  height: 100vh; */
-  /* display: grid; */
-  /* grid-template-rows: repeat(12, 1fr);
-  grid-template-columns: repeat(12, 1fr); */
-  /* display: flex;
-  flex-direction: column;
-  background-color:white;*/
   overflow: scroll; 
   margin: 0px;
   padding: 0px;
@@ -23,12 +15,17 @@
 .headerImage {
   display: flex;
   height: 100vh;
-  padding-top: 80px;
 }
 
-/* @media screen and (max-width: 700px) {
+@media screen and (min-width: 701px) {
+  .headerImage {
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 700px) {
   .headerImage {
     padding-top: 0px;
   }
 
-} */
+}
