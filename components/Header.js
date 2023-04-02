@@ -25,12 +25,15 @@ function Header(props) {
     props.getHeight(ref.current.scrollHeight, "Header");
   }, [])
 
+  const a = props.isMobile ? "true" : "false";
+
   // affichage du composant
   return (
       <Nav ref={ref} className={styles.container}>
           <h3 className={styles.name}>Portfolio Nicolas Grometto</h3>
           <div className={styles.menu} >
-              <div className={styles.items}>{menuItems}</div>
+              {/* <div className={styles.items}>{menuItems}</div> */}
+              <div className={styles.items}>{a}</div>
               {!props.isMobile && <div className={styles.bar} style={{width: props.bar}}></div>}
           </div>
       </Nav>
