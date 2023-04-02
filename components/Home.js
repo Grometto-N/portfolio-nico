@@ -34,7 +34,7 @@ export default function Home() {
 
   // utilisation du hook pour savoir si la taille de l'écran est celui d'un smartphone
   const isMobile = useScreenWidth();
-  // console.log(isMobile)
+   console.log(isMobile)
   // const isMobile =true;
 
   // utilisation du hook pour avoir la longueur de la progress bar
