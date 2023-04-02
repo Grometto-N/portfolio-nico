@@ -18,7 +18,8 @@ export default function useScreenWidth(){
         }
     }, []);
 
-    return (width <= 740);
+    // return (width <= 740);
+    return width;
 
 
 }
