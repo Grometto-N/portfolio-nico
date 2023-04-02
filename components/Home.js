@@ -10,7 +10,7 @@ import { useRef, useEffect, useState } from 'react';
 import { getPlan} from '../modules/initialization';
 import {initComponentHeight, getPartLevelY, progressBarLength} from '../modules/progressBar';
 
-import useScreenWidth from '../hooks/useIsMobile';
+import useIsMobile from '../hooks/useIsMobile';
 import useProgressBar from '../hooks/useProgressBar';
 
 export default function Home() {
@@ -34,10 +34,11 @@ export default function Home() {
 
   // utilisation du hook pour savoir si la taille de l'écran est celui d'un smartphone
 
- const isMobile = useScreenWidth(componentsHeight);
+const isMobile = useIsMobile();
 
   // console.log(window.innerWidth)
-  // const isMobile =true;
+//  const isMobile =isMobileDevice();
+ console.log(isMobile);
 
   // utilisation du hook pour avoir la longueur de la progress bar
   const barProgress = useProgressBar(componentsHeight,isMobile);
