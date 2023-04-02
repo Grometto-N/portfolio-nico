@@ -32,7 +32,7 @@ function Box(props) {
 
     // cas partie compétences
     if(props.name === "skills"){
-        display = <Skills startAnimate={props.startAnimate} />
+        display = <Skills startAnimate={props.startAnimate} isMobile={props.isMobile}/>
         styleColors = getDarkBGColors();
     }
 

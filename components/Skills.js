@@ -70,7 +70,7 @@ function Skills(props) {
     const options = {
         root : 'root',
         rootMargin : '0px',
-        threshold : 0.25 // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
+        threshold : props.isMobile ? 0.1 : 0.25,  // permet de déclencher quand la card commence à rentrer dans la viewport : 30%
     }
 
     const appearanceAnimate = useSpring({
