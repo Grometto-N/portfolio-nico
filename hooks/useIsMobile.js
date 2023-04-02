@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 // hook permettant de savoir si l'écran correspond à un mobile : <= 700
 
-export default function useScreenWidth(){
+export default function useScreenWidth(y){
 
     const [width, setWidth] = useState();
 
@@ -16,7 +16,7 @@ export default function useScreenWidth(){
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
-    }, []);
+    }, [y]);
 
     // return (width <= 740);
     return width;

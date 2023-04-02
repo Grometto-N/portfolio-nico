@@ -32,8 +32,8 @@ function Header(props) {
       <Nav ref={ref} className={styles.container}>
           <h3 className={styles.name}>Portfolio Nicolas Grometto</h3>
           <div className={styles.menu} >
-              {/* <div className={styles.items}>{menuItems}</div> */}
-              <div className={styles.items}>{props.isMobile.toString() }</div>
+              <div className={styles.items}>{menuItems}</div>
+              {/* <div className={styles.items}>{props.isMobile.toString() }</div> */}
               {!props.isMobile && <div className={styles.bar} style={{width: props.bar}}></div>}
           </div>
       </Nav>
