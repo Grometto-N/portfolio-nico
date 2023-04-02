@@ -36,10 +36,6 @@ export default function Home() {
 
 const isMobile = useIsMobile();
 
-  // console.log(window.innerWidth)
-//  const isMobile =isMobileDevice();
- console.log(isMobile);
-
   // utilisation du hook pour avoir la longueur de la progress bar
   const barProgress = useProgressBar(componentsHeight,isMobile);
 
